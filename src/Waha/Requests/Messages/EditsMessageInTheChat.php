@@ -2,7 +2,6 @@
 
 namespace CCK\LaravelWahaSaloonSdk\Waha\Requests\Messages;
 
-use DateTime;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 
@@ -11,36 +10,24 @@ use Saloon\Http\Request;
  */
 class EditsMessageInTheChat extends Request
 {
-	protected Method $method = Method::PUT;
+    protected Method $method = Method::PUT;
 
+    public function resolveEndpoint(): string
+    {
+        return "/api/{$this->session}/chats/{$this->chatId}/messages/{$this->messageId}";
+    }
 
-	public function resolveEndpoint(): string
-	{
-		return "/api/{$this->session}/chats/{$this->chatId}/messages/{$this->messageId}";
-	}
+    public function __construct(
+        protected string $session,
+        protected string $chatId,
+        protected string $messageId,
+        protected mixed $text = null,
+        protected mixed $linkPreview = null,
+        protected mixed $linkPreviewHighQuality = null,
+    ) {}
 
-
-	/**
-	 * @param string $session
-	 * @param string $chatId
-	 * @param string $messageId
-	 * @param null|mixed $text
-	 * @param null|mixed $linkPreview
-	 * @param null|mixed $linkPreviewHighQuality
-	 */
-	public function __construct(
-		protected string $session,
-		protected string $chatId,
-		protected string $messageId,
-		protected mixed $text = null,
-		protected mixed $linkPreview = null,
-		protected mixed $linkPreviewHighQuality = null,
-	) {
-	}
-
-
-	public function defaultBody(): array
-	{
-		return array_filter(['text' => $this->text, 'linkPreview' => $this->linkPreview, 'linkPreviewHighQuality' => $this->linkPreviewHighQuality]);
-	}
+    public function defaultBody(): array
+    {
+        return array_filter(['text' => $this->text, 'linkPreview' => $this->linkPreview, 'linkPreviewHighQuality' => $this->linkPreviewHighQuality]);
+    }
 }

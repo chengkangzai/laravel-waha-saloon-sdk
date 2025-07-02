@@ -12,53 +12,31 @@ use Saloon\Http\Response;
 
 class Api extends Resource
 {
-	/**
-	 * @param string $session
-	 * @param string $chatId
-	 */
-	public function deletesTheChat(string $session, string $chatId): Response
-	{
-		return $this->connector->send(new DeletesTheChat($session, $chatId));
-	}
+    public function deletesTheChat(string $session, string $chatId): Response
+    {
+        return $this->connector->send(new DeletesTheChat($session, $chatId));
+    }
 
+    /**
+     * @param  string  $refresh  Refresh the picture from the server (24h cache by default). Do not refresh if not needed, you can get rate limit error
+     */
+    public function getsChatPicture(string $session, string $chatId, ?string $refresh): Response
+    {
+        return $this->connector->send(new GetsChatPicture($session, $chatId, $refresh));
+    }
 
-	/**
-	 * @param string $session
-	 * @param string $chatId
-	 * @param string $refresh Refresh the picture from the server (24h cache by default). Do not refresh if not needed, you can get rate limit error
-	 */
-	public function getsChatPicture(string $session, string $chatId, ?string $refresh): Response
-	{
-		return $this->connector->send(new GetsChatPicture($session, $chatId, $refresh));
-	}
+    public function archiveTheChat(string $session, string $chatId): Response
+    {
+        return $this->connector->send(new ArchiveTheChat($session, $chatId));
+    }
 
+    public function unarchiveTheChat(string $session, string $chatId): Response
+    {
+        return $this->connector->send(new UnarchiveTheChat($session, $chatId));
+    }
 
-	/**
-	 * @param string $session
-	 * @param string $chatId
-	 */
-	public function archiveTheChat(string $session, string $chatId): Response
-	{
-		return $this->connector->send(new ArchiveTheChat($session, $chatId));
-	}
-
-
-	/**
-	 * @param string $session
-	 * @param string $chatId
-	 */
-	public function unarchiveTheChat(string $session, string $chatId): Response
-	{
-		return $this->connector->send(new UnarchiveTheChat($session, $chatId));
-	}
-
-
-	/**
-	 * @param string $session
-	 * @param string $chatId
-	 */
-	public function unreadTheChat(string $session, string $chatId): Response
-	{
-		return $this->connector->send(new UnreadTheChat($session, $chatId));
-	}
+    public function unreadTheChat(string $session, string $chatId): Response
+    {
+        return $this->connector->send(new UnreadTheChat($session, $chatId));
+    }
 }

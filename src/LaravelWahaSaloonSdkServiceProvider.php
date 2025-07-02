@@ -2,9 +2,9 @@
 
 namespace CCK\LaravelWahaSaloonSdk;
 
+use CCK\LaravelWahaSaloonSdk\Commands\LaravelWahaSaloonSdkCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use CCK\LaravelWahaSaloonSdk\Commands\LaravelWahaSaloonSdkCommand;
 
 class LaravelWahaSaloonSdkServiceProvider extends PackageServiceProvider
 {

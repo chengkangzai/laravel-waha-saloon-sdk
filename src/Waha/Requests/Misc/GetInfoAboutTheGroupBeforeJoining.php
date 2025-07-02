@@ -2,7 +2,6 @@
 
 namespace CCK\LaravelWahaSaloonSdk\Waha\Requests\Misc;
 
-use DateTime;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 
@@ -11,28 +10,23 @@ use Saloon\Http\Request;
  */
 class GetInfoAboutTheGroupBeforeJoining extends Request
 {
-	protected Method $method = Method::GET;
+    protected Method $method = Method::GET;
 
+    public function resolveEndpoint(): string
+    {
+        return "/api/{$this->session}/groups/join-info";
+    }
 
-	public function resolveEndpoint(): string
-	{
-		return "/api/{$this->session}/groups/join-info";
-	}
+    /**
+     * @param  null|string  $code  (Required) Group code (123) or url (https://chat.whatsapp.com/123)
+     */
+    public function __construct(
+        protected string $session,
+        protected ?string $code = null,
+    ) {}
 
-
-	/**
-	 * @param string $session
-	 * @param null|string $code (Required) Group code (123) or url (https://chat.whatsapp.com/123)
-	 */
-	public function __construct(
-		protected string $session,
-		protected ?string $code = null,
-	) {
-	}
-
-
-	public function defaultQuery(): array
-	{
-		return array_filter(['code' => $this->code]);
-	}
+    public function defaultQuery(): array
+    {
+        return array_filter(['code' => $this->code]);
+    }
 }

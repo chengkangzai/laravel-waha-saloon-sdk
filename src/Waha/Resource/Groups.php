@@ -12,54 +12,28 @@ use Saloon\Http\Response;
 
 class Groups extends Resource
 {
-	/**
-	 * @param string $session
-	 * @param string $id
-	 */
-	public function getTheGroup(string $session, string $id): Response
-	{
-		return $this->connector->send(new GetTheGroup($session, $id));
-	}
+    public function getTheGroup(string $session, string $id): Response
+    {
+        return $this->connector->send(new GetTheGroup($session, $id));
+    }
 
+    public function deleteTheGroup(string $session, string $id): Response
+    {
+        return $this->connector->send(new DeleteTheGroup($session, $id));
+    }
 
-	/**
-	 * @param string $session
-	 * @param string $id
-	 */
-	public function deleteTheGroup(string $session, string $id): Response
-	{
-		return $this->connector->send(new DeleteTheGroup($session, $id));
-	}
+    public function leaveTheGroup(string $session, string $id): Response
+    {
+        return $this->connector->send(new LeaveTheGroup($session, $id));
+    }
 
+    public function updatesTheGroupDescription(string $session, string $id, mixed $description): Response
+    {
+        return $this->connector->send(new UpdatesTheGroupDescription($session, $id, $description));
+    }
 
-	/**
-	 * @param string $session
-	 * @param string $id
-	 */
-	public function leaveTheGroup(string $session, string $id): Response
-	{
-		return $this->connector->send(new LeaveTheGroup($session, $id));
-	}
-
-
-	/**
-	 * @param string $session
-	 * @param string $id
-	 * @param mixed $description
-	 */
-	public function updatesTheGroupDescription(string $session, string $id, mixed $description): Response
-	{
-		return $this->connector->send(new UpdatesTheGroupDescription($session, $id, $description));
-	}
-
-
-	/**
-	 * @param string $session
-	 * @param string $id
-	 * @param mixed $subject
-	 */
-	public function updatesTheGroupSubject(string $session, string $id, mixed $subject): Response
-	{
-		return $this->connector->send(new UpdatesTheGroupSubject($session, $id, $subject));
-	}
+    public function updatesTheGroupSubject(string $session, string $id, mixed $subject): Response
+    {
+        return $this->connector->send(new UpdatesTheGroupSubject($session, $id, $subject));
+    }
 }

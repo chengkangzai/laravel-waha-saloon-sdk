@@ -10,31 +10,18 @@ use Saloon\Http\Response;
 
 class Profile extends Resource
 {
-	/**
-	 * @param string $session
-	 */
-	public function getMyProfile(string $session): Response
-	{
-		return $this->connector->send(new GetMyProfile($session));
-	}
+    public function getMyProfile(string $session): Response
+    {
+        return $this->connector->send(new GetMyProfile($session));
+    }
 
+    public function setMyProfileName(string $session, mixed $name): Response
+    {
+        return $this->connector->send(new SetMyProfileName($session, $name));
+    }
 
-	/**
-	 * @param string $session
-	 * @param mixed $name
-	 */
-	public function setMyProfileName(string $session, mixed $name): Response
-	{
-		return $this->connector->send(new SetMyProfileName($session, $name));
-	}
-
-
-	/**
-	 * @param string $session
-	 * @param mixed $status
-	 */
-	public function setProfileStatusAbout(string $session, mixed $status): Response
-	{
-		return $this->connector->send(new SetProfileStatusAbout($session, $status));
-	}
+    public function setProfileStatusAbout(string $session, mixed $status): Response
+    {
+        return $this->connector->send(new SetProfileStatusAbout($session, $status));
+    }
 }

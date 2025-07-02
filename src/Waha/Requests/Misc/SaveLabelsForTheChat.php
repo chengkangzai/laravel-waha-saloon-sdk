@@ -2,7 +2,6 @@
 
 namespace CCK\LaravelWahaSaloonSdk\Waha\Requests\Misc;
 
-use DateTime;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 
@@ -11,30 +10,21 @@ use Saloon\Http\Request;
  */
 class SaveLabelsForTheChat extends Request
 {
-	protected Method $method = Method::PUT;
+    protected Method $method = Method::PUT;
 
+    public function resolveEndpoint(): string
+    {
+        return "/api/{$this->session}/labels/chats/{$this->chatId}";
+    }
 
-	public function resolveEndpoint(): string
-	{
-		return "/api/{$this->session}/labels/chats/{$this->chatId}";
-	}
+    public function __construct(
+        protected string $session,
+        protected string $chatId,
+        protected mixed $labels = null,
+    ) {}
 
-
-	/**
-	 * @param string $session
-	 * @param string $chatId
-	 * @param null|mixed $labels
-	 */
-	public function __construct(
-		protected string $session,
-		protected string $chatId,
-		protected mixed $labels = null,
-	) {
-	}
-
-
-	public function defaultBody(): array
-	{
-		return array_filter(['labels' => $this->labels]);
-	}
+    public function defaultBody(): array
+    {
+        return array_filter(['labels' => $this->labels]);
+    }
 }

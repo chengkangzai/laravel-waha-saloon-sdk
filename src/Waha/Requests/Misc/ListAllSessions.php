@@ -2,7 +2,6 @@
 
 namespace CCK\LaravelWahaSaloonSdk\Waha\Requests\Misc;
 
-use DateTime;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 
@@ -11,26 +10,22 @@ use Saloon\Http\Request;
  */
 class ListAllSessions extends Request
 {
-	protected Method $method = Method::GET;
+    protected Method $method = Method::GET;
 
+    public function resolveEndpoint(): string
+    {
+        return '/api/sessions';
+    }
 
-	public function resolveEndpoint(): string
-	{
-		return "/api/sessions";
-	}
+    /**
+     * @param  null|string  $all  Return all sessions, including those that are in the STOPPED state.
+     */
+    public function __construct(
+        protected ?string $all = null,
+    ) {}
 
-
-	/**
-	 * @param null|string $all Return all sessions, including those that are in the STOPPED state.
-	 */
-	public function __construct(
-		protected ?string $all = null,
-	) {
-	}
-
-
-	public function defaultQuery(): array
-	{
-		return array_filter(['all' => $this->all]);
-	}
+    public function defaultQuery(): array
+    {
+        return array_filter(['all' => $this->all]);
+    }
 }

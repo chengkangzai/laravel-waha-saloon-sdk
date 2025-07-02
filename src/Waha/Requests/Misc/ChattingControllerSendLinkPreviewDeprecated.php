@@ -2,7 +2,6 @@
 
 namespace CCK\LaravelWahaSaloonSdk\Waha\Requests\Misc;
 
-use DateTime;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -13,34 +12,24 @@ use Saloon\Traits\Body\HasJsonBody;
  */
 class ChattingControllerSendLinkPreviewDeprecated extends Request implements HasBody
 {
-	use HasJsonBody;
+    use HasJsonBody;
 
-	protected Method $method = Method::POST;
+    protected Method $method = Method::POST;
 
+    public function resolveEndpoint(): string
+    {
+        return '/api/sendLinkPreview';
+    }
 
-	public function resolveEndpoint(): string
-	{
-		return "/api/sendLinkPreview";
-	}
+    public function __construct(
+        protected mixed $chatId = null,
+        protected mixed $session = null,
+        protected mixed $url = null,
+        protected mixed $title = null,
+    ) {}
 
-
-	/**
-	 * @param null|mixed $chatId
-	 * @param null|mixed $session
-	 * @param null|mixed $url
-	 * @param null|mixed $title
-	 */
-	public function __construct(
-		protected mixed $chatId = null,
-		protected mixed $session = null,
-		protected mixed $url = null,
-		protected mixed $title = null,
-	) {
-	}
-
-
-	public function defaultBody(): array
-	{
-		return array_filter(['chatId' => $this->chatId, 'session' => $this->session, 'url' => $this->url, 'title' => $this->title]);
-	}
+    public function defaultBody(): array
+    {
+        return array_filter(['chatId' => $this->chatId, 'session' => $this->session, 'url' => $this->url, 'title' => $this->title]);
+    }
 }

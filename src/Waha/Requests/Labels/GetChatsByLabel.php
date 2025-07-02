@@ -2,7 +2,6 @@
 
 namespace CCK\LaravelWahaSaloonSdk\Waha\Requests\Labels;
 
-use DateTime;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 
@@ -11,22 +10,15 @@ use Saloon\Http\Request;
  */
 class GetChatsByLabel extends Request
 {
-	protected Method $method = Method::GET;
+    protected Method $method = Method::GET;
 
+    public function resolveEndpoint(): string
+    {
+        return "/api/{$this->session}/labels/{$this->labelId}/chats";
+    }
 
-	public function resolveEndpoint(): string
-	{
-		return "/api/{$this->session}/labels/{$this->labelId}/chats";
-	}
-
-
-	/**
-	 * @param string $session
-	 * @param string $labelId
-	 */
-	public function __construct(
-		protected string $session,
-		protected string $labelId,
-	) {
-	}
+    public function __construct(
+        protected string $session,
+        protected string $labelId,
+    ) {}
 }

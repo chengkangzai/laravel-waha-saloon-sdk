@@ -2,7 +2,6 @@
 
 namespace CCK\LaravelWahaSaloonSdk\Waha\Requests\Misc;
 
-use DateTime;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -13,34 +12,24 @@ use Saloon\Traits\Body\HasJsonBody;
  */
 class SendEventMessage extends Request implements HasBody
 {
-	use HasJsonBody;
+    use HasJsonBody;
 
-	protected Method $method = Method::POST;
+    protected Method $method = Method::POST;
 
+    public function resolveEndpoint(): string
+    {
+        return "/api/{$this->session}/events";
+    }
 
-	public function resolveEndpoint(): string
-	{
-		return "/api/{$this->session}/events";
-	}
+    public function __construct(
+        protected string $session,
+        protected mixed $chatId = null,
+        protected mixed $event = null,
+        protected mixed $replyTo = null,
+    ) {}
 
-
-	/**
-	 * @param string $session
-	 * @param null|mixed $chatId
-	 * @param null|mixed $event
-	 * @param null|mixed $replyTo
-	 */
-	public function __construct(
-		protected string $session,
-		protected mixed $chatId = null,
-		protected mixed $event = null,
-		protected mixed $replyTo = null,
-	) {
-	}
-
-
-	public function defaultBody(): array
-	{
-		return array_filter(['chatId' => $this->chatId, 'event' => $this->event, 'reply_to' => $this->replyTo]);
-	}
+    public function defaultBody(): array
+    {
+        return array_filter(['chatId' => $this->chatId, 'event' => $this->event, 'reply_to' => $this->replyTo]);
+    }
 }

@@ -2,7 +2,6 @@
 
 namespace CCK\LaravelWahaSaloonSdk\Waha\Requests\Groups;
 
-use DateTime;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -13,24 +12,17 @@ use Saloon\Traits\Body\HasJsonBody;
  */
 class LeaveTheGroup extends Request implements HasBody
 {
-	use HasJsonBody;
+    use HasJsonBody;
 
-	protected Method $method = Method::POST;
+    protected Method $method = Method::POST;
 
+    public function resolveEndpoint(): string
+    {
+        return "/api/{$this->session}/groups/{$this->id}/leave";
+    }
 
-	public function resolveEndpoint(): string
-	{
-		return "/api/{$this->session}/groups/{$this->id}/leave";
-	}
-
-
-	/**
-	 * @param string $session
-	 * @param string $id
-	 */
-	public function __construct(
-		protected string $session,
-		protected string $id,
-	) {
-	}
+    public function __construct(
+        protected string $session,
+        protected string $id,
+    ) {}
 }

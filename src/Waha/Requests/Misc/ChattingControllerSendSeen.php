@@ -2,7 +2,6 @@
 
 namespace CCK\LaravelWahaSaloonSdk\Waha\Requests\Misc;
 
-use DateTime;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -13,42 +12,31 @@ use Saloon\Traits\Body\HasJsonBody;
  */
 class ChattingControllerSendSeen extends Request implements HasBody
 {
-	use HasJsonBody;
+    use HasJsonBody;
 
-	protected Method $method = Method::POST;
+    protected Method $method = Method::POST;
 
+    public function resolveEndpoint(): string
+    {
+        return '/api/sendSeen';
+    }
 
-	public function resolveEndpoint(): string
-	{
-		return "/api/sendSeen";
-	}
+    public function __construct(
+        protected mixed $chatId = null,
+        protected mixed $session = null,
+        protected mixed $messageId = null,
+        protected mixed $messageIds = null,
+        protected mixed $participant = null,
+    ) {}
 
-
-	/**
-	 * @param null|mixed $chatId
-	 * @param null|mixed $session
-	 * @param null|mixed $messageId
-	 * @param null|mixed $messageIds
-	 * @param null|mixed $participant
-	 */
-	public function __construct(
-		protected mixed $chatId = null,
-		protected mixed $session = null,
-		protected mixed $messageId = null,
-		protected mixed $messageIds = null,
-		protected mixed $participant = null,
-	) {
-	}
-
-
-	public function defaultBody(): array
-	{
-		return array_filter([
-			'chatId' => $this->chatId,
-			'session' => $this->session,
-			'messageId' => $this->messageId,
-			'messageIds' => $this->messageIds,
-			'participant' => $this->participant,
-		]);
-	}
+    public function defaultBody(): array
+    {
+        return array_filter([
+            'chatId' => $this->chatId,
+            'session' => $this->session,
+            'messageId' => $this->messageId,
+            'messageIds' => $this->messageIds,
+            'participant' => $this->participant,
+        ]);
+    }
 }

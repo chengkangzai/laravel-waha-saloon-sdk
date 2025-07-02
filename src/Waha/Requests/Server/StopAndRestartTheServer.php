@@ -2,7 +2,6 @@
 
 namespace CCK\LaravelWahaSaloonSdk\Waha\Requests\Server;
 
-use DateTime;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -13,28 +12,21 @@ use Saloon\Traits\Body\HasJsonBody;
  */
 class StopAndRestartTheServer extends Request implements HasBody
 {
-	use HasJsonBody;
+    use HasJsonBody;
 
-	protected Method $method = Method::POST;
+    protected Method $method = Method::POST;
 
+    public function resolveEndpoint(): string
+    {
+        return '/api/server/stop';
+    }
 
-	public function resolveEndpoint(): string
-	{
-		return "/api/server/stop";
-	}
+    public function __construct(
+        protected mixed $force = null,
+    ) {}
 
-
-	/**
-	 * @param null|mixed $force
-	 */
-	public function __construct(
-		protected mixed $force = null,
-	) {
-	}
-
-
-	public function defaultBody(): array
-	{
-		return array_filter(['force' => $this->force]);
-	}
+    public function defaultBody(): array
+    {
+        return array_filter(['force' => $this->force]);
+    }
 }

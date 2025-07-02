@@ -2,7 +2,6 @@
 
 namespace CCK\LaravelWahaSaloonSdk\Waha\Requests\Search;
 
-use DateTime;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -13,44 +12,32 @@ use Saloon\Traits\Body\HasJsonBody;
  */
 class SearchForChannelsByView extends Request implements HasBody
 {
-	use HasJsonBody;
+    use HasJsonBody;
 
-	protected Method $method = Method::POST;
+    protected Method $method = Method::POST;
 
+    public function resolveEndpoint(): string
+    {
+        return "/api/{$this->session}/channels/search/by-view";
+    }
 
-	public function resolveEndpoint(): string
-	{
-		return "/api/{$this->session}/channels/search/by-view";
-	}
+    public function __construct(
+        protected string $session,
+        protected mixed $view = null,
+        protected mixed $countries = null,
+        protected mixed $categories = null,
+        protected mixed $limit = null,
+        protected mixed $startCursor = null,
+    ) {}
 
-
-	/**
-	 * @param string $session
-	 * @param null|mixed $view
-	 * @param null|mixed $countries
-	 * @param null|mixed $categories
-	 * @param null|mixed $limit
-	 * @param null|mixed $startCursor
-	 */
-	public function __construct(
-		protected string $session,
-		protected mixed $view = null,
-		protected mixed $countries = null,
-		protected mixed $categories = null,
-		protected mixed $limit = null,
-		protected mixed $startCursor = null,
-	) {
-	}
-
-
-	public function defaultBody(): array
-	{
-		return array_filter([
-			'view' => $this->view,
-			'countries' => $this->countries,
-			'categories' => $this->categories,
-			'limit' => $this->limit,
-			'startCursor' => $this->startCursor,
-		]);
-	}
+    public function defaultBody(): array
+    {
+        return array_filter([
+            'view' => $this->view,
+            'countries' => $this->countries,
+            'categories' => $this->categories,
+            'limit' => $this->limit,
+            'startCursor' => $this->startCursor,
+        ]);
+    }
 }

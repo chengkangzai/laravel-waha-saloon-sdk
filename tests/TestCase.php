@@ -2,9 +2,9 @@
 
 namespace CCK\LaravelWahaSaloonSdk\Tests;
 
+use CCK\LaravelWahaSaloonSdk\LaravelWahaSaloonSdkServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
-use CCK\LaravelWahaSaloonSdk\LaravelWahaSaloonSdkServiceProvider;
 
 class TestCase extends Orchestra
 {

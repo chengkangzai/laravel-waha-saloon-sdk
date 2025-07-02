@@ -9,25 +9,15 @@ use Saloon\Http\Response;
 
 class Presence extends Resource
 {
-	/**
-	 * @param string $session
-	 * @param string $chatId
-	 */
-	public function getThePresenceForTheChatIdIfItHasntBeenSubscribedItAlsoSubscribesToIt(
-		string $session,
-		string $chatId,
-	): Response
-	{
-		return $this->connector->send(new GetThePresenceForTheChatIdIfItHasntBeenSubscribedItAlsoSubscribesToIt($session, $chatId));
-	}
+    public function getThePresenceForTheChatIdIfItHasntBeenSubscribedItAlsoSubscribesToIt(
+        string $session,
+        string $chatId,
+    ): Response {
+        return $this->connector->send(new GetThePresenceForTheChatIdIfItHasntBeenSubscribedItAlsoSubscribesToIt($session, $chatId));
+    }
 
-
-	/**
-	 * @param string $session
-	 * @param string $chatId
-	 */
-	public function subscribeToPresenceEventsForTheChat(string $session, string $chatId): Response
-	{
-		return $this->connector->send(new SubscribeToPresenceEventsForTheChat($session, $chatId));
-	}
+    public function subscribeToPresenceEventsForTheChat(string $session, string $chatId): Response
+    {
+        return $this->connector->send(new SubscribeToPresenceEventsForTheChat($session, $chatId));
+    }
 }

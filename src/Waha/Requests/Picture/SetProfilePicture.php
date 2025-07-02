@@ -2,7 +2,6 @@
 
 namespace CCK\LaravelWahaSaloonSdk\Waha\Requests\Picture;
 
-use DateTime;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 
@@ -11,28 +10,20 @@ use Saloon\Http\Request;
  */
 class SetProfilePicture extends Request
 {
-	protected Method $method = Method::PUT;
+    protected Method $method = Method::PUT;
 
+    public function resolveEndpoint(): string
+    {
+        return "/api/{$this->session}/profile/picture";
+    }
 
-	public function resolveEndpoint(): string
-	{
-		return "/api/{$this->session}/profile/picture";
-	}
+    public function __construct(
+        protected string $session,
+        protected mixed $file = null,
+    ) {}
 
-
-	/**
-	 * @param string $session
-	 * @param null|mixed $file
-	 */
-	public function __construct(
-		protected string $session,
-		protected mixed $file = null,
-	) {
-	}
-
-
-	public function defaultBody(): array
-	{
-		return array_filter(['file' => $this->file]);
-	}
+    public function defaultBody(): array
+    {
+        return array_filter(['file' => $this->file]);
+    }
 }

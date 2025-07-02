@@ -2,7 +2,6 @@
 
 namespace CCK\LaravelWahaSaloonSdk\Waha\Requests\Presence;
 
-use DateTime;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -13,24 +12,17 @@ use Saloon\Traits\Body\HasJsonBody;
  */
 class SubscribeToPresenceEventsForTheChat extends Request implements HasBody
 {
-	use HasJsonBody;
+    use HasJsonBody;
 
-	protected Method $method = Method::POST;
+    protected Method $method = Method::POST;
 
+    public function resolveEndpoint(): string
+    {
+        return "/api/{$this->session}/presence/{$this->chatId}/subscribe";
+    }
 
-	public function resolveEndpoint(): string
-	{
-		return "/api/{$this->session}/presence/{$this->chatId}/subscribe";
-	}
-
-
-	/**
-	 * @param string $session
-	 * @param string $chatId
-	 */
-	public function __construct(
-		protected string $session,
-		protected string $chatId,
-	) {
-	}
+    public function __construct(
+        protected string $session,
+        protected string $chatId,
+    ) {}
 }

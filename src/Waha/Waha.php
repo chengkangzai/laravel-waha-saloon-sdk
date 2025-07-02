@@ -34,158 +34,133 @@ use Saloon\Http\Connector;
  */
 class Waha extends Connector
 {
-	public function resolveBaseUrl(): string
-	{
-		return '';
-	}
+    public function resolveBaseUrl(): string
+    {
+        return '';
+    }
 
+    public function admin(): Admin
+    {
+        return new Admin($this);
+    }
 
-	public function admin(): Admin
-	{
-		return new Admin($this);
-	}
+    public function api(): Api
+    {
+        return new Api($this);
+    }
 
+    public function auth(): Auth
+    {
+        return new Auth($this);
+    }
 
-	public function api(): Api
-	{
-		return new Api($this);
-	}
+    public function channels(): Channels
+    {
+        return new Channels($this);
+    }
 
+    public function chats(): Chats
+    {
+        return new Chats($this);
+    }
 
-	public function auth(): Auth
-	{
-		return new Auth($this);
-	}
+    public function contacts(): Contacts
+    {
+        return new Contacts($this);
+    }
 
+    public function groups(): Groups
+    {
+        return new Groups($this);
+    }
 
-	public function channels(): Channels
-	{
-		return new Channels($this);
-	}
+    public function infoAdminOnly(): InfoAdminOnly
+    {
+        return new InfoAdminOnly($this);
+    }
 
+    public function inviteCode(): InviteCode
+    {
+        return new InviteCode($this);
+    }
 
-	public function chats(): Chats
-	{
-		return new Chats($this);
-	}
+    public function labels(): Labels
+    {
+        return new Labels($this);
+    }
 
+    public function lids(): Lids
+    {
+        return new Lids($this);
+    }
 
-	public function contacts(): Contacts
-	{
-		return new Contacts($this);
-	}
+    public function messages(): Messages
+    {
+        return new Messages($this);
+    }
 
+    public function messagesAdminOnly(): MessagesAdminOnly
+    {
+        return new MessagesAdminOnly($this);
+    }
 
-	public function groups(): Groups
-	{
-		return new Groups($this);
-	}
+    public function misc(): Misc
+    {
+        return new Misc($this);
+    }
 
+    public function overview(): Overview
+    {
+        return new Overview($this);
+    }
 
-	public function infoAdminOnly(): InfoAdminOnly
-	{
-		return new InfoAdminOnly($this);
-	}
+    public function participants(): Participants
+    {
+        return new Participants($this);
+    }
 
+    public function picture(): Picture
+    {
+        return new Picture($this);
+    }
 
-	public function inviteCode(): InviteCode
-	{
-		return new InviteCode($this);
-	}
+    public function presence(): Presence
+    {
+        return new Presence($this);
+    }
 
+    public function profile(): Profile
+    {
+        return new Profile($this);
+    }
 
-	public function labels(): Labels
-	{
-		return new Labels($this);
-	}
+    public function search(): Search
+    {
+        return new Search($this);
+    }
 
+    public function send(): Send
+    {
+        return new Send($this);
+    }
 
-	public function lids(): Lids
-	{
-		return new Lids($this);
-	}
+    public function sendText(): SendText
+    {
+        return new SendText($this);
+    }
 
+    public function server(): Server
+    {
+        return new Server($this);
+    }
 
-	public function messages(): Messages
-	{
-		return new Messages($this);
-	}
+    public function sessions(): Sessions
+    {
+        return new Sessions($this);
+    }
 
-
-	public function messagesAdminOnly(): MessagesAdminOnly
-	{
-		return new MessagesAdminOnly($this);
-	}
-
-
-	public function misc(): Misc
-	{
-		return new Misc($this);
-	}
-
-
-	public function overview(): Overview
-	{
-		return new Overview($this);
-	}
-
-
-	public function participants(): Participants
-	{
-		return new Participants($this);
-	}
-
-
-	public function picture(): Picture
-	{
-		return new Picture($this);
-	}
-
-
-	public function presence(): Presence
-	{
-		return new Presence($this);
-	}
-
-
-	public function profile(): Profile
-	{
-		return new Profile($this);
-	}
-
-
-	public function search(): Search
-	{
-		return new Search($this);
-	}
-
-
-	public function send(): Send
-	{
-		return new Send($this);
-	}
-
-
-	public function sendText(): SendText
-	{
-		return new SendText($this);
-	}
-
-
-	public function server(): Server
-	{
-		return new Server($this);
-	}
-
-
-	public function sessions(): Sessions
-	{
-		return new Sessions($this);
-	}
-
-
-	public function status(): Status
-	{
-		return new Status($this);
-	}
+    public function status(): Status
+    {
+        return new Status($this);
+    }
 }

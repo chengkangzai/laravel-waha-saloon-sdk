@@ -2,7 +2,6 @@
 
 namespace CCK\LaravelWahaSaloonSdk\Waha\Requests\Sessions;
 
-use DateTime;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 
@@ -11,28 +10,20 @@ use Saloon\Http\Request;
  */
 class UpdateSession extends Request
 {
-	protected Method $method = Method::PUT;
+    protected Method $method = Method::PUT;
 
+    public function resolveEndpoint(): string
+    {
+        return "/api/sessions/{$this->session}";
+    }
 
-	public function resolveEndpoint(): string
-	{
-		return "/api/sessions/{$this->session}";
-	}
+    public function __construct(
+        protected string $session,
+        protected mixed $config = null,
+    ) {}
 
-
-	/**
-	 * @param string $session
-	 * @param null|mixed $config
-	 */
-	public function __construct(
-		protected string $session,
-		protected mixed $config = null,
-	) {
-	}
-
-
-	public function defaultBody(): array
-	{
-		return array_filter(['config' => $this->config]);
-	}
+    public function defaultBody(): array
+    {
+        return array_filter(['config' => $this->config]);
+    }
 }

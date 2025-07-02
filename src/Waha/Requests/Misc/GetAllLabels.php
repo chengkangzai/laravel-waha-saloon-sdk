@@ -2,7 +2,6 @@
 
 namespace CCK\LaravelWahaSaloonSdk\Waha\Requests\Misc;
 
-use DateTime;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 
@@ -11,20 +10,14 @@ use Saloon\Http\Request;
  */
 class GetAllLabels extends Request
 {
-	protected Method $method = Method::GET;
+    protected Method $method = Method::GET;
 
+    public function resolveEndpoint(): string
+    {
+        return "/api/{$this->session}/labels";
+    }
 
-	public function resolveEndpoint(): string
-	{
-		return "/api/{$this->session}/labels";
-	}
-
-
-	/**
-	 * @param string $session
-	 */
-	public function __construct(
-		protected string $session,
-	) {
-	}
+    public function __construct(
+        protected string $session,
+    ) {}
 }

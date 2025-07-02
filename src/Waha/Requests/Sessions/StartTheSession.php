@@ -2,7 +2,6 @@
 
 namespace CCK\LaravelWahaSaloonSdk\Waha\Requests\Sessions;
 
-use DateTime;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -13,22 +12,16 @@ use Saloon\Traits\Body\HasJsonBody;
  */
 class StartTheSession extends Request implements HasBody
 {
-	use HasJsonBody;
+    use HasJsonBody;
 
-	protected Method $method = Method::POST;
+    protected Method $method = Method::POST;
 
+    public function resolveEndpoint(): string
+    {
+        return "/api/sessions/{$this->session}/start";
+    }
 
-	public function resolveEndpoint(): string
-	{
-		return "/api/sessions/{$this->session}/start";
-	}
-
-
-	/**
-	 * @param string $session
-	 */
-	public function __construct(
-		protected string $session,
-	) {
-	}
+    public function __construct(
+        protected string $session,
+    ) {}
 }

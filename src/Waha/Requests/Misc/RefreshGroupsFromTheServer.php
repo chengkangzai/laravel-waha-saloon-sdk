@@ -2,7 +2,6 @@
 
 namespace CCK\LaravelWahaSaloonSdk\Waha\Requests\Misc;
 
-use DateTime;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -13,22 +12,16 @@ use Saloon\Traits\Body\HasJsonBody;
  */
 class RefreshGroupsFromTheServer extends Request implements HasBody
 {
-	use HasJsonBody;
+    use HasJsonBody;
 
-	protected Method $method = Method::POST;
+    protected Method $method = Method::POST;
 
+    public function resolveEndpoint(): string
+    {
+        return "/api/{$this->session}/groups/refresh";
+    }
 
-	public function resolveEndpoint(): string
-	{
-		return "/api/{$this->session}/groups/refresh";
-	}
-
-
-	/**
-	 * @param string $session
-	 */
-	public function __construct(
-		protected string $session,
-	) {
-	}
+    public function __construct(
+        protected string $session,
+    ) {}
 }

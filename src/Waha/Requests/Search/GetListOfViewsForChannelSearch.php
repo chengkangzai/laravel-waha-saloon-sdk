@@ -2,7 +2,6 @@
 
 namespace CCK\LaravelWahaSaloonSdk\Waha\Requests\Search;
 
-use DateTime;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 
@@ -11,20 +10,14 @@ use Saloon\Http\Request;
  */
 class GetListOfViewsForChannelSearch extends Request
 {
-	protected Method $method = Method::GET;
+    protected Method $method = Method::GET;
 
+    public function resolveEndpoint(): string
+    {
+        return "/api/{$this->session}/channels/search/views";
+    }
 
-	public function resolveEndpoint(): string
-	{
-		return "/api/{$this->session}/channels/search/views";
-	}
-
-
-	/**
-	 * @param string $session
-	 */
-	public function __construct(
-		protected string $session,
-	) {
-	}
+    public function __construct(
+        protected string $session,
+    ) {}
 }

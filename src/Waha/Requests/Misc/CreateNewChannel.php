@@ -2,7 +2,6 @@
 
 namespace CCK\LaravelWahaSaloonSdk\Waha\Requests\Misc;
 
-use DateTime;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -13,34 +12,24 @@ use Saloon\Traits\Body\HasJsonBody;
  */
 class CreateNewChannel extends Request implements HasBody
 {
-	use HasJsonBody;
+    use HasJsonBody;
 
-	protected Method $method = Method::POST;
+    protected Method $method = Method::POST;
 
+    public function resolveEndpoint(): string
+    {
+        return "/api/{$this->session}/channels";
+    }
 
-	public function resolveEndpoint(): string
-	{
-		return "/api/{$this->session}/channels";
-	}
+    public function __construct(
+        protected string $session,
+        protected mixed $name = null,
+        protected mixed $description = null,
+        protected mixed $picture = null,
+    ) {}
 
-
-	/**
-	 * @param string $session
-	 * @param null|mixed $name
-	 * @param null|mixed $description
-	 * @param null|mixed $picture
-	 */
-	public function __construct(
-		protected string $session,
-		protected mixed $name = null,
-		protected mixed $description = null,
-		protected mixed $picture = null,
-	) {
-	}
-
-
-	public function defaultBody(): array
-	{
-		return array_filter(['name' => $this->name, 'description' => $this->description, 'picture' => $this->picture]);
-	}
+    public function defaultBody(): array
+    {
+        return array_filter(['name' => $this->name, 'description' => $this->description, 'picture' => $this->picture]);
+    }
 }

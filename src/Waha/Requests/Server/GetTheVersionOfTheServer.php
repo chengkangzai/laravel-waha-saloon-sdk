@@ -2,7 +2,6 @@
 
 namespace CCK\LaravelWahaSaloonSdk\Waha\Requests\Server;
 
-use DateTime;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 
@@ -11,16 +10,12 @@ use Saloon\Http\Request;
  */
 class GetTheVersionOfTheServer extends Request
 {
-	protected Method $method = Method::GET;
+    protected Method $method = Method::GET;
 
+    public function resolveEndpoint(): string
+    {
+        return '/api/server/version';
+    }
 
-	public function resolveEndpoint(): string
-	{
-		return "/api/server/version";
-	}
-
-
-	public function __construct()
-	{
-	}
+    public function __construct() {}
 }

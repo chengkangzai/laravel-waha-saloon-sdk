@@ -8,35 +8,26 @@ use Saloon\Http\Response;
 
 class SendText extends Resource
 {
-	/**
-	 * @param mixed $chatId
-	 * @param mixed $text
-	 * @param mixed $session
-	 * @param mixed $replyTo
-	 * @param mixed $linkPreview
-	 * @param mixed $linkPreviewHighQuality
-	 */
-	public function sendTextMessage(
-		mixed $chatId,
-		mixed $text,
-		mixed $session,
-		mixed $replyTo,
-		mixed $linkPreview,
-		mixed $linkPreviewHighQuality,
-	): Response
-	{
-		return $this->connector->send(new SendTextMessage($chatId, $text, $session, $replyTo, $linkPreview, $linkPreviewHighQuality));
-	}
+    public function sendTextMessage(
+        mixed $chatId,
+        mixed $text,
+        mixed $session,
+        mixed $replyTo,
+        mixed $linkPreview,
+        mixed $linkPreviewHighQuality,
+    ): Response {
+        return $this->connector->send(new SendTextMessage($chatId, $text, $session, $replyTo, $linkPreview, $linkPreviewHighQuality));
+    }
 
-
-	/**
-	 * @todo Fix duplicated method name
-	 * @param string $phone (Required)
-	 * @param string $text (Required)
-	 * @param string $session (Required)
-	 */
-	public function sendTextMessageDuplicate1(?string $phone, ?string $text, ?string $session): Response
-	{
-		return $this->connector->send(new SendTextMessage($phone, $text, $session));
-	}
+    /**
+     * @todo Fix duplicated method name
+     *
+     * @param  string  $phone  (Required)
+     * @param  string  $text  (Required)
+     * @param  string  $session  (Required)
+     */
+    public function sendTextMessageDuplicate1(?string $phone, ?string $text, ?string $session): Response
+    {
+        return $this->connector->send(new SendTextMessage($phone, $text, $session));
+    }
 }

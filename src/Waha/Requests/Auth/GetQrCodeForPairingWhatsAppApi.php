@@ -2,7 +2,6 @@
 
 namespace CCK\LaravelWahaSaloonSdk\Waha\Requests\Auth;
 
-use DateTime;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 
@@ -11,28 +10,23 @@ use Saloon\Http\Request;
  */
 class GetQrCodeForPairingWhatsAppApi extends Request
 {
-	protected Method $method = Method::GET;
+    protected Method $method = Method::GET;
 
+    public function resolveEndpoint(): string
+    {
+        return "/api/{$this->session}/auth/qr";
+    }
 
-	public function resolveEndpoint(): string
-	{
-		return "/api/{$this->session}/auth/qr";
-	}
+    /**
+     * @param  null|string  $format  (Required)
+     */
+    public function __construct(
+        protected string $session,
+        protected ?string $format = null,
+    ) {}
 
-
-	/**
-	 * @param string $session
-	 * @param null|string $format (Required)
-	 */
-	public function __construct(
-		protected string $session,
-		protected ?string $format = null,
-	) {
-	}
-
-
-	public function defaultQuery(): array
-	{
-		return array_filter(['format' => $this->format]);
-	}
+    public function defaultQuery(): array
+    {
+        return array_filter(['format' => $this->format]);
+    }
 }

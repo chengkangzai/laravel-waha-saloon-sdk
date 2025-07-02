@@ -2,7 +2,6 @@
 
 namespace CCK\LaravelWahaSaloonSdk\Waha\Requests\Picture;
 
-use DateTime;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 
@@ -11,20 +10,14 @@ use Saloon\Http\Request;
  */
 class DeleteProfilePicture extends Request
 {
-	protected Method $method = Method::DELETE;
+    protected Method $method = Method::DELETE;
 
+    public function resolveEndpoint(): string
+    {
+        return "/api/{$this->session}/profile/picture";
+    }
 
-	public function resolveEndpoint(): string
-	{
-		return "/api/{$this->session}/profile/picture";
-	}
-
-
-	/**
-	 * @param string $session
-	 */
-	public function __construct(
-		protected string $session,
-	) {
-	}
+    public function __construct(
+        protected string $session,
+    ) {}
 }

@@ -15,75 +15,43 @@ use Saloon\Http\Response;
 
 class Sessions extends Resource
 {
-	/**
-	 * @param string $session
-	 */
-	public function getSessionInformation(string $session): Response
-	{
-		return $this->connector->send(new GetSessionInformation($session));
-	}
+    public function getSessionInformation(string $session): Response
+    {
+        return $this->connector->send(new GetSessionInformation($session));
+    }
 
+    public function updateSession(string $session, mixed $config): Response
+    {
+        return $this->connector->send(new UpdateSession($session, $config));
+    }
 
-	/**
-	 * @param string $session
-	 * @param mixed $config
-	 */
-	public function updateSession(string $session, mixed $config): Response
-	{
-		return $this->connector->send(new UpdateSession($session, $config));
-	}
+    public function deleteTheSession(string $session): Response
+    {
+        return $this->connector->send(new DeleteTheSession($session));
+    }
 
+    public function getInformationAboutTheAuthenticatedAccount(string $session): Response
+    {
+        return $this->connector->send(new GetInformationAboutTheAuthenticatedAccount($session));
+    }
 
-	/**
-	 * @param string $session
-	 */
-	public function deleteTheSession(string $session): Response
-	{
-		return $this->connector->send(new DeleteTheSession($session));
-	}
+    public function startTheSession(string $session): Response
+    {
+        return $this->connector->send(new StartTheSession($session));
+    }
 
+    public function stopTheSession(string $session): Response
+    {
+        return $this->connector->send(new StopTheSession($session));
+    }
 
-	/**
-	 * @param string $session
-	 */
-	public function getInformationAboutTheAuthenticatedAccount(string $session): Response
-	{
-		return $this->connector->send(new GetInformationAboutTheAuthenticatedAccount($session));
-	}
+    public function logoutFromTheSession(string $session): Response
+    {
+        return $this->connector->send(new LogoutFromTheSession($session));
+    }
 
-
-	/**
-	 * @param string $session
-	 */
-	public function startTheSession(string $session): Response
-	{
-		return $this->connector->send(new StartTheSession($session));
-	}
-
-
-	/**
-	 * @param string $session
-	 */
-	public function stopTheSession(string $session): Response
-	{
-		return $this->connector->send(new StopTheSession($session));
-	}
-
-
-	/**
-	 * @param string $session
-	 */
-	public function logoutFromTheSession(string $session): Response
-	{
-		return $this->connector->send(new LogoutFromTheSession($session));
-	}
-
-
-	/**
-	 * @param string $session
-	 */
-	public function restartTheSession(string $session): Response
-	{
-		return $this->connector->send(new RestartTheSession($session));
-	}
+    public function restartTheSession(string $session): Response
+    {
+        return $this->connector->send(new RestartTheSession($session));
+    }
 }

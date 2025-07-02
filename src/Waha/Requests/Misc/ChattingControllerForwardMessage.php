@@ -2,7 +2,6 @@
 
 namespace CCK\LaravelWahaSaloonSdk\Waha\Requests\Misc;
 
-use DateTime;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
@@ -13,32 +12,23 @@ use Saloon\Traits\Body\HasJsonBody;
  */
 class ChattingControllerForwardMessage extends Request implements HasBody
 {
-	use HasJsonBody;
+    use HasJsonBody;
 
-	protected Method $method = Method::POST;
+    protected Method $method = Method::POST;
 
+    public function resolveEndpoint(): string
+    {
+        return '/api/forwardMessage';
+    }
 
-	public function resolveEndpoint(): string
-	{
-		return "/api/forwardMessage";
-	}
+    public function __construct(
+        protected mixed $chatId = null,
+        protected mixed $messageId = null,
+        protected mixed $session = null,
+    ) {}
 
-
-	/**
-	 * @param null|mixed $chatId
-	 * @param null|mixed $messageId
-	 * @param null|mixed $session
-	 */
-	public function __construct(
-		protected mixed $chatId = null,
-		protected mixed $messageId = null,
-		protected mixed $session = null,
-	) {
-	}
-
-
-	public function defaultBody(): array
-	{
-		return array_filter(['chatId' => $this->chatId, 'messageId' => $this->messageId, 'session' => $this->session]);
-	}
+    public function defaultBody(): array
+    {
+        return array_filter(['chatId' => $this->chatId, 'messageId' => $this->messageId, 'session' => $this->session]);
+    }
 }

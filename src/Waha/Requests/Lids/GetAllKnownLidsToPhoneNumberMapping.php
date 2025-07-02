@@ -2,7 +2,6 @@
 
 namespace CCK\LaravelWahaSaloonSdk\Waha\Requests\Lids;
 
-use DateTime;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
 
@@ -11,30 +10,21 @@ use Saloon\Http\Request;
  */
 class GetAllKnownLidsToPhoneNumberMapping extends Request
 {
-	protected Method $method = Method::GET;
+    protected Method $method = Method::GET;
 
+    public function resolveEndpoint(): string
+    {
+        return "/api/{$this->session}/lids";
+    }
 
-	public function resolveEndpoint(): string
-	{
-		return "/api/{$this->session}/lids";
-	}
+    public function __construct(
+        protected string $session,
+        protected ?string $limit = null,
+        protected ?string $offset = null,
+    ) {}
 
-
-	/**
-	 * @param string $session
-	 * @param null|string $limit
-	 * @param null|string $offset
-	 */
-	public function __construct(
-		protected string $session,
-		protected ?string $limit = null,
-		protected ?string $offset = null,
-	) {
-	}
-
-
-	public function defaultQuery(): array
-	{
-		return array_filter(['limit' => $this->limit, 'offset' => $this->offset]);
-	}
+    public function defaultQuery(): array
+    {
+        return array_filter(['limit' => $this->limit, 'offset' => $this->offset]);
+    }
 }
