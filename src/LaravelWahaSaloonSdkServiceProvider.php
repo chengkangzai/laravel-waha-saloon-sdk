@@ -15,7 +15,7 @@ class LaravelWahaSaloonSdkServiceProvider extends PackageServiceProvider
          * More info: https://github.com/spatie/laravel-package-tools
          */
         $package
-            ->name('laravel-waha-saloon-sdk')
+            ->name('waha-saloon-sdk')
             ->hasConfigFile();
     }
 }
