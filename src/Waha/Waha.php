@@ -146,7 +146,7 @@ class Waha extends Connector
         return new Search($this);
     }
 
-    public function send(): Send
+    public function sending(): Send
     {
         return new Send($this);
     }
