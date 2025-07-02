@@ -34,9 +34,16 @@ use Saloon\Http\Connector;
  */
 class Waha extends Connector
 {
+    public string $baseUrl = '';
+
+    public function __construct($baseUrl = null)
+    {
+        $this->baseUrl = $baseUrl ?? config('waha-saloon-sdk.base_url');
+    }
+
     public function resolveBaseUrl(): string
     {
-        return config('waha-saloon-sdk.base_url');
+        return $this->baseUrl;
     }
 
     public function admin(): Admin
