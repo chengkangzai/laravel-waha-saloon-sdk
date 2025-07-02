@@ -23,6 +23,7 @@ This SDK makes it easy to integrate WAHA with your Laravel application, providin
 - 🔌 Elegant HTTP client powered by SaloonPHP
 - 📦 Laravel integration with service provider and facade
 - 🛠️ Comprehensive API coverage with 23 resources and 134 request types
+- 🔐 Built-in API key authentication support
 - 🧪 Built with testing in mind using Pest PHP
 - 🎯 Type-safe request and response handling
 - 📋 Support for Laravel 10.x, 11.x, and 12.x
@@ -38,24 +39,28 @@ composer require chengkangzai/laravel-waha-saloon-sdk
 You can publish the config file with:
 
 ```bash
-php artisan vendor:publish --tag="laravel-waha-saloon-sdk-config"
+php artisan vendor:publish --tag="waha-saloon-sdk-config"
 ```
 
 This is the contents of the published config file:
 
 ```php
 return [
-    'base_url' => env('WAHA_BASE_URL'),
+    'base_url' => env('WAHA_BASE_URL', ''),
+    'api_key' => env('WAHA_API_KEY', ''),
 ];
 ```
 
 ## Configuration
 
-Set your WAHA instance URL in your `.env` file:
+Set your WAHA instance URL and API key in your `.env` file:
 
 ```bash
 WAHA_BASE_URL=https://your-waha-instance.com
+WAHA_API_KEY=your-api-key-here
 ```
+
+The API key is optional but required for most WAHA endpoints (approximately 50% of endpoints require authentication). If not provided, requests will be sent without authentication headers.
 
 ## Usage
 
@@ -98,11 +103,14 @@ if ($messageResponse->successful()) {
 ```php
 use CCK\LaravelWahaSaloonSdk\Waha\Waha;
 
-// Create a new WAHA client with default config
+// Create a new WAHA client with default config (uses env vars)
 $waha = new Waha();
 
-// Or with a custom base URL (overrides config)
-$waha = new Waha('https://your-waha-instance.com');
+// Or with a custom base URL and API key (overrides config)
+$waha = new Waha(
+    baseUrl: 'https://your-waha-instance.com',
+    apiKey: 'your-api-key'
+);
 
 // Access different resources - each resource groups related API endpoints
 $sessions = $waha->sessions();    // Session management
