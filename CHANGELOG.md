@@ -2,6 +2,12 @@
 
 All notable changes to `laravel-waha-saloon-sdk` will be documented in this file.
 
+## v0.0.5 - 2025-07-02
+
+**Full Changelog**: https://github.com/chengkangzai/laravel-waha-saloon-sdk/compare/v0.0.4...v0.0.5
+
+**Full Changelog**: https://github.com/chengkangzai/laravel-waha-saloon-sdk/compare/v0.0.4...v0.0.5
+
 ## v0.0.4 - 2025-07-02
 
 ### What's Changed
