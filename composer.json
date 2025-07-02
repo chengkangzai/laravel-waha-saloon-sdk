@@ -1,17 +1,17 @@
 {
-    "name": ":vendor_slug/:package_slug",
-    "description": ":package_description",
+    "name": "chengkangzai/laravel-waha-saloon-sdk",
+    "description": "WAHA SDK that is generated from WAHA postman collection that is wrapped in SaloonPHP",
     "keywords": [
-        ":vendor_name",
+        "CCK",
         "laravel",
-        ":package_slug"
+        "laravel-waha-saloon-sdk"
     ],
-    "homepage": "https://github.com/:vendor_slug/:package_slug",
+    "homepage": "https://github.com/chengkangzai/laravel-waha-saloon-sdk",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": "author@domain.com",
+            "name": "CCK",
+            "email": "pycck@hotmail.com",
             "role": "Developer"
         }
     ],
@@ -30,18 +30,17 @@
         "pestphp/pest-plugin-laravel": "^3.0",
         "phpstan/extension-installer": "^1.3||^2.0",
         "phpstan/phpstan-deprecation-rules": "^1.1||^2.0",
-        "phpstan/phpstan-phpunit": "^1.3||^2.0",
-        "spatie/laravel-ray": "^1.35"
+        "phpstan/phpstan-phpunit": "^1.3||^2.0"
     },
     "autoload": {
         "psr-4": {
-            "VendorName\\Skeleton\\": "src/",
-            "VendorName\\Skeleton\\Database\\Factories\\": "database/factories/"
+            "CCK\\LaravelWahaSaloonSdk\\": "src/",
+            "CCK\\LaravelWahaSaloonSdk\\Database\\Factories\\": "database/factories/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "VendorName\\Skeleton\\Tests\\": "tests/",
+            "CCK\\LaravelWahaSaloonSdk\\Tests\\": "tests/",
             "Workbench\\App\\": "workbench/app/"
         }
     },
@@ -63,10 +62,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "VendorName\\Skeleton\\SkeletonServiceProvider"
+                "CCK\\LaravelWahaSaloonSdk\\LaravelWahaSaloonSdkServiceProvider"
             ],
             "aliases": {
-                "Skeleton": "VendorName\\Skeleton\\Facades\\Skeleton"
+                "LaravelWahaSaloonSdk": "CCK\\LaravelWahaSaloonSdk\\Facades\\LaravelWahaSaloonSdk"
             }
         }
     },

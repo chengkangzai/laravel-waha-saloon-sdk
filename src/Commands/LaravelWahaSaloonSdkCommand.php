@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton\Commands;
+namespace CCK\LaravelWahaSaloonSdk\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class LaravelWahaSaloonSdkCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'laravel-waha-saloon-sdk';
 
     public $description = 'My command';
 

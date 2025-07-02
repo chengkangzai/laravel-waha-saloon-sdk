@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton;
+namespace CCK\LaravelWahaSaloonSdk;
 
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use VendorName\Skeleton\Commands\SkeletonCommand;
+use CCK\LaravelWahaSaloonSdk\Commands\LaravelWahaSaloonSdkCommand;
 
-class SkeletonServiceProvider extends PackageServiceProvider
+class LaravelWahaSaloonSdkServiceProvider extends PackageServiceProvider
 {
     public function configurePackage(Package $package): void
     {
@@ -16,10 +16,10 @@ class SkeletonServiceProvider extends PackageServiceProvider
          * More info: https://github.com/spatie/laravel-package-tools
          */
         $package
-            ->name('skeleton')
+            ->name('laravel-waha-saloon-sdk')
             ->hasConfigFile()
             ->hasViews()
-            ->hasMigration('create_migration_table_name_table')
-            ->hasCommand(SkeletonCommand::class);
+            ->hasMigration('create_laravel_waha_saloon_sdk_table')
+            ->hasCommand(LaravelWahaSaloonSdkCommand::class);
     }
 }
