@@ -40,8 +40,8 @@ class Waha extends Connector
 
     public function __construct($baseUrl = null, $apiKey = null)
     {
-        $this->baseUrl = $baseUrl ?? config('laravel-waha-saloon-sdk.base_url');
-        $this->apiKey = $apiKey ?? config('laravel-waha-saloon-sdk.api_key');
+        $this->baseUrl = $baseUrl ?? config('waha-saloon-sdk.base_url');
+        $this->apiKey = $apiKey ?? config('waha-saloon-sdk.api_key');
     }
 
     public function resolveBaseUrl(): string
