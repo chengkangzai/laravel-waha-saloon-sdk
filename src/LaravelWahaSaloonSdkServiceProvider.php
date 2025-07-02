@@ -2,7 +2,6 @@
 
 namespace CCK\LaravelWahaSaloonSdk;
 
-use CCK\LaravelWahaSaloonSdk\Commands\LaravelWahaSaloonSdkCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
@@ -17,9 +16,6 @@ class LaravelWahaSaloonSdkServiceProvider extends PackageServiceProvider
          */
         $package
             ->name('laravel-waha-saloon-sdk')
-            ->hasConfigFile()
-            ->hasViews()
-            ->hasMigration('create_laravel_waha_saloon_sdk_table')
-            ->hasCommand(LaravelWahaSaloonSdkCommand::class);
+            ->hasConfigFile();
     }
 }
