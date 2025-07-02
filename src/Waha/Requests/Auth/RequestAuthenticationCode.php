@@ -24,11 +24,11 @@ class RequestAuthenticationCode extends Request implements HasBody
     public function __construct(
         protected string $session,
         protected mixed $phoneNumber = null,
-        protected mixed $method = null,
+        protected mixed $authMethod = null,
     ) {}
 
     public function defaultBody(): array
     {
-        return array_filter(['phoneNumber' => $this->phoneNumber, 'method' => $this->method]);
+        return array_filter(['phoneNumber' => $this->phoneNumber, 'method' => $this->authMethod]);
     }
 }
