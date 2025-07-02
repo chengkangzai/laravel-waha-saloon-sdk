@@ -24,7 +24,7 @@ class SendButtonsInteractiveMessage extends Request implements HasBody
     public function __construct(
         protected mixed $chatId = null,
         protected mixed $header = null,
-        protected mixed $body = null,
+        protected mixed $messageBody = null,
         protected mixed $footer = null,
         protected mixed $buttons = null,
         protected mixed $session = null,
@@ -36,7 +36,7 @@ class SendButtonsInteractiveMessage extends Request implements HasBody
         return array_filter([
             'chatId' => $this->chatId,
             'header' => $this->header,
-            'body' => $this->body,
+            'body' => $this->messageBody,
             'footer' => $this->footer,
             'buttons' => $this->buttons,
             'session' => $this->session,
