@@ -36,14 +36,28 @@ class Waha extends Connector
 {
     public string $baseUrl = '';
 
-    public function __construct($baseUrl = null)
+    protected ?string $apiKey = null;
+
+    public function __construct($baseUrl = null, $apiKey = null)
     {
         $this->baseUrl = $baseUrl ?? config('laravel-waha-saloon-sdk.base_url');
+        $this->apiKey = $apiKey ?? config('laravel-waha-saloon-sdk.api_key');
     }
 
     public function resolveBaseUrl(): string
     {
         return $this->baseUrl;
+    }
+
+    protected function defaultHeaders(): array
+    {
+        $headers = [];
+
+        if ($this->apiKey) {
+            $headers['X-Api-Key'] = $this->apiKey;
+        }
+
+        return $headers;
     }
 
     public function admin(): Admin

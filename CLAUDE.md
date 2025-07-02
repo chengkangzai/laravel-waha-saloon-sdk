@@ -39,7 +39,7 @@ Waha (Connector) -> Resources (23) -> Requests (134)
 
 1. **Service Provider**: `src/LaravelWahaSaloonSdkServiceProvider.php` - Registers the package with Laravel
 2. **Facade**: `src/Facades/LaravelWahaSaloonSdk.php` - Provides static access to the SDK
-3. **Config**: `config/waha-saloon-sdk.php` - Package configuration (requires `WAHA_BASE_URL` env var)
+3. **Config**: `config/waha-saloon-sdk.php` - Package configuration (requires `WAHA_BASE_URL` and optionally `WAHA_API_KEY` env vars)
 
 ### SDK Generation
 
@@ -83,7 +83,11 @@ To run a single test:
 2. **Request Naming**: Request classes use very descriptive names that match the API functionality (e.g., `GetChatsOverviewIncludesAllNecessaryThingsToBuildUiYourChatsOverviewPageChatIdNamePictureLastMessageSortingByLastMessageTimestamp`)
 3. **Empty Implementation**: The main `LaravelWahaSaloonSdk` class is currently empty - the SDK functionality is accessed through the Waha connector directly
 4. **Configuration**: Always ensure `WAHA_BASE_URL` is set in the environment
-5. **Authentication**: Authentication implementation details should be added to the Waha connector as needed
+5. **Authentication**: The SDK supports API key authentication:
+   - Set `WAHA_API_KEY` in your `.env` file
+   - The SDK automatically includes the `X-Api-Key` header when the API key is configured
+   - About 50% of WAHA endpoints require authentication (135 out of 271 endpoints)
+   - If no API key is provided, requests will still be sent without authentication headers
 
 ## Common Tasks
 
@@ -103,3 +107,15 @@ To run a single test:
 2. Run `composer build-from-postman`
 3. Review generated changes
 4. Update tests as needed
+
+### Using Authentication
+```php
+// Authentication is automatic when WAHA_API_KEY is set in .env
+$waha = new \CCK\LaravelWahaSaloonSdk\Waha\Waha();
+
+// Or manually provide API key
+$waha = new \CCK\LaravelWahaSaloonSdk\Waha\Waha(
+    baseUrl: 'https://your-waha-instance.com',
+    apiKey: 'your-api-key'
+);
+```
