@@ -34,10 +34,10 @@ use Saloon\Http\Connector;
  */
 class Waha extends Connector
 {
-	public function resolveBaseUrl(): string
-	{
-		return config('waha-saloon-sdk.base_url');
-	}
+    public function resolveBaseUrl(): string
+    {
+        return config('waha-saloon-sdk.base_url');
+    }
 
     public function admin(): Admin
     {
