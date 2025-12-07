@@ -67,7 +67,8 @@
                 "CCK\\LaravelWahaSaloonSdk\\LaravelWahaSaloonSdkServiceProvider"
             ],
             "aliases": {
-                "LaravelWahaSaloonSdk": "CCK\\LaravelWahaSaloonSdk\\Facades\\LaravelWahaSaloonSdk"
+                "LaravelWahaSaloonSdk": "CCK\\LaravelWahaSaloonSdk\\Facades\\LaravelWahaSaloonSdk",
+                "Waha": "CCK\\LaravelWahaSaloonSdk\\Facades\\Waha"
             }
         }
     },
