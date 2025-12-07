@@ -2,15 +2,17 @@
 
 namespace CCK\LaravelWahaSaloonSdk\Facades;
 
+use CCK\LaravelWahaSaloonSdk\WahaManager;
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @see \CCK\LaravelWahaSaloonSdk\LaravelWahaSaloonSdk
+ * @deprecated Use \CCK\LaravelWahaSaloonSdk\Facades\Waha instead
+ * @see WahaManager
  */
 class LaravelWahaSaloonSdk extends Facade
 {
     protected static function getFacadeAccessor(): string
     {
-        return \CCK\LaravelWahaSaloonSdk\LaravelWahaSaloonSdk::class;
+        return WahaManager::class;
     }
 }

@@ -46,6 +46,16 @@ This is the contents of the published config file:
 
 ```php
 return [
+    'default' => env('WAHA_CONNECTION', 'default'),
+
+    'connections' => [
+        'default' => [
+            'base_url' => env('WAHA_BASE_URL', ''),
+            'api_key' => env('WAHA_API_KEY', ''),
+        ],
+    ],
+
+    // Legacy keys for backward compatibility
     'base_url' => env('WAHA_BASE_URL', ''),
     'api_key' => env('WAHA_API_KEY', ''),
 ];
@@ -61,6 +71,87 @@ WAHA_API_KEY=your-api-key-here
 ```
 
 The API key is optional but required for most WAHA endpoints (approximately 50% of endpoints require authentication). If not provided, requests will be sent without authentication headers.
+
+## Multiple WAHA Hosts
+
+The SDK supports connecting to multiple WAHA instances. This is useful when you have separate WAHA servers for different purposes (production, staging, different WhatsApp accounts, etc.).
+
+### Configuring Multiple Hosts
+
+Update your `config/waha-saloon-sdk.php` to define multiple connections:
+
+```php
+return [
+    'default' => env('WAHA_CONNECTION', 'default'),
+
+    'connections' => [
+        'default' => [
+            'base_url' => env('WAHA_BASE_URL', ''),
+            'api_key' => env('WAHA_API_KEY', ''),
+        ],
+        'production' => [
+            'base_url' => env('WAHA_PRODUCTION_URL', ''),
+            'api_key' => env('WAHA_PRODUCTION_KEY', ''),
+        ],
+        'staging' => [
+            'base_url' => env('WAHA_STAGING_URL', ''),
+            'api_key' => env('WAHA_STAGING_KEY', ''),
+        ],
+    ],
+];
+```
+
+### Using the Waha Facade (Recommended)
+
+```php
+use CCK\LaravelWahaSaloonSdk\Facades\Waha;
+
+// Use default connection
+$response = Waha::sessions()->listAllSessions();
+
+// Use a specific connection
+$response = Waha::connection('production')->sessions()->listAllSessions();
+
+// Chain resource methods
+$response = Waha::connection('staging')
+    ->chats()
+    ->getsMessagesInTheChat('default', '1234567890@c.us');
+```
+
+### Using Dependency Injection
+
+```php
+use CCK\LaravelWahaSaloonSdk\WahaManager;
+
+class WhatsAppController extends Controller
+{
+    public function __construct(
+        private WahaManager $waha,
+    ) {}
+
+    public function send(Request $request)
+    {
+        // Use default connection
+        $this->waha->sendText()->sendTextMessage(...);
+
+        // Use specific connection
+        $this->waha->connection('production')->sendText()->sendTextMessage(...);
+    }
+}
+```
+
+### Direct Instantiation
+
+Direct instantiation still works and ignores the configuration:
+
+```php
+use CCK\LaravelWahaSaloonSdk\Waha\Waha;
+
+$waha = new Waha(
+    baseUrl: 'https://custom-instance.com',
+    apiKey: 'custom-api-key'
+);
+```
 
 ## Usage
 

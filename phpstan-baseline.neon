@@ -1,0 +1,15 @@
+parameters:
+    ignoreErrors:
+        # Config file is correctly in the config directory - false positive
+        -
+            message: "#^Called 'env' outside of the config directory#"
+            path: config/waha-saloon-sdk.php
+
+        # Auto-generated SDK code - parameter count mismatches in generated code
+        -
+            message: "#^Class CCK\\\\LaravelWahaSaloonSdk\\\\Waha\\\\Requests\\\\Misc\\\\GetAllGroups constructor invoked with 7 parameters#"
+            path: src/Waha/Resource/Misc.php
+
+        -
+            message: "#^Class CCK\\\\LaravelWahaSaloonSdk\\\\Waha\\\\Requests\\\\SendText\\\\SendTextMessage constructor invoked with 6 parameters#"
+            path: src/Waha/Resource/SendText.php

@@ -34,14 +34,22 @@ use Saloon\Http\Connector;
  */
 class Waha extends Connector
 {
-    public string $baseUrl = '';
+    public function __construct(
+        public string $baseUrl = '',
+        protected ?string $apiKey = null,
+    ) {
+        // Only fall back to config when values are not provided AND we're in a Laravel context
+        if ($this->baseUrl === '' && function_exists('config')) {
+            $this->baseUrl = config('waha-saloon-sdk.connections.default.base_url')
+                ?? config('waha-saloon-sdk.base_url')
+                ?? '';
+        }
 
-    protected ?string $apiKey = null;
-
-    public function __construct($baseUrl = null, $apiKey = null)
-    {
-        $this->baseUrl = $baseUrl ?? config('waha-saloon-sdk.base_url');
-        $this->apiKey = $apiKey ?? config('waha-saloon-sdk.api_key');
+        if ($this->apiKey === null && function_exists('config')) {
+            $this->apiKey = config('waha-saloon-sdk.connections.default.api_key')
+                ?? config('waha-saloon-sdk.api_key')
+                ?? null;
+        }
     }
 
     public function resolveBaseUrl(): string
