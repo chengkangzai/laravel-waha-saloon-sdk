@@ -832,6 +832,44 @@ Phone numbers should include country code without '+' symbol.
 
 For the most up-to-date method signatures and parameters, always refer to the actual class files in `src/Waha/Resource/` or use your IDE's autocomplete functionality.
 
+## Upgrading
+
+### From v0.0.x to v0.1.0
+
+**Step 1:** Update the package
+
+```bash
+composer update chengkangzai/laravel-waha-saloon-sdk
+```
+
+**Step 2:** Publish the new config (optional but recommended)
+
+```bash
+php artisan vendor:publish --tag="waha-saloon-sdk-config" --force
+```
+
+**Step 3:** Clear config cache
+
+```bash
+php artisan config:clear
+```
+
+**No code changes required** - your existing code will continue to work without modifications.
+
+**Optional:** You can migrate to the new `Waha` facade for cleaner syntax:
+
+```php
+// Before (still works)
+$waha = new \CCK\LaravelWahaSaloonSdk\Waha\Waha();
+$waha->sessions()->listAllSessions();
+
+// After (new option)
+use CCK\LaravelWahaSaloonSdk\Facades\Waha;
+Waha::sessions()->listAllSessions();
+```
+
+> **Note:** The `LaravelWahaSaloonSdk` facade is deprecated in favor of the new `Waha` facade.
+
 ## Testing
 
 ```bash
