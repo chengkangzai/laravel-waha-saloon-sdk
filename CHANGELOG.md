@@ -2,6 +2,61 @@
 
 All notable changes to `laravel-waha-saloon-sdk` will be documented in this file.
 
+## v0.1.0 - Multi-host Support - 2025-12-07
+
+### What's New
+
+#### Multi-host Support
+
+Connect to multiple WAHA instances with a familiar pattern similar to Laravel's `DB::connection()`.
+
+- New `Waha` facade with `Waha::connection('name')` pattern
+- New `WahaManager` class for managing multiple WAHA host connections
+- Connection caching for improved performance
+- Dependency injection support via service container
+
+#### Usage
+
+```php
+use CCK\LaravelWahaSaloonSdk\Facades\Waha;
+
+// Default connection
+Waha::sessions()->listAllSessions();
+
+// Named connection
+Waha::connection('production')->sessions()->listAllSessions();
+
+// Direct instantiation still works
+$waha = new Waha($url, $key);
+
+```
+#### Configuration
+
+```php
+// config/waha-saloon-sdk.php
+return [
+    'default' => env('WAHA_CONNECTION', 'default'),
+
+    'connections' => [
+        'default' => [
+            'base_url' => env('WAHA_BASE_URL', ''),
+            'api_key' => env('WAHA_API_KEY', ''),
+        ],
+        'production' => [
+            'base_url' => env('WAHA_PRODUCTION_URL', ''),
+            'api_key' => env('WAHA_PRODUCTION_KEY', ''),
+        ],
+    ],
+];
+
+```
+#### Backward Compatibility
+
+- Full backward compatibility with existing single-host usage
+- Existing `WAHA_BASE_URL` and `WAHA_API_KEY` environment variables continue to work unchanged
+
+**Full Changelog**: https://github.com/chengkangzai/laravel-waha-saloon-sdk/compare/v0.0.9...v0.1.0
+
 ## v0.0.9: Enhanced QR endpoint with header-based response format support - 2025-07-10
 
 ### 🚀 Enhanced QR Endpoint Support
@@ -11,12 +66,15 @@ This release enhances the WAHA QR code endpoint with comprehensive header-based 
 #### ✨ New Features
 
 - **Accept Header Support**: The `GetQrCodeForPairingWhatsAppApi` request class now supports Accept headers for content negotiation
+  
 - **Static Factory Methods**: New convenience methods for different response formats:
+  
   - `forBinaryImage()` - Returns binary PNG image data
   - `forBase64Image()` - Returns JSON with base64-encoded image
   - `forRawValue()` - Returns JSON with raw QR code value
   
 - **Auth Resource Convenience Methods**: Easy-to-use methods in the Auth resource:
+  
   - `getQrCodeImage($session)` - Direct binary image access
   - `getQrCodeBase64($session)` - Base64 JSON response
   - `getQrCodeRaw($session)` - Raw QR code value
@@ -51,6 +109,7 @@ $qrValue = $response->json()['value']; // '1@ABC123...'
 
 // Using static factory methods directly
 $response = $waha->send(GetQrCodeForPairingWhatsAppApi::forBinaryImage('default'));
+
 
 ```
 #### 🧪 Testing
