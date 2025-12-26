@@ -5,7 +5,7 @@ namespace CCK\LaravelWahaSaloonSdk\Waha\Resource;
 use CCK\LaravelWahaSaloonSdk\Waha\Requests\Labels\DeleteLabel;
 use CCK\LaravelWahaSaloonSdk\Waha\Requests\Labels\UpdateLabel;
 use CCK\LaravelWahaSaloonSdk\Waha\Resource;
-use Saloon\Contracts\Response;
+use Saloon\Http\Response;
 
 class Labels extends Resource
 {

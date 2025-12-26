@@ -4,7 +4,7 @@ namespace CCK\LaravelWahaSaloonSdk\Waha\Resource;
 
 use CCK\LaravelWahaSaloonSdk\Waha\Requests\Countries\GetListOfCountriesForChannelSearch;
 use CCK\LaravelWahaSaloonSdk\Waha\Resource;
-use Saloon\Contracts\Response;
+use Saloon\Http\Response;
 
 class Countries extends Resource
 {

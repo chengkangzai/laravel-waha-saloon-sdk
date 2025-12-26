@@ -17,7 +17,7 @@ use CCK\LaravelWahaSaloonSdk\Waha\Requests\Misc\ListAllAppsForSession;
 use CCK\LaravelWahaSaloonSdk\Waha\Requests\Misc\ListAllSessions;
 use CCK\LaravelWahaSaloonSdk\Waha\Requests\Misc\SetSessionPresence;
 use CCK\LaravelWahaSaloonSdk\Waha\Resource;
-use Saloon\Contracts\Response;
+use Saloon\Http\Response;
 
 class Misc extends Resource
 {

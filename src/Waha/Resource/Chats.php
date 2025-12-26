@@ -8,7 +8,7 @@ use CCK\LaravelWahaSaloonSdk\Waha\Requests\Chats\GetLabelsForTheChat;
 use CCK\LaravelWahaSaloonSdk\Waha\Requests\Chats\GetsMessagesInTheChat;
 use CCK\LaravelWahaSaloonSdk\Waha\Requests\Chats\SaveLabelsForTheChat;
 use CCK\LaravelWahaSaloonSdk\Waha\Resource;
-use Saloon\Contracts\Response;
+use Saloon\Http\Response;
 
 class Chats extends Resource
 {

@@ -6,7 +6,7 @@ use CCK\LaravelWahaSaloonSdk\Waha\Requests\Apps\DeleteApp;
 use CCK\LaravelWahaSaloonSdk\Waha\Requests\Apps\GetAppById;
 use CCK\LaravelWahaSaloonSdk\Waha\Requests\Apps\UpdateExistingApp;
 use CCK\LaravelWahaSaloonSdk\Waha\Resource;
-use Saloon\Contracts\Response;
+use Saloon\Http\Response;
 
 class Apps extends Resource
 {

@@ -4,7 +4,7 @@ namespace CCK\LaravelWahaSaloonSdk\Waha\Resource;
 
 use CCK\LaravelWahaSaloonSdk\Waha\Requests\Join\JoinGroupViaCode;
 use CCK\LaravelWahaSaloonSdk\Waha\Resource;
-use Saloon\Contracts\Response;
+use Saloon\Http\Response;
 
 class Join extends Resource
 {

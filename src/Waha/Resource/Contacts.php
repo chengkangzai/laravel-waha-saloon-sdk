@@ -5,7 +5,7 @@ namespace CCK\LaravelWahaSaloonSdk\Waha\Resource;
 use CCK\LaravelWahaSaloonSdk\Waha\Requests\Contacts\CreateOrUpdateContact;
 use CCK\LaravelWahaSaloonSdk\Waha\Requests\Contacts\GetContactBasicInfo;
 use CCK\LaravelWahaSaloonSdk\Waha\Resource;
-use Saloon\Contracts\Response;
+use Saloon\Http\Response;
 
 class Contacts extends Resource
 {

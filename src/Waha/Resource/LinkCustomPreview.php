@@ -4,7 +4,7 @@ namespace CCK\LaravelWahaSaloonSdk\Waha\Resource;
 
 use CCK\LaravelWahaSaloonSdk\Waha\Requests\LinkCustomPreview\SendTextMessageWithCustomLinkPreview;
 use CCK\LaravelWahaSaloonSdk\Waha\Resource;
-use Saloon\Contracts\Response;
+use Saloon\Http\Response;
 
 class LinkCustomPreview extends Resource
 {

@@ -5,7 +5,7 @@ namespace CCK\LaravelWahaSaloonSdk\Waha\Resource;
 use CCK\LaravelWahaSaloonSdk\Waha\Requests\Reply\DeprecatedYouCanSetReplyToFieldWhenSendingTextImageEtc;
 use CCK\LaravelWahaSaloonSdk\Waha\Requests\Reply\ReplyOnButtonMessage;
 use CCK\LaravelWahaSaloonSdk\Waha\Resource;
-use Saloon\Contracts\Response;
+use Saloon\Http\Response;
 
 class Reply extends Resource
 {

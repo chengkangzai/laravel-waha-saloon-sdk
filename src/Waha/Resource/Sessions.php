@@ -6,7 +6,7 @@ use CCK\LaravelWahaSaloonSdk\Waha\Requests\Sessions\DeleteTheSession;
 use CCK\LaravelWahaSaloonSdk\Waha\Requests\Sessions\GetSessionInformation;
 use CCK\LaravelWahaSaloonSdk\Waha\Requests\Sessions\UpdateSession;
 use CCK\LaravelWahaSaloonSdk\Waha\Resource;
-use Saloon\Contracts\Response;
+use Saloon\Http\Response;
 
 class Sessions extends Resource
 {

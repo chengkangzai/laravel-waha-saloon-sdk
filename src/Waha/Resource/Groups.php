@@ -5,7 +5,7 @@ namespace CCK\LaravelWahaSaloonSdk\Waha\Resource;
 use CCK\LaravelWahaSaloonSdk\Waha\Requests\Groups\DeleteTheGroup;
 use CCK\LaravelWahaSaloonSdk\Waha\Requests\Groups\GetTheGroup;
 use CCK\LaravelWahaSaloonSdk\Waha\Resource;
-use Saloon\Contracts\Response;
+use Saloon\Http\Response;
 
 class Groups extends Resource
 {

@@ -9,7 +9,7 @@ use CCK\LaravelWahaSaloonSdk\Waha\Requests\Picture\GetsChatPicture;
 use CCK\LaravelWahaSaloonSdk\Waha\Requests\Picture\SetGroupPicture;
 use CCK\LaravelWahaSaloonSdk\Waha\Requests\Picture\SetProfilePicture;
 use CCK\LaravelWahaSaloonSdk\Waha\Resource;
-use Saloon\Contracts\Response;
+use Saloon\Http\Response;
 
 class Picture extends Resource
 {

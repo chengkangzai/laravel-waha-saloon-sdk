@@ -5,7 +5,7 @@ namespace CCK\LaravelWahaSaloonSdk\Waha\Resource;
 use CCK\LaravelWahaSaloonSdk\Waha\Requests\Channels\DeleteTheChannel;
 use CCK\LaravelWahaSaloonSdk\Waha\Requests\Channels\GetTheChannelInfo;
 use CCK\LaravelWahaSaloonSdk\Waha\Resource;
-use Saloon\Contracts\Response;
+use Saloon\Http\Response;
 
 class Channels extends Resource
 {

@@ -6,7 +6,7 @@ use CCK\LaravelWahaSaloonSdk\Waha\Requests\Stop\StopAndLogoutIfAskedSession;
 use CCK\LaravelWahaSaloonSdk\Waha\Requests\Stop\StopAndRestartTheServer;
 use CCK\LaravelWahaSaloonSdk\Waha\Requests\Stop\StopTheSession;
 use CCK\LaravelWahaSaloonSdk\Waha\Resource;
-use Saloon\Contracts\Response;
+use Saloon\Http\Response;
 
 class Stop extends Resource
 {

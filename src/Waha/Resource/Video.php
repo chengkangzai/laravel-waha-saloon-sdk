@@ -5,7 +5,7 @@ namespace CCK\LaravelWahaSaloonSdk\Waha\Resource;
 use CCK\LaravelWahaSaloonSdk\Waha\Requests\Video\ConvertVideoToWhatsAppFormatMp4;
 use CCK\LaravelWahaSaloonSdk\Waha\Requests\Video\SendVideoStatus;
 use CCK\LaravelWahaSaloonSdk\Waha\Resource;
-use Saloon\Contracts\Response;
+use Saloon\Http\Response;
 
 class Video extends Resource
 {

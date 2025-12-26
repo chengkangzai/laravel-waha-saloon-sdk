@@ -5,7 +5,7 @@ namespace CCK\LaravelWahaSaloonSdk\Waha\Resource;
 use CCK\LaravelWahaSaloonSdk\Waha\Requests\Status\GetTheServerStatus;
 use CCK\LaravelWahaSaloonSdk\Waha\Requests\Status\SetProfileStatusAbout;
 use CCK\LaravelWahaSaloonSdk\Waha\Resource;
-use Saloon\Contracts\Response;
+use Saloon\Http\Response;
 
 class Status extends Resource
 {

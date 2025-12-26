@@ -5,7 +5,7 @@ namespace CCK\LaravelWahaSaloonSdk\Waha\Resource;
 use CCK\LaravelWahaSaloonSdk\Waha\Requests\Count\GetTheNumberOfGroups;
 use CCK\LaravelWahaSaloonSdk\Waha\Requests\Count\GetTheNumberOfKnownLids;
 use CCK\LaravelWahaSaloonSdk\Waha\Resource;
-use Saloon\Contracts\Response;
+use Saloon\Http\Response;
 
 class Count extends Resource
 {

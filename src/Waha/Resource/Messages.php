@@ -7,7 +7,7 @@ use CCK\LaravelWahaSaloonSdk\Waha\Requests\Messages\EditsMessageInTheChat;
 use CCK\LaravelWahaSaloonSdk\Waha\Requests\Messages\GetMessagesInChat;
 use CCK\LaravelWahaSaloonSdk\Waha\Requests\Messages\GetsMessageById;
 use CCK\LaravelWahaSaloonSdk\Waha\Resource;
-use Saloon\Contracts\Response;
+use Saloon\Http\Response;
 
 class Messages extends Resource
 {

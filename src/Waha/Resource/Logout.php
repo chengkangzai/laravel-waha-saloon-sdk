@@ -5,7 +5,7 @@ namespace CCK\LaravelWahaSaloonSdk\Waha\Resource;
 use CCK\LaravelWahaSaloonSdk\Waha\Requests\Logout\LogoutAndDeleteSession;
 use CCK\LaravelWahaSaloonSdk\Waha\Requests\Logout\LogoutFromTheSession;
 use CCK\LaravelWahaSaloonSdk\Waha\Resource;
-use Saloon\Contracts\Response;
+use Saloon\Http\Response;
 
 class Logout extends Resource
 {
