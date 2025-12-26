@@ -9,25 +9,20 @@ use Saloon\Http\Response;
 class SendText extends Resource
 {
     public function sendTextMessage(
-        mixed $chatId,
-        mixed $text,
-        mixed $session,
-        mixed $replyTo,
-        mixed $linkPreview,
-        mixed $linkPreviewHighQuality,
+        mixed $chatId = null,
+        mixed $text = null,
+        mixed $session = null,
+        mixed $replyTo = null,
+        mixed $linkPreview = null,
+        mixed $linkPreviewHighQuality = null,
     ): Response {
-        return $this->connector->send(new SendTextMessage($chatId, $text, $session, $replyTo, $linkPreview, $linkPreviewHighQuality));
-    }
-
-    /**
-     * @todo Fix duplicated method name
-     *
-     * @param  string  $phone  (Required)
-     * @param  string  $text  (Required)
-     * @param  string  $session  (Required)
-     */
-    public function sendTextMessageDuplicate1(?string $phone, ?string $text, ?string $session): Response
-    {
-        return $this->connector->send(new SendTextMessage($phone, $text, $session));
+        return $this->connector->send(new SendTextMessage(
+            $chatId,
+            $text,
+            $session,
+            $replyTo,
+            $linkPreview,
+            $linkPreviewHighQuality,
+        ));
     }
 }

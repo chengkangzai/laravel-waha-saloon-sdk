@@ -2,34 +2,43 @@
 
 namespace CCK\LaravelWahaSaloonSdk\Waha\Requests\SendText;
 
+use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
+use Saloon\Traits\Body\HasJsonBody;
 
 /**
  * Send a text message
  */
-class SendTextMessage extends Request
+class SendTextMessage extends Request implements HasBody
 {
-    protected Method $method = Method::GET;
+    use HasJsonBody;
+
+    protected Method $method = Method::POST;
 
     public function resolveEndpoint(): string
     {
         return '/api/sendText';
     }
 
-    /**
-     * @param  null|string  $phone  (Required)
-     * @param  null|string  $text  (Required)
-     * @param  null|string  $session  (Required)
-     */
     public function __construct(
-        protected ?string $phone = null,
-        protected ?string $text = null,
-        protected ?string $session = null,
+        protected mixed $chatId = null,
+        protected mixed $text = null,
+        protected mixed $session = null,
+        protected mixed $replyTo = null,
+        protected mixed $linkPreview = null,
+        protected mixed $linkPreviewHighQuality = null,
     ) {}
 
-    public function defaultQuery(): array
+    public function defaultBody(): array
     {
-        return array_filter(['phone' => $this->phone, 'text' => $this->text, 'session' => $this->session]);
+        return array_filter([
+            'chatId' => $this->chatId,
+            'text' => $this->text,
+            'session' => $this->session,
+            'reply_to' => $this->replyTo,
+            'linkPreview' => $this->linkPreview,
+            'linkPreviewHighQuality' => $this->linkPreviewHighQuality,
+        ]);
     }
 }
