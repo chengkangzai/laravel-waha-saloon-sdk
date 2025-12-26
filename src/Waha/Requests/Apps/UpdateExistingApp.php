@@ -2,14 +2,18 @@
 
 namespace CCK\LaravelWahaSaloonSdk\Waha\Requests\Apps;
 
+use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
+use Saloon\Traits\Body\HasJsonBody;
 
 /**
  * Update an existing app
  */
-class UpdateExistingApp extends Request
+class UpdateExistingApp extends Request implements HasBody
 {
+    use HasJsonBody;
+
     protected Method $method = Method::PUT;
 
     public function resolveEndpoint(): string

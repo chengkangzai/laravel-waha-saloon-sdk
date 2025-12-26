@@ -2,14 +2,18 @@
 
 namespace CCK\LaravelWahaSaloonSdk\Waha\Requests\Picture;
 
+use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
+use Saloon\Traits\Body\HasJsonBody;
 
 /**
  * Set profile picture
  */
-class SetProfilePicture extends Request
+class SetProfilePicture extends Request implements HasBody
 {
+    use HasJsonBody;
+
     protected Method $method = Method::PUT;
 
     public function resolveEndpoint(): string

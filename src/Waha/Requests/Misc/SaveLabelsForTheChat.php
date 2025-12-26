@@ -2,14 +2,18 @@
 
 namespace CCK\LaravelWahaSaloonSdk\Waha\Requests\Misc;
 
+use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
+use Saloon\Traits\Body\HasJsonBody;
 
 /**
  * Save labels for the chat
  */
-class SaveLabelsForTheChat extends Request
+class SaveLabelsForTheChat extends Request implements HasBody
 {
+    use HasJsonBody;
+
     protected Method $method = Method::PUT;
 
     public function resolveEndpoint(): string

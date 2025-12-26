@@ -2,14 +2,18 @@
 
 namespace CCK\LaravelWahaSaloonSdk\Waha\Requests\MessagesAdminOnly;
 
+use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
+use Saloon\Traits\Body\HasJsonBody;
 
 /**
  * Update settings - who can send messages
  */
-class UpdateSettingsWhoCanSendMessages extends Request
+class UpdateSettingsWhoCanSendMessages extends Request implements HasBody
 {
+    use HasJsonBody;
+
     protected Method $method = Method::PUT;
 
     public function resolveEndpoint(): string

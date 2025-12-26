@@ -2,14 +2,18 @@
 
 namespace CCK\LaravelWahaSaloonSdk\Waha\Requests\Subject;
 
+use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
+use Saloon\Traits\Body\HasJsonBody;
 
 /**
  * Updates the group subject
  */
-class UpdatesTheGroupSubject extends Request
+class UpdatesTheGroupSubject extends Request implements HasBody
 {
+    use HasJsonBody;
+
     protected Method $method = Method::PUT;
 
     public function resolveEndpoint(): string
