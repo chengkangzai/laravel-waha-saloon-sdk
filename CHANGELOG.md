@@ -2,6 +2,39 @@
 
 All notable changes to `laravel-waha-saloon-sdk` will be documented in this file.
 
+## v0.2.1 - Bug Fixes - 2025-12-26
+
+### Bug Fixes
+
+#### Fixed missing request bodies (23 Request classes)
+
+Request classes with `defaultBody()` were missing `HasBody` interface and `HasJsonBody` trait, causing request bodies to never be sent.
+
+**Affected endpoints:**
+
+- `UpdateExistingApp`
+- `SaveLabelsForTheChat`
+- `CreateOrUpdateContact`
+- `UpdatesTheGroupDescription`
+- `UpdatesTheGroupSubject`
+- `UpdatesTheGroupInfoAdminOnlySettings`
+- `UpdateLabel`
+- `EditsMessageInTheChat`
+- `UpdateSettingsWhoCanSendMessages`
+- `ReactToMessageWithEmoji`
+- `StarOrUnstarMessage`
+- `SetMyProfileName`
+- `SetGroupPicture`
+- `SetProfilePicture`
+- `SetProfileStatusAbout`
+- `UpdateSession`
+
+#### Fixed Response import
+
+Changed `use Saloon\Contracts\Response` to `use Saloon\Http\Response` across 103 Resource files.
+
+**Full Changelog**: https://github.com/chengkangzai/laravel-waha-saloon-sdk/compare/v0.2.0...v0.2.1
+
 ## v0.2.0 - WAHA API 2025.12.1 Update - 2025-12-26
 
 ### What's Changed
@@ -75,6 +108,7 @@ $waha = new Waha($url, $key);
 
 
 
+
 ```
 #### Configuration
 
@@ -94,6 +128,7 @@ return [
         ],
     ],
 ];
+
 
 
 
@@ -157,6 +192,7 @@ $qrValue = $response->json()['value']; // '1@ABC123...'
 
 // Using static factory methods directly
 $response = $waha->send(GetQrCodeForPairingWhatsAppApi::forBinaryImage('default'));
+
 
 
 
