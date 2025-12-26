@@ -1,6 +1,6 @@
 <?php
 
-use CCK\LaravelWahaSaloonSdk\Waha\Requests\Auth\GetQrCodeForPairingWhatsAppApi;
+use CCK\LaravelWahaSaloonSdk\Waha\Requests\Qr\GetQrCodeForPairingWhatsAppApi;
 
 describe('GetQrCodeForPairingWhatsAppApi', function () {
     it('can be constructed with basic parameters', function () {

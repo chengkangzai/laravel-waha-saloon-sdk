@@ -4,7 +4,6 @@ namespace CCK\LaravelWahaSaloonSdk\Facades;
 
 use CCK\LaravelWahaSaloonSdk\Waha\Resource\Admin;
 use CCK\LaravelWahaSaloonSdk\Waha\Resource\Api;
-use CCK\LaravelWahaSaloonSdk\Waha\Resource\Auth;
 use CCK\LaravelWahaSaloonSdk\Waha\Resource\Channels;
 use CCK\LaravelWahaSaloonSdk\Waha\Resource\Chats;
 use CCK\LaravelWahaSaloonSdk\Waha\Resource\Contacts;
@@ -21,6 +20,7 @@ use CCK\LaravelWahaSaloonSdk\Waha\Resource\Participants;
 use CCK\LaravelWahaSaloonSdk\Waha\Resource\Picture;
 use CCK\LaravelWahaSaloonSdk\Waha\Resource\Presence;
 use CCK\LaravelWahaSaloonSdk\Waha\Resource\Profile;
+use CCK\LaravelWahaSaloonSdk\Waha\Resource\Qr;
 use CCK\LaravelWahaSaloonSdk\Waha\Resource\Search;
 use CCK\LaravelWahaSaloonSdk\Waha\Resource\Send;
 use CCK\LaravelWahaSaloonSdk\Waha\Resource\SendText;
@@ -40,7 +40,7 @@ use Illuminate\Support\Facades\Facade;
  * @method static array<string, WahaConnector> getConnections()
  * @method static Admin admin()
  * @method static Api api()
- * @method static Auth auth()
+ * @method static Qr qr()
  * @method static Channels channels()
  * @method static Chats chats()
  * @method static Contacts contacts()
