@@ -3,55 +3,29 @@
 namespace CCK\LaravelWahaSaloonSdk\Waha\Resource;
 
 use CCK\LaravelWahaSaloonSdk\Waha\Requests\Sessions\DeleteTheSession;
-use CCK\LaravelWahaSaloonSdk\Waha\Requests\Sessions\GetInformationAboutTheAuthenticatedAccount;
 use CCK\LaravelWahaSaloonSdk\Waha\Requests\Sessions\GetSessionInformation;
-use CCK\LaravelWahaSaloonSdk\Waha\Requests\Sessions\LogoutFromTheSession;
-use CCK\LaravelWahaSaloonSdk\Waha\Requests\Sessions\RestartTheSession;
-use CCK\LaravelWahaSaloonSdk\Waha\Requests\Sessions\StartTheSession;
-use CCK\LaravelWahaSaloonSdk\Waha\Requests\Sessions\StopTheSession;
 use CCK\LaravelWahaSaloonSdk\Waha\Requests\Sessions\UpdateSession;
 use CCK\LaravelWahaSaloonSdk\Waha\Resource;
-use Saloon\Http\Response;
+use Saloon\Contracts\Response;
 
 class Sessions extends Resource
 {
-    public function getSessionInformation(string $session): Response
+    /**
+     * @param  string  $expand  Expand additional session details.
+     * @param  string  $expand  Expand additional session details.
+     */
+    public function getSessionInformation(string $session, ?string $expand): Response
     {
-        return $this->connector->send(new GetSessionInformation($session));
+        return $this->connector->send(new GetSessionInformation($session, $expand, $expand));
     }
 
-    public function updateSession(string $session, mixed $config): Response
+    public function updateSession(string $session, mixed $name): Response
     {
-        return $this->connector->send(new UpdateSession($session, $config));
+        return $this->connector->send(new UpdateSession($session, $name));
     }
 
     public function deleteTheSession(string $session): Response
     {
         return $this->connector->send(new DeleteTheSession($session));
-    }
-
-    public function getInformationAboutTheAuthenticatedAccount(string $session): Response
-    {
-        return $this->connector->send(new GetInformationAboutTheAuthenticatedAccount($session));
-    }
-
-    public function startTheSession(string $session): Response
-    {
-        return $this->connector->send(new StartTheSession($session));
-    }
-
-    public function stopTheSession(string $session): Response
-    {
-        return $this->connector->send(new StopTheSession($session));
-    }
-
-    public function logoutFromTheSession(string $session): Response
-    {
-        return $this->connector->send(new LogoutFromTheSession($session));
-    }
-
-    public function restartTheSession(string $session): Response
-    {
-        return $this->connector->send(new RestartTheSession($session));
     }
 }

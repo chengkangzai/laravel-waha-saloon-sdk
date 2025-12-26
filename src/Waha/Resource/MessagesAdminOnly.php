@@ -5,7 +5,7 @@ namespace CCK\LaravelWahaSaloonSdk\Waha\Resource;
 use CCK\LaravelWahaSaloonSdk\Waha\Requests\MessagesAdminOnly\GetSettingsWhoCanSendMessages;
 use CCK\LaravelWahaSaloonSdk\Waha\Requests\MessagesAdminOnly\UpdateSettingsWhoCanSendMessages;
 use CCK\LaravelWahaSaloonSdk\Waha\Resource;
-use Saloon\Http\Response;
+use Saloon\Contracts\Response;
 
 class MessagesAdminOnly extends Resource
 {

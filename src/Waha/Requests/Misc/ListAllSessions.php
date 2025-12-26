@@ -18,14 +18,17 @@ class ListAllSessions extends Request
     }
 
     /**
+     * @param  null|string  $expand  Expand additional session details.
+     * @param  null|string  $expand  Expand additional session details.
      * @param  null|string  $all  Return all sessions, including those that are in the STOPPED state.
      */
     public function __construct(
+        protected ?string $expand = null,
         protected ?string $all = null,
     ) {}
 
     public function defaultQuery(): array
     {
-        return array_filter(['all' => $this->all]);
+        return array_filter(['expand' => $this->expand, 'all' => $this->all]);
     }
 }

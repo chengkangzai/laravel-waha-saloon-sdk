@@ -2,18 +2,14 @@
 
 namespace CCK\LaravelWahaSaloonSdk\Waha\Requests\Sessions;
 
-use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
-use Saloon\Traits\Body\HasJsonBody;
 
 /**
  * Update a session
  */
-class UpdateSession extends Request implements HasBody
+class UpdateSession extends Request
 {
-    use HasJsonBody;
-
     protected Method $method = Method::PUT;
 
     public function resolveEndpoint(): string
@@ -23,11 +19,11 @@ class UpdateSession extends Request implements HasBody
 
     public function __construct(
         protected string $session,
-        protected mixed $sessionConfig = null,
+        protected mixed $name = null,
     ) {}
 
     public function defaultBody(): array
     {
-        return array_filter(['config' => $this->sessionConfig]);
+        return array_filter(['name' => $this->name]);
     }
 }

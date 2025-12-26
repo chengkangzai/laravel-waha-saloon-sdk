@@ -5,10 +5,11 @@ namespace CCK\LaravelWahaSaloonSdk\Waha\Resource;
 use CCK\LaravelWahaSaloonSdk\Waha\Requests\Picture\DeleteGroupPicture;
 use CCK\LaravelWahaSaloonSdk\Waha\Requests\Picture\DeleteProfilePicture;
 use CCK\LaravelWahaSaloonSdk\Waha\Requests\Picture\GetGroupPicture;
+use CCK\LaravelWahaSaloonSdk\Waha\Requests\Picture\GetsChatPicture;
 use CCK\LaravelWahaSaloonSdk\Waha\Requests\Picture\SetGroupPicture;
 use CCK\LaravelWahaSaloonSdk\Waha\Requests\Picture\SetProfilePicture;
 use CCK\LaravelWahaSaloonSdk\Waha\Resource;
-use Saloon\Http\Response;
+use Saloon\Contracts\Response;
 
 class Picture extends Resource
 {
@@ -20,6 +21,14 @@ class Picture extends Resource
     public function deleteProfilePicture(string $session): Response
     {
         return $this->connector->send(new DeleteProfilePicture($session));
+    }
+
+    /**
+     * @param  string  $refresh  Refresh the picture from the server (24h cache by default). Do not refresh if not needed, you can get rate limit error
+     */
+    public function getsChatPicture(string $session, string $chatId, ?string $refresh): Response
+    {
+        return $this->connector->send(new GetsChatPicture($session, $chatId, $refresh));
     }
 
     /**

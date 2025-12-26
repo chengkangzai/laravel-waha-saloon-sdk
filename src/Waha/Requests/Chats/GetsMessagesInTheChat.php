@@ -18,8 +18,9 @@ class GetsMessagesInTheChat extends Request
     }
 
     /**
+     * @param  null|string  $sortBy  Sort by field
+     * @param  null|string  $sortOrder  Sort order - <b>desc</b>ending (Z => A, New first) or <b>asc</b>ending (A => Z, Old first)
      * @param  null|string  $downloadMedia  Download media for messages
-     * @param  null|string  $limit  (Required)
      * @param  null|string  $filterTimestampLte  Filter messages before this timestamp (inclusive)
      * @param  null|string  $filterTimestampGte  Filter messages after this timestamp (inclusive)
      * @param  null|string  $filterFromMe  From me filter (by default shows all messages)
@@ -28,6 +29,8 @@ class GetsMessagesInTheChat extends Request
     public function __construct(
         protected string $session,
         protected string $chatId,
+        protected ?string $sortBy = null,
+        protected ?string $sortOrder = null,
         protected ?string $downloadMedia = null,
         protected ?string $limit = null,
         protected ?string $offset = null,
@@ -40,6 +43,8 @@ class GetsMessagesInTheChat extends Request
     public function defaultQuery(): array
     {
         return array_filter([
+            'sortBy' => $this->sortBy,
+            'sortOrder' => $this->sortOrder,
             'downloadMedia' => $this->downloadMedia,
             'limit' => $this->limit,
             'offset' => $this->offset,

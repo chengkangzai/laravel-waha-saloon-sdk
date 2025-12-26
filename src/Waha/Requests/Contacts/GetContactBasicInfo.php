@@ -17,10 +17,6 @@ class GetContactBasicInfo extends Request
         return '/api/contacts';
     }
 
-    /**
-     * @param  null|string  $contactId  (Required)
-     * @param  null|string  $session  (Required)
-     */
     public function __construct(
         protected ?string $contactId = null,
         protected ?string $session = null,

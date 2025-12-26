@@ -52,7 +52,7 @@
         "test": "vendor/bin/pest",
         "test-coverage": "vendor/bin/pest --coverage",
         "format": "vendor/bin/pint",
-        "build-from-postman": "sdkgenerator generate:sdk \"WAHA - WhatsApp HTTP API - 2025.5.postman_collection.json\" --type=postman --name=Waha --output=src/Waha --force --namespace=\"CCK\\LaravelWahaSaloonSdk\\Waha\""
+        "build-from-postman": "sdkgenerator generate:sdk \"WAHA - WhatsApp HTTP API - 2025.12.1.postman_collection.json\" --type=postman --name=Waha --output=src/Waha --force --namespace=\"CCK\\LaravelWahaSaloonSdk\\Waha\""
     },
     "config": {
         "sort-packages": true,

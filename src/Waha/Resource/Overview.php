@@ -5,7 +5,7 @@ namespace CCK\LaravelWahaSaloonSdk\Waha\Resource;
 use CCK\LaravelWahaSaloonSdk\Waha\Requests\Overview\GetChatsOverviewIncludesAllNecessaryThingsToBuildUiYourChatsOverviewPageChatIdNamePictureLastMessageSortingByLastMessageTimestamp;
 use CCK\LaravelWahaSaloonSdk\Waha\Requests\Overview\GetChatsOverviewUsePostIfYouHaveTooManyIdsParamsGetCanLimitIt;
 use CCK\LaravelWahaSaloonSdk\Waha\Resource;
-use Saloon\Http\Response;
+use Saloon\Contracts\Response;
 
 class Overview extends Resource
 {
