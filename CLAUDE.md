@@ -44,11 +44,11 @@ Waha (Connector) -> Resources (23) -> Requests (134)
 ### SDK Generation
 
 The SDK is generated from a Postman collection using the `sdkgenerator` tool:
-- Source: `WAHA - WhatsApp HTTP API - 2025.5.postman_collection.json`
+- Source: `WAHA - WhatsApp HTTP API - 2025.12.1.postman_collection.json`
 - Output: `src/Waha/` directory
 - Namespace: `CCK\LaravelWahaSaloonSdk\Waha`
 
-**Important**: When regenerating the SDK, use `--force` flag to overwrite existing files.
+**Important**: When regenerating the SDK, use `--force` flag to overwrite existing files. See "SDK Regeneration Workflow" section below for detailed steps.
 
 ## Code Standards
 
@@ -118,4 +118,111 @@ $waha = new \CCK\LaravelWahaSaloonSdk\Waha\Waha(
     baseUrl: 'https://your-waha-instance.com',
     apiKey: 'your-api-key'
 );
+```
+
+## SDK Regeneration Workflow
+
+When WAHA updates their API and releases a new Postman collection, follow this workflow to update the SDK.
+
+### Custom Code to PRESERVE
+
+These files contain custom code that will be overwritten during regeneration. **You must restore them after running `composer build-from-postman`:**
+
+1. **`src/Waha/Waha.php`** - Custom constructor with config fallback and API key headers:
+   ```php
+   public function __construct(
+       public string $baseUrl = '',
+       protected ?string $apiKey = null,
+   ) {
+       if ($this->baseUrl === '' && function_exists('config')) {
+           $this->baseUrl = config('waha-saloon-sdk.connections.default.base_url')
+               ?? config('waha-saloon-sdk.base_url')
+               ?? '';
+       }
+       if ($this->apiKey === null && function_exists('config')) {
+           $this->apiKey = config('waha-saloon-sdk.connections.default.api_key')
+               ?? config('waha-saloon-sdk.api_key')
+               ?? null;
+       }
+   }
+
+   protected function defaultHeaders(): array
+   {
+       $headers = [];
+       if ($this->apiKey) {
+           $headers['X-Api-Key'] = $this->apiKey;
+       }
+       return $headers;
+   }
+   ```
+
+2. **`src/Waha/Resource/Qr.php`** - Convenience methods for QR code retrieval:
+   - `getQrCodeImage(string $session)` - Returns binary PNG
+   - `getQrCodeBase64(string $session)` - Returns JSON with base64 image
+   - `getQrCodeRaw(string $session)` - Returns raw QR value
+
+3. **`src/Waha/Requests/Qr/GetQrCodeForPairingWhatsAppApi.php`** - Accept header support:
+   - `$acceptHeader` constructor parameter
+   - `defaultHeaders()` method for Accept header
+   - Static factory methods: `forBinaryImage()`, `forBase64Image()`, `forRawValue()`
+
+### Issues to FIX After Regeneration
+
+1. **Response Import**: The generator uses `Saloon\Contracts\Response` but should be `Saloon\Http\Response`
+   ```bash
+   # Fix all Resource files
+   find src/Waha -name "*.php" -exec sed -i '' 's/use Saloon\\Contracts\\Response;/use Saloon\\Http\\Response;/g' {} +
+   ```
+
+2. **Missing HasBody Interface**: Request classes with `defaultBody()` need `HasBody` interface and `HasJsonBody` trait
+   ```bash
+   # Find affected files
+   for file in $(grep -rl "function defaultBody" src/Waha/Requests/); do
+     if ! grep -q "implements HasBody" "$file"; then
+       echo "$file"
+     fi
+   done
+   ```
+
+3. **Property Name Conflicts**: Some generated properties conflict with Saloon base class:
+   - `$config` → rename to `$appConfig` or `$sessionConfig`
+   - `$method` → rename to `$authMethod`
+   - `$body` → rename to `$messageBody`
+
+4. **Deprecated Endpoints**: Remove from Postman collection BEFORE generating (e.g., GET sendText was deprecated)
+
+### Files to UPDATE
+
+1. **`composer.json`** - Update build script path to new collection filename
+2. **`src/Facades/Waha.php`** - Update `@method` docblocks if resource names change
+3. **`phpstan-baseline.neon`** - Regenerate: `vendor/bin/phpstan analyse --generate-baseline`
+
+### Regeneration Checklist
+
+```bash
+# 1. Download new Postman collection to project root
+
+# 2. Edit collection to remove deprecated endpoints (check WAHA changelog)
+
+# 3. Update composer.json build script path
+#    "build-from-postman": "sdkgenerator generate:sdk \"NEW_COLLECTION.json\" ..."
+
+# 4. Regenerate SDK
+composer build-from-postman
+
+# 5. Restore custom code in Waha.php, Qr.php, GetQrCodeForPairingWhatsAppApi.php
+
+# 6. Fix Response imports
+find src/Waha -name "*.php" -exec sed -i '' 's/use Saloon\\Contracts\\Response;/use Saloon\\Http\\Response;/g' {} +
+
+# 7. Fix missing HasBody interfaces (check and fix manually)
+
+# 8. Fix property conflicts (check PHPStan output)
+
+# 9. Quality checks
+composer format
+composer analyse  # Regenerate baseline if needed
+composer test
+
+# 10. Delete old collection file, commit, and tag new version
 ```
