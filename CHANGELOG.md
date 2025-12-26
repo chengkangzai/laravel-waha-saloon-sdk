@@ -2,6 +2,39 @@
 
 All notable changes to `laravel-waha-saloon-sdk` will be documented in this file.
 
+## v0.3.0 - QR Code Namespace Change - 2025-12-26
+
+### Breaking Changes
+
+#### `auth()` method renamed to `qr()`
+
+The QR code methods have been moved from the `Auth` namespace to `Qr` namespace.
+
+**Before:**
+
+```php
+$waha->auth()->getQrCodeBase64('session');
+$waha->auth()->getQrCodeImage('session');
+$waha->auth()->getQrCodeRaw('session');
+
+```
+**After:**
+
+```php
+$waha->qr()->getQrCodeBase64('session');
+$waha->qr()->getQrCodeImage('session');
+$waha->qr()->getQrCodeRaw('session');
+
+```
+### What's Changed
+
+- Moved `GetQrCodeForPairingWhatsAppApi` from `Requests\Auth` to `Requests\Qr`
+- Moved convenience methods from `Auth` resource to `Qr` resource
+- Removed deprecated `Auth` resource
+- Updated Facade to use `qr()` instead of `auth()`
+
+**Full Changelog**: https://github.com/chengkangzai/laravel-waha-saloon-sdk/compare/v0.2.1...v0.3.0
+
 ## v0.2.1 - Bug Fixes - 2025-12-26
 
 ### Bug Fixes
@@ -109,6 +142,7 @@ $waha = new Waha($url, $key);
 
 
 
+
 ```
 #### Configuration
 
@@ -128,6 +162,7 @@ return [
         ],
     ],
 ];
+
 
 
 
@@ -192,6 +227,7 @@ $qrValue = $response->json()['value']; // '1@ABC123...'
 
 // Using static factory methods directly
 $response = $waha->send(GetQrCodeForPairingWhatsAppApi::forBinaryImage('default'));
+
 
 
 
