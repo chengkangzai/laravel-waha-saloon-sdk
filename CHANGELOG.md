@@ -2,6 +2,23 @@
 
 All notable changes to `laravel-waha-saloon-sdk` will be documented in this file.
 
+## v0.1.1 - 2025-12-26
+
+### What's Changed
+
+#### Bug Fixes
+
+- **fix: change SendTextMessage from GET to POST** - The WAHA API now requires POST with JSON body for `/api/sendText` endpoint
+  - Changed `Method::GET` to `Method::POST`
+  - Added `HasBody` contract and `HasJsonBody` trait
+  - Changed `defaultQuery()` to `defaultBody()`
+  - Updated parameter name from `phone` to `chatId`
+  - Added missing parameters: `replyTo`, `linkPreview`, `linkPreviewHighQuality`
+  - Removed duplicate `sendTextMessageDuplicate1` method
+  
+
+**Full Changelog**: https://github.com/chengkangzai/laravel-waha-saloon-sdk/compare/v0.1.0...v0.1.1
+
 ## v0.1.0 - Multi-host Support - 2025-12-07
 
 ### What's New
@@ -29,6 +46,7 @@ Waha::connection('production')->sessions()->listAllSessions();
 // Direct instantiation still works
 $waha = new Waha($url, $key);
 
+
 ```
 #### Configuration
 
@@ -48,6 +66,7 @@ return [
         ],
     ],
 ];
+
 
 ```
 #### Backward Compatibility
@@ -109,6 +128,7 @@ $qrValue = $response->json()['value']; // '1@ABC123...'
 
 // Using static factory methods directly
 $response = $waha->send(GetQrCodeForPairingWhatsAppApi::forBinaryImage('default'));
+
 
 
 ```
