@@ -834,6 +834,30 @@ For the most up-to-date method signatures and parameters, always refer to the ac
 
 ## Upgrading
 
+### From v0.2.x to v0.3.0
+
+**Breaking Change:** The `auth()` method has been renamed to `qr()`.
+
+The QR code methods have been moved from the `Auth` namespace to `Qr` namespace to better align with the WAHA API structure.
+
+**Update your code:**
+
+```php
+// Before (v0.2.x)
+$waha->auth()->getQrCodeBase64('session');
+$waha->auth()->getQrCodeImage('session');
+$waha->auth()->getQrCodeRaw('session');
+
+// After (v0.3.0)
+$waha->qr()->getQrCodeBase64('session');
+$waha->qr()->getQrCodeImage('session');
+$waha->qr()->getQrCodeRaw('session');
+```
+
+**Search and replace in your codebase:**
+- Replace `->auth()->getQrCode` with `->qr()->getQrCode`
+- Replace `Waha::auth()` with `Waha::qr()`
+
 ### From v0.0.x to v0.1.0
 
 **Step 1:** Update the package

@@ -11,21 +11,19 @@ All notable changes to `laravel-waha-saloon-sdk` will be documented in this file
 The QR code methods have been moved from the `Auth` namespace to `Qr` namespace.
 
 **Before:**
-
 ```php
 $waha->auth()->getQrCodeBase64('session');
 $waha->auth()->getQrCodeImage('session');
 $waha->auth()->getQrCodeRaw('session');
-
 ```
-**After:**
 
+**After:**
 ```php
 $waha->qr()->getQrCodeBase64('session');
 $waha->qr()->getQrCodeImage('session');
 $waha->qr()->getQrCodeRaw('session');
-
 ```
+
 ### What's Changed
 
 - Moved `GetQrCodeForPairingWhatsAppApi` from `Requests\Auth` to `Requests\Qr`
@@ -86,7 +84,7 @@ Changed `use Saloon\Contracts\Response` to `use Saloon\Http\Response` across 103
   - `$config` → `$sessionConfig` in UpsertAndStartSession
   - `$method` → `$authMethod` in RequestAuthenticationCode
   - `$body` → `$messageBody` in SendButtonsMessageInteractive
-  
+
 
 #### Technical
 
@@ -108,7 +106,7 @@ Changed `use Saloon\Contracts\Response` to `use Saloon\Http\Response` across 103
   - Updated parameter name from `phone` to `chatId`
   - Added missing parameters: `replyTo`, `linkPreview`, `linkPreviewHighQuality`
   - Removed duplicate `sendTextMessageDuplicate1` method
-  
+
 
 **Full Changelog**: https://github.com/chengkangzai/laravel-waha-saloon-sdk/compare/v0.1.0...v0.1.1
 
@@ -138,12 +136,8 @@ Waha::connection('production')->sessions()->listAllSessions();
 
 // Direct instantiation still works
 $waha = new Waha($url, $key);
-
-
-
-
-
 ```
+
 #### Configuration
 
 ```php
@@ -162,12 +156,8 @@ return [
         ],
     ],
 ];
-
-
-
-
-
 ```
+
 #### Backward Compatibility
 
 - Full backward compatibility with existing single-host usage
@@ -177,28 +167,28 @@ return [
 
 ## v0.0.9: Enhanced QR endpoint with header-based response format support - 2025-07-10
 
-### 🚀 Enhanced QR Endpoint Support
+### Enhanced QR Endpoint Support
 
 This release enhances the WAHA QR code endpoint with comprehensive header-based response format support, providing developers with flexible options for QR code retrieval.
 
-#### ✨ New Features
+#### New Features
 
 - **Accept Header Support**: The `GetQrCodeForPairingWhatsAppApi` request class now supports Accept headers for content negotiation
-  
+
 - **Static Factory Methods**: New convenience methods for different response formats:
-  
+
   - `forBinaryImage()` - Returns binary PNG image data
   - `forBase64Image()` - Returns JSON with base64-encoded image
   - `forRawValue()` - Returns JSON with raw QR code value
-  
-- **Auth Resource Convenience Methods**: Easy-to-use methods in the Auth resource:
-  
+
+- **Qr Resource Convenience Methods**: Easy-to-use methods in the Qr resource:
+
   - `getQrCodeImage($session)` - Direct binary image access
   - `getQrCodeBase64($session)` - Base64 JSON response
   - `getQrCodeRaw($session)` - Raw QR code value
-  
 
-#### 🔧 Technical Details
+
+#### Technical Details
 
 The enhancement leverages WAHA's native support for three QR code response formats:
 
@@ -206,35 +196,30 @@ The enhancement leverages WAHA's native support for three QR code response forma
 2. **Base64 Image** (`Accept: application/json`) - JSON with base64-encoded image
 3. **Raw Value** (`Accept: application/json` + `format=raw`) - JSON with raw QR string
 
-#### 🔄 Backward Compatibility
+#### Backward Compatibility
 
 All existing code continues to work unchanged. The original `getQrCodeForPairingWhatsAppApi()` method remains fully functional.
 
-#### 📋 Usage Examples
+#### Usage Examples
 
 ```php
 // Get binary image (new convenience method)
-$response = $waha->auth()->getQrCodeImage('default');
+$response = $waha->qr()->getQrCodeImage('default');
 file_put_contents('qr.png', $response->body());
 
-// Get base64 JSON (new convenience method)  
-$response = $waha->auth()->getQrCodeBase64('default');
+// Get base64 JSON (new convenience method)
+$response = $waha->qr()->getQrCodeBase64('default');
 $data = $response->json(); // ['data' => 'base64...', 'mimetype' => 'image/png']
 
 // Get raw QR value (new convenience method)
-$response = $waha->auth()->getQrCodeRaw('default');
+$response = $waha->qr()->getQrCodeRaw('default');
 $qrValue = $response->json()['value']; // '1@ABC123...'
 
 // Using static factory methods directly
 $response = $waha->send(GetQrCodeForPairingWhatsAppApi::forBinaryImage('default'));
-
-
-
-
-
-
 ```
-#### 🧪 Testing
+
+#### Testing
 
 - Added comprehensive test coverage for all new functionality
 - All existing tests continue to pass
