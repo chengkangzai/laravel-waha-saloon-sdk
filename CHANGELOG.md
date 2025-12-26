@@ -2,6 +2,33 @@
 
 All notable changes to `laravel-waha-saloon-sdk` will be documented in this file.
 
+## v0.2.0 - WAHA API 2025.12.1 Update - 2025-12-26
+
+### What's Changed
+
+#### Updated
+
+- Updated SDK to match WAHA API version 2025.12.1
+- Regenerated all Request classes from latest Postman collection
+- Fixed deprecated GET `sendText` endpoint - now uses POST with JSON body
+
+#### Fixed
+
+- Removed duplicate deprecated GET sendText endpoint from Postman collection
+- Fixed property naming conflicts in generated code:
+  - `$config` → `$appConfig` in App-related requests
+  - `$config` → `$sessionConfig` in UpsertAndStartSession
+  - `$method` → `$authMethod` in RequestAuthenticationCode
+  - `$body` → `$messageBody` in SendButtonsMessageInteractive
+  
+
+#### Technical
+
+- 219 files changed with updated API endpoints
+- PHPStan baseline regenerated for auto-generated code
+
+**Full Changelog**: https://github.com/chengkangzai/laravel-waha-saloon-sdk/compare/v0.1.1...v0.2.0
+
 ## v0.1.1 - 2025-12-26
 
 ### What's Changed
@@ -47,6 +74,7 @@ Waha::connection('production')->sessions()->listAllSessions();
 $waha = new Waha($url, $key);
 
 
+
 ```
 #### Configuration
 
@@ -66,6 +94,7 @@ return [
         ],
     ],
 ];
+
 
 
 ```
@@ -128,6 +157,7 @@ $qrValue = $response->json()['value']; // '1@ABC123...'
 
 // Using static factory methods directly
 $response = $waha->send(GetQrCodeForPairingWhatsAppApi::forBinaryImage('default'));
+
 
 
 
