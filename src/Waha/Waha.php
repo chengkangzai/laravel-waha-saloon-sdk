@@ -106,12 +106,19 @@ use CCK\LaravelWahaSaloonSdk\Waha\Resource\Video;
 use CCK\LaravelWahaSaloonSdk\Waha\Resource\Views;
 use CCK\LaravelWahaSaloonSdk\Waha\Resource\Voice;
 use Saloon\Http\Connector;
+use Saloon\Traits\Plugins\HasTimeout;
 
 /**
  * WAHA - WhatsApp HTTP API
  */
 class Waha extends Connector
 {
+    use HasTimeout;
+
+    protected int $connectTimeout = 10;
+
+    protected int $requestTimeout = 60;
+
     public function __construct(
         public string $baseUrl = '',
         protected ?string $apiKey = null,
@@ -127,6 +134,11 @@ class Waha extends Connector
             $this->apiKey = config('waha-saloon-sdk.connections.default.api_key')
                 ?? config('waha-saloon-sdk.api_key')
                 ?? null;
+        }
+
+        if (function_exists('config')) {
+            $this->connectTimeout = (int) (config('waha-saloon-sdk.connect_timeout') ?? $this->connectTimeout);
+            $this->requestTimeout = (int) (config('waha-saloon-sdk.timeout') ?? $this->requestTimeout);
         }
     }
 

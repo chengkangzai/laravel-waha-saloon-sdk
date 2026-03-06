@@ -41,6 +41,20 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Timeout Configuration
+    |--------------------------------------------------------------------------
+    |
+    | Configure the connection and request timeouts (in seconds) for the
+    | WAHA API. The request timeout should be generous enough for media
+    | operations (sendImage, sendVideo, etc.) where WAHA downloads and
+    | processes files server-side before sending.
+    |
+    */
+    'timeout' => env('WAHA_REQUEST_TIMEOUT', 60),
+    'connect_timeout' => env('WAHA_CONNECT_TIMEOUT', 10),
+
+    /*
+    |--------------------------------------------------------------------------
     | Legacy Configuration (Backward Compatibility)
     |--------------------------------------------------------------------------
     |
