@@ -2,6 +2,24 @@
 
 All notable changes to `laravel-waha-saloon-sdk` will be documented in this file.
 
+## v0.4.0 - 2026-03-26
+
+### What's Changed
+
+#### Breaking Changes
+
+- Upgraded `saloonphp/saloon` from `^3.0` to `^4.0` (#13)
+  - Saloon v4 is a security-focused release with 3 CVE fixes — no namespace or API changes
+  - Consumers pinning `saloonphp/saloon: ^3.0` must update their constraint
+
+#### Features
+
+- Add configurable `AlwaysThrowOnErrors` middleware (#14)
+  - Non-2xx responses now throw `RequestException` instead of causing misleading `JsonException` when calling `->json()`
+  - Enabled by default, disable via `WAHA_ALWAYS_THROW_ON_ERRORS=false` env var
+
+**Full Changelog**: https://github.com/chengkangzai/laravel-waha-saloon-sdk/compare/v0.3.1...v0.4.0
+
 ## v0.3.1 - 2026-03-20
 
 ### What's Changed
