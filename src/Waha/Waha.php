@@ -105,7 +105,9 @@ use CCK\LaravelWahaSaloonSdk\Waha\Resource\Version;
 use CCK\LaravelWahaSaloonSdk\Waha\Resource\Video;
 use CCK\LaravelWahaSaloonSdk\Waha\Resource\Views;
 use CCK\LaravelWahaSaloonSdk\Waha\Resource\Voice;
+use Saloon\Enums\PipeOrder;
 use Saloon\Http\Connector;
+use Saloon\Http\Response;
 use Saloon\Traits\Plugins\HasTimeout;
 
 /**
@@ -139,6 +141,14 @@ class Waha extends Connector
         if (function_exists('config')) {
             $this->connectTimeout = (int) (config('waha-saloon-sdk.connect_timeout') ?? $this->connectTimeout);
             $this->requestTimeout = (int) (config('waha-saloon-sdk.timeout') ?? $this->requestTimeout);
+
+            if (config('waha-saloon-sdk.always_throw_on_errors', true)) {
+                $this->middleware()->onResponse(
+                    callable: static fn (Response $response) => $response->throw(),
+                    name: 'alwaysThrowOnErrors',
+                    order: PipeOrder::LAST,
+                );
+            }
         }
     }
 

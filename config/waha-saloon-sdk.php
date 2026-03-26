@@ -55,6 +55,19 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Always Throw On Errors
+    |--------------------------------------------------------------------------
+    |
+    | When enabled, non-2xx responses will automatically throw a
+    | RequestException instead of returning a response object. This
+    | prevents misleading JsonException errors when calling ->json()
+    | on error responses (e.g. HTML error pages, empty bodies).
+    |
+    */
+    'always_throw_on_errors' => env('WAHA_ALWAYS_THROW_ON_ERRORS', true),
+
+    /*
+    |--------------------------------------------------------------------------
     | Legacy Configuration (Backward Compatibility)
     |--------------------------------------------------------------------------
     |
