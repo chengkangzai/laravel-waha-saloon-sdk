@@ -1,6 +1,7 @@
 <?php
 
 use CCK\LaravelWahaSaloonSdk\Waha\Waha;
+use Saloon\Exceptions\Request\RequestException;
 use Saloon\Http\Faking\MockClient;
 use Saloon\Http\Faking\MockResponse;
 
@@ -17,7 +18,7 @@ describe('Waha AlwaysThrowOnErrors', function () {
         $waha->withMockClient($mockClient);
 
         $waha->sessions()->getSessionInformation('test', null);
-    })->throws(Saloon\Exceptions\Request\RequestException::class);
+    })->throws(RequestException::class);
 
     it('does not throw when always_throw_on_errors is disabled', function () {
         config()->set('waha-saloon-sdk.always_throw_on_errors', false);

@@ -1,5 +1,6 @@
 <?php
 
+use CCK\LaravelWahaSaloonSdk\Waha\Resource\Sessions;
 use CCK\LaravelWahaSaloonSdk\Waha\Waha;
 use CCK\LaravelWahaSaloonSdk\WahaManager;
 
@@ -166,6 +167,6 @@ describe('WahaManager', function () {
         // The sessions() method should be proxied to the default connection
         $sessions = $manager->sessions();
 
-        expect($sessions)->toBeInstanceOf(\CCK\LaravelWahaSaloonSdk\Waha\Resource\Sessions::class);
+        expect($sessions)->toBeInstanceOf(Sessions::class);
     });
 });
