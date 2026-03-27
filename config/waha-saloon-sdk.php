@@ -64,7 +64,7 @@ return [
     | on error responses (e.g. HTML error pages, empty bodies).
     |
     */
-    'always_throw_on_errors' => env('WAHA_ALWAYS_THROW_ON_ERRORS', true),
+    'always_throw_on_errors' => env('WAHA_ALWAYS_THROW_ON_ERRORS', false),
 
     /*
     |--------------------------------------------------------------------------
