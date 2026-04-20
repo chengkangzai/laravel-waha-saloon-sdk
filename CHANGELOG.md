@@ -2,6 +2,16 @@
 
 All notable changes to `laravel-waha-saloon-sdk` will be documented in this file.
 
+## v0.4.2 - 2026-04-21
+
+### What's Changed
+
+#### Features
+
+- Add Laravel 13 support
+
+**Full Changelog**: https://github.com/chengkangzai/laravel-waha-saloon-sdk/compare/v0.4.1...v0.4.2
+
 ## v0.4.1 - 2026-03-27
 
 ### What's Changed

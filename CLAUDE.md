@@ -56,7 +56,7 @@ The SDK is generated from a Postman collection using the `sdkgenerator` tool:
 - **Static Analysis**: PHPStan level 5 with Laravel-specific rules
 - **Testing Framework**: Pest PHP with Orchestra Testbench for Laravel package testing
 - **PHP Version**: Requires PHP 8.4+
-- **Laravel Versions**: Supports Laravel 10.x, 11.x, and 12.x
+- **Laravel Versions**: Supports Laravel 10.x, 11.x, 12.x, and 13.x
 
 ## Development Workflow
 
