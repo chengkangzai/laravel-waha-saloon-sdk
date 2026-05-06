@@ -19,9 +19,9 @@ class Sessions extends Resource
         return $this->connector->send(new GetSessionInformation($session, $expand, $expand));
     }
 
-    public function updateSession(string $session, mixed $name): Response
+    public function updateSession(string $session, mixed $name = null, mixed $config = null): Response
     {
-        return $this->connector->send(new UpdateSession($session, $name));
+        return $this->connector->send(new UpdateSession($session, $name, $config));
     }
 
     public function deleteTheSession(string $session): Response
