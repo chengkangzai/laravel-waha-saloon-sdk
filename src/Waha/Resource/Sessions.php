@@ -21,7 +21,7 @@ class Sessions extends Resource
 
     public function updateSession(string $session, mixed $name = null, mixed $config = null): Response
     {
-        return $this->connector->send(new UpdateSession($session, $name, $config));
+        return $this->connector->send(new UpdateSession($session, $name, $config)); // @phpstan-ignore-line
     }
 
     public function deleteTheSession(string $session): Response

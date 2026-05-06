@@ -24,14 +24,14 @@ class UpdateSession extends Request implements HasBody
     public function __construct(
         protected string $session,
         protected mixed $name = null,
-        protected mixed $config = null,
+        protected mixed $sessionConfig = null,
     ) {}
 
     public function defaultBody(): array
     {
         return array_filter([
             'name' => $this->name,
-            'config' => $this->config,
+            'config' => $this->sessionConfig,
         ]);
     }
 }
