@@ -29,6 +29,6 @@ class UpdateSettingsWhoCanSendMessages extends Request implements HasBody
 
     public function defaultBody(): array
     {
-        return array_filter(['adminsOnly' => $this->adminsOnly]);
+        return array_filter(['adminsOnly' => $this->adminsOnly], fn ($value) => $value !== null);
     }
 }

@@ -27,6 +27,6 @@ class GetInfoAboutTheGroupBeforeJoining extends Request
 
     public function defaultQuery(): array
     {
-        return array_filter(['code' => $this->code]);
+        return array_filter(['code' => $this->code], fn ($value) => $value !== null);
     }
 }

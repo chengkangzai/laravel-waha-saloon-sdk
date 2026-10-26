@@ -24,6 +24,6 @@ class GetListOfKnowChannels extends Request
 
     public function defaultQuery(): array
     {
-        return array_filter(['role' => $this->role]);
+        return array_filter(['role' => $this->role], fn ($value) => $value !== null);
     }
 }

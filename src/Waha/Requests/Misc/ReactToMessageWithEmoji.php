@@ -29,6 +29,6 @@ class ReactToMessageWithEmoji extends Request implements HasBody
 
     public function defaultBody(): array
     {
-        return array_filter(['messageId' => $this->messageId, 'reaction' => $this->reaction, 'session' => $this->session]);
+        return array_filter(['messageId' => $this->messageId, 'reaction' => $this->reaction, 'session' => $this->session], fn ($value) => $value !== null);
     }
 }

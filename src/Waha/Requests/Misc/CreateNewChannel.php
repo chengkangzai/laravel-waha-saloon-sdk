@@ -30,6 +30,6 @@ class CreateNewChannel extends Request implements HasBody
 
     public function defaultBody(): array
     {
-        return array_filter(['name' => $this->name, 'description' => $this->description, 'picture' => $this->picture]);
+        return array_filter(['name' => $this->name, 'description' => $this->description, 'picture' => $this->picture], fn ($value) => $value !== null);
     }
 }

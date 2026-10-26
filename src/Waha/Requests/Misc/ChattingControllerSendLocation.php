@@ -39,6 +39,6 @@ class ChattingControllerSendLocation extends Request implements HasBody
             'title' => $this->title,
             'session' => $this->session,
             'reply_to' => $this->replyTo,
-        ]);
+        ], fn ($value) => $value !== null);
     }
 }

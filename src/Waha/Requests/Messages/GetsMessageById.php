@@ -29,6 +29,6 @@ class GetsMessageById extends Request
 
     public function defaultQuery(): array
     {
-        return array_filter(['downloadMedia' => $this->downloadMedia]);
+        return array_filter(['downloadMedia' => $this->downloadMedia], fn ($value) => $value !== null);
     }
 }

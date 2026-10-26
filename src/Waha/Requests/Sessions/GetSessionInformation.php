@@ -28,6 +28,6 @@ class GetSessionInformation extends Request
 
     public function defaultQuery(): array
     {
-        return array_filter(['expand' => $this->expand]);
+        return array_filter(['expand' => $this->expand], fn ($value) => $value !== null);
     }
 }

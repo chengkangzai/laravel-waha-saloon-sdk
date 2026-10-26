@@ -29,6 +29,6 @@ class RejectIncomingCall extends Request implements HasBody
 
     public function defaultBody(): array
     {
-        return array_filter(['from' => $this->from, 'id' => $this->id]);
+        return array_filter(['from' => $this->from, 'id' => $this->id], fn ($value) => $value !== null);
     }
 }

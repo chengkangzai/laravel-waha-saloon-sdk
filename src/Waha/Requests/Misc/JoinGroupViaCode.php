@@ -28,6 +28,6 @@ class JoinGroupViaCode extends Request implements HasBody
 
     public function defaultBody(): array
     {
-        return array_filter(['code' => $this->code]);
+        return array_filter(['code' => $this->code], fn ($value) => $value !== null);
     }
 }

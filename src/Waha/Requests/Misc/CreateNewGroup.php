@@ -29,6 +29,6 @@ class CreateNewGroup extends Request implements HasBody
 
     public function defaultBody(): array
     {
-        return array_filter(['name' => $this->name, 'participants' => $this->participants]);
+        return array_filter(['name' => $this->name, 'participants' => $this->participants], fn ($value) => $value !== null);
     }
 }

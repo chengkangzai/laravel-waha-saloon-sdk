@@ -37,6 +37,6 @@ class SendVoiceMessage extends Request implements HasBody
             'convert' => $this->convert,
             'session' => $this->session,
             'reply_to' => $this->replyTo,
-        ]);
+        ], fn ($value) => $value !== null);
     }
 }

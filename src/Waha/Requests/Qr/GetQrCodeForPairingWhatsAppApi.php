@@ -30,7 +30,7 @@ class GetQrCodeForPairingWhatsAppApi extends Request
 
     public function defaultQuery(): array
     {
-        return array_filter(['format' => $this->format]);
+        return array_filter(['format' => $this->format], fn ($value) => $value !== null);
     }
 
     public function defaultHeaders(): array

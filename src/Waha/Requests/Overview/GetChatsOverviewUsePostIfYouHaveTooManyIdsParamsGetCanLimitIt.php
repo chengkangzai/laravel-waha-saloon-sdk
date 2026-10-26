@@ -29,6 +29,6 @@ class GetChatsOverviewUsePostIfYouHaveTooManyIdsParamsGetCanLimitIt extends Requ
 
     public function defaultBody(): array
     {
-        return array_filter(['pagination' => $this->pagination, 'filter' => $this->filter]);
+        return array_filter(['pagination' => $this->pagination, 'filter' => $this->filter], fn ($value) => $value !== null);
     }
 }

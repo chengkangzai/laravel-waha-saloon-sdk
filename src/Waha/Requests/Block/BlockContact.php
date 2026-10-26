@@ -28,6 +28,6 @@ class BlockContact extends Request implements HasBody
 
     public function defaultBody(): array
     {
-        return array_filter(['contactId' => $this->contactId, 'session' => $this->session]);
+        return array_filter(['contactId' => $this->contactId, 'session' => $this->session], fn ($value) => $value !== null);
     }
 }

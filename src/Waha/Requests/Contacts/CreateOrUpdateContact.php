@@ -30,6 +30,6 @@ class CreateOrUpdateContact extends Request implements HasBody
 
     public function defaultBody(): array
     {
-        return array_filter(['firstName' => $this->firstName, 'lastName' => $this->lastName]);
+        return array_filter(['firstName' => $this->firstName, 'lastName' => $this->lastName], fn ($value) => $value !== null);
     }
 }

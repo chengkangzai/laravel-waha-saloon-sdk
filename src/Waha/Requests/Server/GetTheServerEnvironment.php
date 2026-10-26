@@ -26,6 +26,6 @@ class GetTheServerEnvironment extends Request
 
     public function defaultQuery(): array
     {
-        return array_filter(['all' => $this->all]);
+        return array_filter(['all' => $this->all], fn ($value) => $value !== null);
     }
 }

@@ -37,6 +37,6 @@ class VoteOnPoll extends Request implements HasBody
             'votes' => $this->votes,
             'session' => $this->session,
             'pollServerId' => $this->pollServerId,
-        ]);
+        ], fn ($value) => $value !== null);
     }
 }

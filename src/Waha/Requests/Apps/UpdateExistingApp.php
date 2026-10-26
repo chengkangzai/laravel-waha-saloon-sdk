@@ -40,6 +40,6 @@ class UpdateExistingApp extends Request implements HasBody
             'app' => $this->app,
             'config' => $this->appConfig,
             'enabled' => $this->enabled,
-        ]);
+        ], fn ($value) => $value !== null);
     }
 }

@@ -31,6 +31,6 @@ class GetChats extends Request
 
     public function defaultQuery(): array
     {
-        return array_filter(['sortBy' => $this->sortBy, 'sortOrder' => $this->sortOrder, 'limit' => $this->limit, 'offset' => $this->offset]);
+        return array_filter(['sortBy' => $this->sortBy, 'sortOrder' => $this->sortOrder, 'limit' => $this->limit, 'offset' => $this->offset], fn ($value) => $value !== null);
     }
 }

@@ -52,6 +52,6 @@ class GetsMessagesInTheChat extends Request
             'filter.timestamp.gte' => $this->filterTimestampGte,
             'filter.fromMe' => $this->filterFromMe,
             'filter.ack' => $this->filterAck,
-        ]);
+        ], fn ($value) => $value !== null);
     }
 }

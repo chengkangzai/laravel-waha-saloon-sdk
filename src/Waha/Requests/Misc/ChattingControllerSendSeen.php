@@ -37,6 +37,6 @@ class ChattingControllerSendSeen extends Request implements HasBody
             'messageId' => $this->messageId,
             'messageIds' => $this->messageIds,
             'participant' => $this->participant,
-        ]);
+        ], fn ($value) => $value !== null);
     }
 }

@@ -29,6 +29,6 @@ class RequestAuthenticationCode extends Request implements HasBody
 
     public function defaultBody(): array
     {
-        return array_filter(['phoneNumber' => $this->phoneNumber, 'method' => $this->authMethod]);
+        return array_filter(['phoneNumber' => $this->phoneNumber, 'method' => $this->authMethod], fn ($value) => $value !== null);
     }
 }

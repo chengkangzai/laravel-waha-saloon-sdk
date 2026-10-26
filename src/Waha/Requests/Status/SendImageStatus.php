@@ -31,6 +31,6 @@ class SendImageStatus extends Request implements HasBody
 
     public function defaultBody(): array
     {
-        return array_filter(['file' => $this->file, 'id' => $this->id, 'contacts' => $this->contacts, 'caption' => $this->caption]);
+        return array_filter(['file' => $this->file, 'id' => $this->id, 'contacts' => $this->contacts, 'caption' => $this->caption], fn ($value) => $value !== null);
     }
 }

@@ -29,6 +29,6 @@ class SetSessionPresence extends Request implements HasBody
 
     public function defaultBody(): array
     {
-        return array_filter(['chatId' => $this->chatId, 'presence' => $this->presence]);
+        return array_filter(['chatId' => $this->chatId, 'presence' => $this->presence], fn ($value) => $value !== null);
     }
 }

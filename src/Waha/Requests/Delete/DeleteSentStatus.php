@@ -29,6 +29,6 @@ class DeleteSentStatus extends Request implements HasBody
 
     public function defaultBody(): array
     {
-        return array_filter(['id' => $this->id, 'contacts' => $this->contacts]);
+        return array_filter(['id' => $this->id, 'contacts' => $this->contacts], fn ($value) => $value !== null);
     }
 }

@@ -28,6 +28,6 @@ class SetProfileStatusAbout extends Request implements HasBody
 
     public function defaultBody(): array
     {
-        return array_filter(['status' => $this->status]);
+        return array_filter(['status' => $this->status], fn ($value) => $value !== null);
     }
 }

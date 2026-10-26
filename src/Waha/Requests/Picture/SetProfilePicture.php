@@ -28,6 +28,6 @@ class SetProfilePicture extends Request implements HasBody
 
     public function defaultBody(): array
     {
-        return array_filter(['file' => $this->file]);
+        return array_filter(['file' => $this->file], fn ($value) => $value !== null);
     }
 }

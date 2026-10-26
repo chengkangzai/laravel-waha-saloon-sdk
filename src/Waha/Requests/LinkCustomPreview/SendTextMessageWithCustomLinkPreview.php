@@ -39,6 +39,6 @@ class SendTextMessageWithCustomLinkPreview extends Request implements HasBody
             'session' => $this->session,
             'reply_to' => $this->replyTo,
             'linkPreviewHighQuality' => $this->linkPreviewHighQuality,
-        ]);
+        ], fn ($value) => $value !== null);
     }
 }

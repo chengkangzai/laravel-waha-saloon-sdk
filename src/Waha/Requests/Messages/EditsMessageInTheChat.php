@@ -32,6 +32,6 @@ class EditsMessageInTheChat extends Request implements HasBody
 
     public function defaultBody(): array
     {
-        return array_filter(['text' => $this->text, 'linkPreview' => $this->linkPreview, 'linkPreviewHighQuality' => $this->linkPreviewHighQuality]);
+        return array_filter(['text' => $this->text, 'linkPreview' => $this->linkPreview, 'linkPreviewHighQuality' => $this->linkPreviewHighQuality], fn ($value) => $value !== null);
     }
 }

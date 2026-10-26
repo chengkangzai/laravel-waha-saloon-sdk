@@ -26,6 +26,6 @@ class CollectAndReturnCpuProfileForTheCurrentNodejsProcess extends Request
 
     public function defaultQuery(): array
     {
-        return array_filter(['seconds' => $this->seconds]);
+        return array_filter(['seconds' => $this->seconds], fn ($value) => $value !== null);
     }
 }

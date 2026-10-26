@@ -28,6 +28,6 @@ class GetsChatPicture extends Request
 
     public function defaultQuery(): array
     {
-        return array_filter(['refresh' => $this->refresh]);
+        return array_filter(['refresh' => $this->refresh], fn ($value) => $value !== null);
     }
 }

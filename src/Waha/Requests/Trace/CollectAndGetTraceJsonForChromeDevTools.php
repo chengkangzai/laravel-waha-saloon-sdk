@@ -29,6 +29,6 @@ class CollectAndGetTraceJsonForChromeDevTools extends Request
 
     public function defaultQuery(): array
     {
-        return array_filter(['seconds' => $this->seconds, 'categories' => $this->categories]);
+        return array_filter(['seconds' => $this->seconds, 'categories' => $this->categories], fn ($value) => $value !== null);
     }
 }

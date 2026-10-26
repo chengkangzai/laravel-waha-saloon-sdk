@@ -30,6 +30,6 @@ class PinsMessageInTheChat extends Request implements HasBody
 
     public function defaultBody(): array
     {
-        return array_filter(['duration' => $this->duration]);
+        return array_filter(['duration' => $this->duration], fn ($value) => $value !== null);
     }
 }

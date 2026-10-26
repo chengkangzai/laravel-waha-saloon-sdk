@@ -40,6 +40,6 @@ class GetAllGroups extends Request
             'limit' => $this->limit,
             'offset' => $this->offset,
             'exclude' => $this->exclude,
-        ]);
+        ], fn ($value) => $value !== null);
     }
 }
