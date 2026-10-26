@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-waha-saloon-sdk` will be documented in this file.
 
+## v0.4.5 - 2026-10-26
+
+Adds `GetSessionTimelock` (`GET /api/sessions/{session}/timelock`) and `GetSessionCapping` (`GET /api/sessions/{session}/capping`), exposed as `Sessions::getSessionTimelock()` / `getSessionCapping()`. Allows Pest 4 so the Laravel 13 CI matrix resolves. (#18)
+
 ## v0.4.2 - 2026-04-21
 
 ### What's Changed
@@ -20,6 +24,7 @@ All notable changes to `laravel-waha-saloon-sdk` will be documented in this file
 
 - Default `always_throw_on_errors` to `false` to avoid breaking existing consumers
   - Consumers can opt in via `WAHA_ALWAYS_THROW_ON_ERRORS=true` env var
+  
 
 **Full Changelog**: https://github.com/chengkangzai/laravel-waha-saloon-sdk/compare/v0.4.0...v0.4.1
 
@@ -32,12 +37,14 @@ All notable changes to `laravel-waha-saloon-sdk` will be documented in this file
 - Upgraded `saloonphp/saloon` from `^3.0` to `^4.0` (#13)
   - Saloon v4 is a security-focused release with 3 CVE fixes — no namespace or API changes
   - Consumers pinning `saloonphp/saloon: ^3.0` must update their constraint
+  
 
 #### Features
 
 - Add configurable `AlwaysThrowOnErrors` middleware (#14)
   - Non-2xx responses now throw `RequestException` instead of causing misleading `JsonException` when calling `->json()`
   - Disabled by default, enable via `WAHA_ALWAYS_THROW_ON_ERRORS=true` env var
+  
 
 **Full Changelog**: https://github.com/chengkangzai/laravel-waha-saloon-sdk/compare/v0.3.1...v0.4.0
 
@@ -69,6 +76,7 @@ $waha->auth()->getQrCodeBase64('session');
 $waha->auth()->getQrCodeImage('session');
 $waha->auth()->getQrCodeRaw('session');
 
+
 ```
 **After:**
 
@@ -76,6 +84,7 @@ $waha->auth()->getQrCodeRaw('session');
 $waha->qr()->getQrCodeBase64('session');
 $waha->qr()->getQrCodeImage('session');
 $waha->qr()->getQrCodeRaw('session');
+
 
 ```
 ### What's Changed
@@ -191,6 +200,7 @@ Waha::connection('production')->sessions()->listAllSessions();
 // Direct instantiation still works
 $waha = new Waha($url, $key);
 
+
 ```
 #### Configuration
 
@@ -210,6 +220,7 @@ return [
         ],
     ],
 ];
+
 
 ```
 #### Backward Compatibility
@@ -271,6 +282,7 @@ $qrValue = $response->json()['value']; // '1@ABC123...'
 
 // Using static factory methods directly
 $response = $waha->send(GetQrCodeForPairingWhatsAppApi::forBinaryImage('default'));
+
 
 ```
 #### Testing
