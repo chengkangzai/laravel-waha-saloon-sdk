@@ -26,6 +26,6 @@ class PreviewChannelMessages extends Request
 
     public function defaultQuery(): array
     {
-        return array_filter(['downloadMedia' => $this->downloadMedia, 'limit' => $this->limit]);
+        return array_filter(['downloadMedia' => $this->downloadMedia, 'limit' => $this->limit], fn ($value) => $value !== null);
     }
 }

@@ -29,6 +29,6 @@ class ConvertVideoToWhatsAppFormatMp4 extends Request implements HasBody
 
     public function defaultBody(): array
     {
-        return array_filter(['url' => $this->url, 'data' => $this->data]);
+        return array_filter(['url' => $this->url, 'data' => $this->data], fn ($value) => $value !== null);
     }
 }

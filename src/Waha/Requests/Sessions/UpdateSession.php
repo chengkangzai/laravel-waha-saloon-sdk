@@ -32,6 +32,6 @@ class UpdateSession extends Request implements HasBody
         return array_filter([
             'name' => $this->name,
             'config' => $this->sessionConfig,
-        ]);
+        ], fn ($value) => $value !== null);
     }
 }

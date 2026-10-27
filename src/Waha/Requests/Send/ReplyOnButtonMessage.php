@@ -37,6 +37,6 @@ class ReplyOnButtonMessage extends Request implements HasBody
             'selectedButtonID' => $this->selectedButtonId,
             'session' => $this->session,
             'replyTo' => $this->replyTo,
-        ]);
+        ], fn ($value) => $value !== null);
     }
 }

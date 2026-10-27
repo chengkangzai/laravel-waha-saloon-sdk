@@ -29,6 +29,6 @@ class PromoteParticipantsToAdminUsers extends Request implements HasBody
 
     public function defaultBody(): array
     {
-        return array_filter(['participants' => $this->participants]);
+        return array_filter(['participants' => $this->participants], fn ($value) => $value !== null);
     }
 }

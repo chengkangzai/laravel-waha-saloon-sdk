@@ -29,6 +29,6 @@ class GetChatsOverviewIncludesAllNecessaryThingsToBuildUiYourChatsOverviewPageCh
 
     public function defaultQuery(): array
     {
-        return array_filter(['limit' => $this->limit, 'offset' => $this->offset, 'ids' => $this->ids]);
+        return array_filter(['limit' => $this->limit, 'offset' => $this->offset, 'ids' => $this->ids], fn ($value) => $value !== null);
     }
 }

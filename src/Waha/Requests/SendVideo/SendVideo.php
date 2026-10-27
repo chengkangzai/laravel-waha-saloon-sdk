@@ -41,6 +41,6 @@ class SendVideo extends Request implements HasBody
             'reply_to' => $this->replyTo,
             'asNote' => $this->asNote,
             'caption' => $this->caption,
-        ]);
+        ], fn ($value) => $value !== null);
     }
 }

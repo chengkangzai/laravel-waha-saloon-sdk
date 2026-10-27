@@ -28,6 +28,6 @@ class ChattingControllerStartTyping extends Request implements HasBody
 
     public function defaultBody(): array
     {
-        return array_filter(['chatId' => $this->chatId, 'session' => $this->session]);
+        return array_filter(['chatId' => $this->chatId, 'session' => $this->session], fn ($value) => $value !== null);
     }
 }

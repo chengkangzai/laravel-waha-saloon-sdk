@@ -30,6 +30,6 @@ class CreateNewLabel extends Request implements HasBody
 
     public function defaultBody(): array
     {
-        return array_filter(['name' => $this->name, 'colorHex' => $this->colorHex, 'color' => $this->color]);
+        return array_filter(['name' => $this->name, 'colorHex' => $this->colorHex, 'color' => $this->color], fn ($value) => $value !== null);
     }
 }

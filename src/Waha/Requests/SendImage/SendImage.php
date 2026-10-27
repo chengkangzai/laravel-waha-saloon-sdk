@@ -37,6 +37,6 @@ class SendImage extends Request implements HasBody
             'session' => $this->session,
             'reply_to' => $this->replyTo,
             'caption' => $this->caption,
-        ]);
+        ], fn ($value) => $value !== null);
     }
 }

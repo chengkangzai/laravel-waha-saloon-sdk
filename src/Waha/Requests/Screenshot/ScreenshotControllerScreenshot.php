@@ -23,6 +23,6 @@ class ScreenshotControllerScreenshot extends Request
 
     public function defaultQuery(): array
     {
-        return array_filter(['session' => $this->session]);
+        return array_filter(['session' => $this->session], fn ($value) => $value !== null);
     }
 }

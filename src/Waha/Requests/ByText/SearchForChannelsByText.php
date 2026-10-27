@@ -36,6 +36,6 @@ class SearchForChannelsByText extends Request implements HasBody
             'categories' => $this->categories,
             'limit' => $this->limit,
             'startCursor' => $this->startCursor,
-        ]);
+        ], fn ($value) => $value !== null);
     }
 }

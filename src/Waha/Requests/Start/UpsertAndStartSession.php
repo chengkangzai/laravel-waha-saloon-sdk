@@ -28,6 +28,6 @@ class UpsertAndStartSession extends Request implements HasBody
 
     public function defaultBody(): array
     {
-        return array_filter(['name' => $this->name, 'config' => $this->sessionConfig]);
+        return array_filter(['name' => $this->name, 'config' => $this->sessionConfig], fn ($value) => $value !== null);
     }
 }

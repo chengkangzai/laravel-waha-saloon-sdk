@@ -34,6 +34,6 @@ class ReadUnreadMessagesInTheChat extends Request implements HasBody
 
     public function defaultQuery(): array
     {
-        return array_filter(['messages' => $this->messages, 'days' => $this->days]);
+        return array_filter(['messages' => $this->messages, 'days' => $this->days], fn ($value) => $value !== null);
     }
 }

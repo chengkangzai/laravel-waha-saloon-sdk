@@ -42,6 +42,6 @@ class SendTextStatus extends Request implements HasBody
             'contacts' => $this->contacts,
             'linkPreview' => $this->linkPreview,
             'linkPreviewHighQuality' => $this->linkPreviewHighQuality,
-        ]);
+        ], fn ($value) => $value !== null);
     }
 }

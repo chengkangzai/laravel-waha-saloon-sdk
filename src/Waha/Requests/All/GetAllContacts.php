@@ -37,6 +37,6 @@ class GetAllContacts extends Request
             'sortOrder' => $this->sortOrder,
             'limit' => $this->limit,
             'offset' => $this->offset,
-        ]);
+        ], fn ($value) => $value !== null);
     }
 }

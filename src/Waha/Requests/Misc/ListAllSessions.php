@@ -29,6 +29,6 @@ class ListAllSessions extends Request
 
     public function defaultQuery(): array
     {
-        return array_filter(['expand' => $this->expand, 'all' => $this->all]);
+        return array_filter(['expand' => $this->expand, 'all' => $this->all], fn ($value) => $value !== null);
     }
 }

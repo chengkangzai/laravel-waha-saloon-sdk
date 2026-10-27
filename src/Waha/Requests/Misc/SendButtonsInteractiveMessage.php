@@ -41,6 +41,6 @@ class SendButtonsInteractiveMessage extends Request implements HasBody
             'buttons' => $this->buttons,
             'session' => $this->session,
             'headerImage' => $this->headerImage,
-        ]);
+        ], fn ($value) => $value !== null);
     }
 }

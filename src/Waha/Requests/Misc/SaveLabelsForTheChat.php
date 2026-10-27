@@ -29,6 +29,6 @@ class SaveLabelsForTheChat extends Request implements HasBody
 
     public function defaultBody(): array
     {
-        return array_filter(['labels' => $this->labels]);
+        return array_filter(['labels' => $this->labels], fn ($value) => $value !== null);
     }
 }

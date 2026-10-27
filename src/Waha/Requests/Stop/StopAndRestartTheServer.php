@@ -27,6 +27,6 @@ class StopAndRestartTheServer extends Request implements HasBody
 
     public function defaultBody(): array
     {
-        return array_filter(['force' => $this->force]);
+        return array_filter(['force' => $this->force], fn ($value) => $value !== null);
     }
 }

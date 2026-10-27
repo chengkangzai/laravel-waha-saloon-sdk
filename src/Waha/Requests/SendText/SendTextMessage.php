@@ -39,6 +39,6 @@ class SendTextMessage extends Request implements HasBody
             'reply_to' => $this->replyTo,
             'linkPreview' => $this->linkPreview,
             'linkPreviewHighQuality' => $this->linkPreviewHighQuality,
-        ]);
+        ], fn ($value) => $value !== null);
     }
 }

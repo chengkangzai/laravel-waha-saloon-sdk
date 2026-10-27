@@ -30,6 +30,6 @@ class ChattingControllerSendLinkPreviewDeprecated extends Request implements Has
 
     public function defaultBody(): array
     {
-        return array_filter(['chatId' => $this->chatId, 'session' => $this->session, 'url' => $this->url, 'title' => $this->title]);
+        return array_filter(['chatId' => $this->chatId, 'session' => $this->session, 'url' => $this->url, 'title' => $this->title], fn ($value) => $value !== null);
     }
 }

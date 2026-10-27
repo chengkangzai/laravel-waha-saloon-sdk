@@ -28,6 +28,6 @@ class CheckNumberStatus extends Request
 
     public function defaultQuery(): array
     {
-        return array_filter(['phone' => $this->phone, 'session' => $this->session]);
+        return array_filter(['phone' => $this->phone, 'session' => $this->session], fn ($value) => $value !== null);
     }
 }

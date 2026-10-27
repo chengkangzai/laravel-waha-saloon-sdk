@@ -38,6 +38,6 @@ class SendVideoStatus extends Request implements HasBody
             'id' => $this->id,
             'contacts' => $this->contacts,
             'caption' => $this->caption,
-        ]);
+        ], fn ($value) => $value !== null);
     }
 }

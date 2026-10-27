@@ -29,6 +29,6 @@ class UpdatesTheGroupSubject extends Request implements HasBody
 
     public function defaultBody(): array
     {
-        return array_filter(['subject' => $this->subject]);
+        return array_filter(['subject' => $this->subject], fn ($value) => $value !== null);
     }
 }

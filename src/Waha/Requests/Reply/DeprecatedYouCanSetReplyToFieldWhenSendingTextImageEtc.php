@@ -39,6 +39,6 @@ class DeprecatedYouCanSetReplyToFieldWhenSendingTextImageEtc extends Request imp
             'reply_to' => $this->replyTo,
             'linkPreview' => $this->linkPreview,
             'linkPreviewHighQuality' => $this->linkPreviewHighQuality,
-        ]);
+        ], fn ($value) => $value !== null);
     }
 }

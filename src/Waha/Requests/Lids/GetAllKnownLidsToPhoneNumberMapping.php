@@ -25,6 +25,6 @@ class GetAllKnownLidsToPhoneNumberMapping extends Request
 
     public function defaultQuery(): array
     {
-        return array_filter(['limit' => $this->limit, 'offset' => $this->offset]);
+        return array_filter(['limit' => $this->limit, 'offset' => $this->offset], fn ($value) => $value !== null);
     }
 }

@@ -30,6 +30,6 @@ class SendPollWithOptions extends Request implements HasBody
 
     public function defaultBody(): array
     {
-        return array_filter(['chatId' => $this->chatId, 'poll' => $this->poll, 'session' => $this->session, 'reply_to' => $this->replyTo]);
+        return array_filter(['chatId' => $this->chatId, 'poll' => $this->poll, 'session' => $this->session, 'reply_to' => $this->replyTo], fn ($value) => $value !== null);
     }
 }

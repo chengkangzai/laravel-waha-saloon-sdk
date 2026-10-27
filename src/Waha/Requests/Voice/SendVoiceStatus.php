@@ -38,6 +38,6 @@ class SendVoiceStatus extends Request implements HasBody
             'backgroundColor' => $this->backgroundColor,
             'id' => $this->id,
             'contacts' => $this->contacts,
-        ]);
+        ], fn ($value) => $value !== null);
     }
 }

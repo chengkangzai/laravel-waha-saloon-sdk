@@ -27,6 +27,6 @@ class LogoutAndDeleteSession extends Request implements HasBody
 
     public function defaultBody(): array
     {
-        return array_filter(['name' => $this->name]);
+        return array_filter(['name' => $this->name], fn ($value) => $value !== null);
     }
 }

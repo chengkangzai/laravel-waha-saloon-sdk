@@ -29,6 +29,6 @@ class UpdatesTheGroupDescription extends Request implements HasBody
 
     public function defaultBody(): array
     {
-        return array_filter(['description' => $this->description]);
+        return array_filter(['description' => $this->description], fn ($value) => $value !== null);
     }
 }
