@@ -2,6 +2,22 @@
 
 All notable changes to `laravel-waha-saloon-sdk` will be documented in this file.
 
+## v0.5.0 - 2026-11-02
+
+Syncs the SDK with the WAHA 2026.9.2 OpenAPI spec. No breaking changes: existing classes, methods and constructor signatures are unchanged. (#20)
+
+**New endpoints (43):** passkey auth, API keys, `sendSticker`, `new-message-id`, GET `sendText`, single contact lookup, group security settings (member-add-mode, member-share-history-mode, membership-approval), group join requests (list/approve/reject), app storage purge, phone-number cache apps (generic, Argentine, Brazilian, Mexican), Chatwoot webhook and MCP.
+
+**Fixes**
+
+- `Apps::updateExistingApp`, `Misc::listAllSessions`, `Misc::getAllGroups` and `Sessions::getSessionInformation` forwarded the wrong arguments to their requests. `updateExistingApp` shifted every field by one and dropped `$enabled`.
+- 35 requests now send fields that were missing: `id`, `mentions`, `convert`, `apps`, `config`, `start`, `merge`, `downloadMediaMimetypes`, `sortBy`, `sortOrder`.
+- 56 query parameters now accept native bool, int and array values as well as strings.
+- `admin`, `server`, `search` and `sending` resources are now reachable from the connector.
+- `false`, `0` and empty-string values are no longer dropped from request bodies and queries. (#19)
+
+**Maintenance:** `actions/checkout` v7 (#17). Dependabot auto-merges GitHub Actions major updates once CI passes (#21). CI allows advisory-flagged Laravel 11 versions so the full test matrix installs.
+
 ## v0.4.5 - 2026-10-26
 
 Adds `GetSessionTimelock` (`GET /api/sessions/{session}/timelock`) and `GetSessionCapping` (`GET /api/sessions/{session}/capping`), exposed as `Sessions::getSessionTimelock()` / `getSessionCapping()`. Allows Pest 4 so the Laravel 13 CI matrix resolves. (#18)
@@ -77,6 +93,7 @@ $waha->auth()->getQrCodeImage('session');
 $waha->auth()->getQrCodeRaw('session');
 
 
+
 ```
 **After:**
 
@@ -84,6 +101,7 @@ $waha->auth()->getQrCodeRaw('session');
 $waha->qr()->getQrCodeBase64('session');
 $waha->qr()->getQrCodeImage('session');
 $waha->qr()->getQrCodeRaw('session');
+
 
 
 ```
@@ -201,6 +219,7 @@ Waha::connection('production')->sessions()->listAllSessions();
 $waha = new Waha($url, $key);
 
 
+
 ```
 #### Configuration
 
@@ -220,6 +239,7 @@ return [
         ],
     ],
 ];
+
 
 
 ```
@@ -282,6 +302,7 @@ $qrValue = $response->json()['value']; // '1@ABC123...'
 
 // Using static factory methods directly
 $response = $waha->send(GetQrCodeForPairingWhatsAppApi::forBinaryImage('default'));
+
 
 
 ```
