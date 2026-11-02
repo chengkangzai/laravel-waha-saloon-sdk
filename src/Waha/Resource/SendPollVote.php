@@ -9,11 +9,11 @@ use Saloon\Http\Response;
 class SendPollVote extends Resource
 {
     public function voteOnPoll(
-        mixed $chatId,
-        mixed $pollMessageId,
-        mixed $votes,
-        mixed $session,
-        mixed $pollServerId,
+        mixed $chatId = null,
+        mixed $pollMessageId = null,
+        mixed $votes = null,
+        mixed $session = null,
+        mixed $pollServerId = null,
     ): Response {
         return $this->connector->send(new VoteOnPoll($chatId, $pollMessageId, $votes, $session, $pollServerId));
     }

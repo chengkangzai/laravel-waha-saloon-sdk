@@ -9,7 +9,7 @@ use Saloon\Http\Response;
 
 class InfoAdminOnly extends Resource
 {
-    public function updatesTheGroupInfoAdminOnlySettings(string $session, string $id, mixed $adminsOnly): Response
+    public function updatesTheGroupInfoAdminOnlySettings(string $session, string $id, mixed $adminsOnly = null): Response
     {
         return $this->connector->send(new UpdatesTheGroupInfoAdminOnlySettings($session, $id, $adminsOnly));
     }

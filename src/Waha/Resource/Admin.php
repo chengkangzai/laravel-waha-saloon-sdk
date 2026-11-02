@@ -9,12 +9,12 @@ use Saloon\Http\Response;
 
 class Admin extends Resource
 {
-    public function promoteParticipantsToAdminUsers(string $session, string $id, mixed $participants): Response
+    public function promoteParticipantsToAdminUsers(string $session, string $id, mixed $participants = null): Response
     {
         return $this->connector->send(new PromoteParticipantsToAdminUsers($session, $id, $participants));
     }
 
-    public function demotesParticipantsToRegularUsers(string $session, string $id, mixed $participants): Response
+    public function demotesParticipantsToRegularUsers(string $session, string $id, mixed $participants = null): Response
     {
         return $this->connector->send(new DemotesParticipantsToRegularUsers($session, $id, $participants));
     }

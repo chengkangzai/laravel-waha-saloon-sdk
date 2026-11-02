@@ -14,6 +14,9 @@ class Version extends Resource
         return $this->connector->send(new GetTheVersionOfTheServer);
     }
 
+    /**
+     * @deprecated Use Server\GetTheVersionOfTheServer.
+     */
     public function getTheServerVersion(): Response
     {
         return $this->connector->send(new GetTheServerVersion);

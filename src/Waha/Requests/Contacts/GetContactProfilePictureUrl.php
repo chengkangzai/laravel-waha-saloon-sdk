@@ -18,13 +18,16 @@ class GetContactProfilePictureUrl extends Request
     }
 
     /**
+     * WAHA requires: $contactId, $session. Nullable arguments remain for compatibility
+     * with callers that populate the Saloon query/body stores before sending.
+     *
      * @param  null|string  $contactId  (Required)
-     * @param  null|string  $refresh  Refresh the picture from the server (24h cache by default). Do not refresh if not needed, you can get rate limit error
+     * @param  string|bool|null  $refresh  Refresh the picture from the server (24h cache by default). Do not refresh if not needed, you can get rate limit error
      * @param  null|string  $session  (Required)
      */
     public function __construct(
         protected ?string $contactId = null,
-        protected ?string $refresh = null,
+        protected string|bool|null $refresh = null,
         protected ?string $session = null,
     ) {}
 

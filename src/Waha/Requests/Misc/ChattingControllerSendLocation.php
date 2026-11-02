@@ -21,6 +21,10 @@ class ChattingControllerSendLocation extends Request implements HasBody
         return '/api/sendLocation';
     }
 
+    /**
+     * WAHA requires: $chatId, $latitude, $longitude, $title, $session. Nullable arguments remain for compatibility
+     * with callers that populate the Saloon query/body stores before sending.
+     */
     public function __construct(
         protected mixed $chatId = null,
         protected mixed $latitude = null,
@@ -28,6 +32,7 @@ class ChattingControllerSendLocation extends Request implements HasBody
         protected mixed $title = null,
         protected mixed $session = null,
         protected mixed $replyTo = null,
+        protected ?string $id = null,
     ) {}
 
     public function defaultBody(): array
@@ -39,6 +44,7 @@ class ChattingControllerSendLocation extends Request implements HasBody
             'title' => $this->title,
             'session' => $this->session,
             'reply_to' => $this->replyTo,
+            'id' => $this->id,
         ], fn ($value) => $value !== null);
     }
 }

@@ -8,7 +8,7 @@ use Saloon\Http\Response;
 
 class SendList extends Resource
 {
-    public function sendListMessageInteractive(mixed $chatId, mixed $message, mixed $session, mixed $replyTo): Response
+    public function sendListMessageInteractive(mixed $chatId = null, mixed $message = null, mixed $session = null, mixed $replyTo = null): Response
     {
         return $this->connector->send(new SendListMessageInteractive($chatId, $message, $session, $replyTo));
     }

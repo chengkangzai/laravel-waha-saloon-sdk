@@ -18,6 +18,9 @@ class CheckPhoneNumberIsRegisteredInWhatsApp extends Request
     }
 
     /**
+     * WAHA requires: $phone, $session. Nullable arguments remain for compatibility
+     * with callers that populate the Saloon query/body stores before sending.
+     *
      * @param  null|string  $phone  (Required) The phone number to check
      * @param  null|string  $session  (Required)
      */

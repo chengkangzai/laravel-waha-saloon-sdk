@@ -13,12 +13,11 @@ use Saloon\Http\Response;
 class Sessions extends Resource
 {
     /**
-     * @param  string  $expand  Expand additional session details.
-     * @param  string  $expand  Expand additional session details.
+     * @param  string|array|null  $expand  Expand additional session details.
      */
-    public function getSessionInformation(string $session, ?string $expand): Response
+    public function getSessionInformation(string $session, string|array|null $expand = null): Response
     {
-        return $this->connector->send(new GetSessionInformation($session, $expand, $expand));
+        return $this->connector->send(new GetSessionInformation($session, $expand));
     }
 
     /**
@@ -39,9 +38,9 @@ class Sessions extends Resource
         return $this->connector->send(new GetSessionCapping($session));
     }
 
-    public function updateSession(string $session, mixed $name = null, mixed $config = null): Response
+    public function updateSession(string $session, mixed $name = null, mixed $config = null, ?array $apps = null): Response
     {
-        return $this->connector->send(new UpdateSession($session, $name, $config));
+        return $this->connector->send(new UpdateSession($session, $name, $config, $apps));
     }
 
     public function deleteTheSession(string $session): Response

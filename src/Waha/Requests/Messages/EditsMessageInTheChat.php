@@ -21,6 +21,10 @@ class EditsMessageInTheChat extends Request implements HasBody
         return "/api/{$this->session}/chats/{$this->chatId}/messages/{$this->messageId}";
     }
 
+    /**
+     * WAHA requires: $text. Nullable arguments remain for compatibility
+     * with callers that populate the Saloon query/body stores before sending.
+     */
     public function __construct(
         protected string $session,
         protected string $chatId,
@@ -28,10 +32,16 @@ class EditsMessageInTheChat extends Request implements HasBody
         protected mixed $text = null,
         protected mixed $linkPreview = null,
         protected mixed $linkPreviewHighQuality = null,
+        protected ?array $mentions = null,
     ) {}
 
     public function defaultBody(): array
     {
-        return array_filter(['text' => $this->text, 'linkPreview' => $this->linkPreview, 'linkPreviewHighQuality' => $this->linkPreviewHighQuality], fn ($value) => $value !== null);
+        return array_filter([
+            'text' => $this->text,
+            'linkPreview' => $this->linkPreview,
+            'linkPreviewHighQuality' => $this->linkPreviewHighQuality,
+            'mentions' => $this->mentions,
+        ], fn ($value) => $value !== null);
     }
 }

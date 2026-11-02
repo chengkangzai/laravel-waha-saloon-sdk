@@ -21,6 +21,10 @@ class StarOrUnstarMessage extends Request implements HasBody
         return '/api/star';
     }
 
+    /**
+     * WAHA requires: $messageId, $chatId, $star, $session. Nullable arguments remain for compatibility
+     * with callers that populate the Saloon query/body stores before sending.
+     */
     public function __construct(
         protected mixed $messageId = null,
         protected mixed $chatId = null,

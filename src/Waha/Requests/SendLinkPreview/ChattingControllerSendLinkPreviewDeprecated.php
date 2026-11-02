@@ -9,6 +9,8 @@ use Saloon\Traits\Body\HasJsonBody;
 
 /**
  * Chatting Controller send Link Preview DEPRECATED
+ *
+ * @deprecated Use LinkCustomPreview\SendTextMessageWithCustomLinkPreview.
  */
 class ChattingControllerSendLinkPreviewDeprecated extends Request implements HasBody
 {
@@ -21,15 +23,26 @@ class ChattingControllerSendLinkPreviewDeprecated extends Request implements Has
         return '/api/sendLinkPreview';
     }
 
+    /**
+     * WAHA requires: $chatId, $url, $title, $session. Nullable arguments remain for compatibility
+     * with callers that populate the Saloon query/body stores before sending.
+     */
     public function __construct(
         protected mixed $chatId = null,
         protected mixed $session = null,
         protected mixed $url = null,
         protected mixed $title = null,
+        protected ?string $id = null,
     ) {}
 
     public function defaultBody(): array
     {
-        return array_filter(['chatId' => $this->chatId, 'session' => $this->session, 'url' => $this->url, 'title' => $this->title], fn ($value) => $value !== null);
+        return array_filter([
+            'chatId' => $this->chatId,
+            'session' => $this->session,
+            'url' => $this->url,
+            'title' => $this->title,
+            'id' => $this->id,
+        ], fn ($value) => $value !== null);
     }
 }

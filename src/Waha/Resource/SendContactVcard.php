@@ -9,11 +9,12 @@ use Saloon\Http\Response;
 class SendContactVcard extends Resource
 {
     public function chattingControllerSendContactVcard(
-        mixed $chatId,
-        mixed $contacts,
-        mixed $session,
-        mixed $replyTo,
+        mixed $chatId = null,
+        mixed $contacts = null,
+        mixed $session = null,
+        mixed $replyTo = null,
+        ?string $id = null,
     ): Response {
-        return $this->connector->send(new ChattingControllerSendContactVcard($chatId, $contacts, $session, $replyTo));
+        return $this->connector->send(new ChattingControllerSendContactVcard($chatId, $contacts, $session, $replyTo, $id));
     }
 }

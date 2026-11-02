@@ -19,8 +19,8 @@ class GetAllKnownLidsToPhoneNumberMapping extends Request
 
     public function __construct(
         protected string $session,
-        protected ?string $limit = null,
-        protected ?string $offset = null,
+        protected string|int|float|null $limit = null,
+        protected string|int|float|null $offset = null,
     ) {}
 
     public function defaultQuery(): array

@@ -18,6 +18,9 @@ class ListAllAppsForSession extends Request
     }
 
     /**
+     * WAHA requires: $session. Nullable arguments remain for compatibility
+     * with callers that populate the Saloon query/body stores before sending.
+     *
      * @param  null|string  $session  Session name to list apps for
      */
     public function __construct(

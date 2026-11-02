@@ -8,7 +8,7 @@ use Saloon\Http\Response;
 
 class RequestCode extends Resource
 {
-    public function requestAuthenticationCode(string $session, mixed $phoneNumber, mixed $method): Response
+    public function requestAuthenticationCode(string $session, mixed $phoneNumber = null, mixed $method = null): Response
     {
         return $this->connector->send(new RequestAuthenticationCode($session, $phoneNumber, $method));
     }

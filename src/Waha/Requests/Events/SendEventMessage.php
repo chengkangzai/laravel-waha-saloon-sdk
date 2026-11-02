@@ -21,6 +21,10 @@ class SendEventMessage extends Request implements HasBody
         return "/api/{$this->session}/events";
     }
 
+    /**
+     * WAHA requires: $chatId, $event. Nullable arguments remain for compatibility
+     * with callers that populate the Saloon query/body stores before sending.
+     */
     public function __construct(
         protected string $session,
         protected mixed $chatId = null,

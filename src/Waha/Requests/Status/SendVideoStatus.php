@@ -21,16 +21,27 @@ class SendVideoStatus extends Request implements HasBody
         return "/api/{$this->session}/status/video";
     }
 
+    /**
+     * WAHA requires: $file. Nullable arguments remain for compatibility
+     * with callers that populate the Saloon query/body stores before sending.
+     */
     public function __construct(
         protected string $session,
         protected mixed $file = null,
         protected mixed $id = null,
         protected mixed $contacts = null,
         protected mixed $caption = null,
+        protected ?bool $convert = null,
     ) {}
 
     public function defaultBody(): array
     {
-        return array_filter(['file' => $this->file, 'id' => $this->id, 'contacts' => $this->contacts, 'caption' => $this->caption], fn ($value) => $value !== null);
+        return array_filter([
+            'file' => $this->file,
+            'id' => $this->id,
+            'contacts' => $this->contacts,
+            'caption' => $this->caption,
+            'convert' => $this->convert,
+        ], fn ($value) => $value !== null);
     }
 }

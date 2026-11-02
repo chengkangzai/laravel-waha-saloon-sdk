@@ -18,13 +18,16 @@ class CollectAndGetTraceJsonForChromeDevTools extends Request
     }
 
     /**
-     * @param  null|string  $seconds  How many seconds to trace
-     * @param  null|string  $categories  Categories to trace (all by default)
+     * WAHA requires: $seconds, $categories. Nullable arguments remain for compatibility
+     * with callers that populate the Saloon query/body stores before sending.
+     *
+     * @param  string|int|float|null  $seconds  How many seconds to trace
+     * @param  string|array|null  $categories  Categories to trace (all by default)
      */
     public function __construct(
         protected string $session,
-        protected ?string $seconds = null,
-        protected ?string $categories = null,
+        protected string|int|float|null $seconds = null,
+        protected string|array|null $categories = null,
     ) {}
 
     public function defaultQuery(): array

@@ -8,7 +8,7 @@ use Saloon\Http\Response;
 
 class Join extends Resource
 {
-    public function joinGroupViaCode(string $session, mixed $code): Response
+    public function joinGroupViaCode(string $session, mixed $code = null): Response
     {
         return $this->connector->send(new JoinGroupViaCode($session, $code));
     }

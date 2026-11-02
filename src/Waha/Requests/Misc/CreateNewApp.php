@@ -21,6 +21,10 @@ class CreateNewApp extends Request implements HasBody
         return '/api/apps';
     }
 
+    /**
+     * WAHA requires: $id, $session, $app, $appConfig. Nullable arguments remain for compatibility
+     * with callers that populate the Saloon query/body stores before sending.
+     */
     public function __construct(
         protected mixed $id = null,
         protected mixed $session = null,

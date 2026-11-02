@@ -20,16 +20,15 @@ class GetAllGroups extends Request
     /**
      * @param  null|string  $sortBy  Sort by field
      * @param  null|string  $sortOrder  Sort order - <b>desc</b>ending (Z => A, New first) or <b>asc</b>ending (A => Z, Old first)
-     * @param  null|string  $exclude  Exclude fields
-     * @param  null|string  $exclude  Exclude fields
+     * @param  string|array|null  $exclude  Exclude fields
      */
     public function __construct(
         protected string $session,
         protected ?string $sortBy = null,
         protected ?string $sortOrder = null,
-        protected ?string $limit = null,
-        protected ?string $offset = null,
-        protected ?string $exclude = null,
+        protected string|int|float|null $limit = null,
+        protected string|int|float|null $offset = null,
+        protected string|array|null $exclude = null,
     ) {}
 
     public function defaultQuery(): array

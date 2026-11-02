@@ -21,6 +21,10 @@ class ChattingControllerSendSeen extends Request implements HasBody
         return '/api/sendSeen';
     }
 
+    /**
+     * WAHA requires: $chatId, $session. Nullable arguments remain for compatibility
+     * with callers that populate the Saloon query/body stores before sending.
+     */
     public function __construct(
         protected mixed $chatId = null,
         protected mixed $session = null,

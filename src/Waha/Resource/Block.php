@@ -8,7 +8,7 @@ use Saloon\Http\Response;
 
 class Block extends Resource
 {
-    public function blockContact(mixed $contactId, mixed $session): Response
+    public function blockContact(mixed $contactId = null, mixed $session = null): Response
     {
         return $this->connector->send(new BlockContact($contactId, $session));
     }

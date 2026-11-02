@@ -18,6 +18,9 @@ class GetAllContacts extends Request
     }
 
     /**
+     * WAHA requires: $session. Nullable arguments remain for compatibility
+     * with callers that populate the Saloon query/body stores before sending.
+     *
      * @param  null|string  $sortBy  Sort by field
      * @param  null|string  $sortOrder  Sort order - <b>desc</b>ending (Z => A, New first) or <b>asc</b>ending (A => Z, Old first)
      */
@@ -25,8 +28,8 @@ class GetAllContacts extends Request
         protected ?string $session = null,
         protected ?string $sortBy = null,
         protected ?string $sortOrder = null,
-        protected ?string $limit = null,
-        protected ?string $offset = null,
+        protected string|int|float|null $limit = null,
+        protected string|int|float|null $offset = null,
     ) {}
 
     public function defaultQuery(): array

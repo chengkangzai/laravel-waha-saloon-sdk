@@ -21,6 +21,10 @@ class SendVideo extends Request implements HasBody
         return '/api/sendVideo';
     }
 
+    /**
+     * WAHA requires: $chatId, $file, $convert, $session. Nullable arguments remain for compatibility
+     * with callers that populate the Saloon query/body stores before sending.
+     */
     public function __construct(
         protected mixed $chatId = null,
         protected mixed $file = null,
@@ -29,6 +33,7 @@ class SendVideo extends Request implements HasBody
         protected mixed $replyTo = null,
         protected mixed $asNote = null,
         protected mixed $caption = null,
+        protected ?array $mentions = null,
     ) {}
 
     public function defaultBody(): array
@@ -41,6 +46,7 @@ class SendVideo extends Request implements HasBody
             'reply_to' => $this->replyTo,
             'asNote' => $this->asNote,
             'caption' => $this->caption,
+            'mentions' => $this->mentions,
         ], fn ($value) => $value !== null);
     }
 }

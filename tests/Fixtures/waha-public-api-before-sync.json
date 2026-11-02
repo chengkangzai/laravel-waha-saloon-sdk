@@ -1,0 +1,7682 @@
+{
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Waha": {
+    "__construct": [
+      {
+        "type": "string",
+        "name": "baseUrl",
+        "optional": true
+      },
+      {
+        "type": "?string",
+        "name": "apiKey",
+        "optional": true
+      }
+    ],
+    "resolveBaseUrl": [],
+    "about": [],
+    "add": [],
+    "all": [],
+    "api": [],
+    "apps": [],
+    "archive": [],
+    "block": [],
+    "byText": [],
+    "byView": [],
+    "categories": [],
+    "channels": [],
+    "chats": [],
+    "checkExists": [],
+    "checkNumberStatus": [],
+    "contacts": [],
+    "count": [],
+    "countries": [],
+    "cpu": [],
+    "delete": [],
+    "demote": [],
+    "description": [],
+    "environment": [],
+    "events": [],
+    "follow": [],
+    "forwardMessage": [],
+    "groups": [],
+    "health": [],
+    "heapsnapshot": [],
+    "image": [],
+    "infoAdminOnly": [],
+    "inviteCode": [],
+    "join": [],
+    "joinInfo": [],
+    "labels": [],
+    "leave": [],
+    "lids": [],
+    "linkCustomPreview": [],
+    "locales": [],
+    "logout": [],
+    "me": [],
+    "messages": [],
+    "messagesAdminOnly": [],
+    "misc": [],
+    "mute": [],
+    "name": [],
+    "newMessageId": [],
+    "overview": [],
+    "participants": [],
+    "picture": [],
+    "pin": [],
+    "ping": [],
+    "pn": [],
+    "presence": [],
+    "preview": [],
+    "profile": [],
+    "profilePicture": [],
+    "promote": [],
+    "qr": [],
+    "reaction": [],
+    "read": [],
+    "refresh": [],
+    "reject": [],
+    "remove": [],
+    "reply": [],
+    "requestCode": [],
+    "restart": [],
+    "revoke": [],
+    "screenshot": [],
+    "sendButtons": [],
+    "sendContactVcard": [],
+    "sendFile": [],
+    "sendImage": [],
+    "sendLinkPreview": [],
+    "sendList": [],
+    "sendLocation": [],
+    "sendPoll": [],
+    "sendPollVote": [],
+    "sendSeen": [],
+    "sendText": [],
+    "sendVideo": [],
+    "sendVoice": [],
+    "sessions": [],
+    "star": [],
+    "start": [],
+    "startTyping": [],
+    "status": [],
+    "stop": [],
+    "stopTyping": [],
+    "subject": [],
+    "subscribe": [],
+    "text": [],
+    "trace": [],
+    "unarchive": [],
+    "unblock": [],
+    "unfollow": [],
+    "unmute": [],
+    "unpin": [],
+    "unread": [],
+    "v2": [],
+    "version": [],
+    "video": [],
+    "views": [],
+    "voice": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource": {
+    "__construct": [
+      {
+        "type": "Saloon\\Http\\Connector",
+        "name": "connector",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource\\Add": {
+    "addParticipants": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "id",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "participants",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource\\Me": {
+    "getInformationAboutTheAuthenticatedAccount": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource\\InviteCode": {
+    "getsTheInviteCodeForTheGroup": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "id",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource\\Cpu": {
+    "collectAndReturnCpuProfileForTheCurrentNodejsProcess": [
+      {
+        "type": "?string",
+        "name": "seconds",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource\\Join": {
+    "joinGroupViaCode": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "code",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource\\Preview": {
+    "previewChannelMessages": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "id",
+        "optional": false
+      },
+      {
+        "type": "?string",
+        "name": "downloadMedia",
+        "optional": false
+      },
+      {
+        "type": "?string",
+        "name": "limit",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource\\Chats": {
+    "getsMessagesInTheChat": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "chatId",
+        "optional": false
+      },
+      {
+        "type": "?string",
+        "name": "sortBy",
+        "optional": false
+      },
+      {
+        "type": "?string",
+        "name": "sortOrder",
+        "optional": false
+      },
+      {
+        "type": "?string",
+        "name": "downloadMedia",
+        "optional": false
+      },
+      {
+        "type": "?string",
+        "name": "limit",
+        "optional": false
+      },
+      {
+        "type": "?string",
+        "name": "offset",
+        "optional": false
+      },
+      {
+        "type": "?string",
+        "name": "filterTimestampLte",
+        "optional": false
+      },
+      {
+        "type": "?string",
+        "name": "filterTimestampGte",
+        "optional": false
+      },
+      {
+        "type": "?string",
+        "name": "filterFromMe",
+        "optional": false
+      },
+      {
+        "type": "?string",
+        "name": "filterAck",
+        "optional": false
+      }
+    ],
+    "clearsAllMessagesFromTheChat": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "chatId",
+        "optional": false
+      }
+    ],
+    "getChatsByLabel": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "labelId",
+        "optional": false
+      }
+    ],
+    "getLabelsForTheChat": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "chatId",
+        "optional": false
+      }
+    ],
+    "saveLabelsForTheChat": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "chatId",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "labels",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource\\Stop": {
+    "stopTheSession": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      }
+    ],
+    "stopAndLogoutIfAskedSession": [
+      {
+        "type": "mixed",
+        "name": "name",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "logout",
+        "optional": false
+      }
+    ],
+    "stopAndRestartTheServer": [
+      {
+        "type": "mixed",
+        "name": "force",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource\\Reaction": {
+    "reactToMessageWithEmoji": [
+      {
+        "type": "mixed",
+        "name": "messageId",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "reaction",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "session",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource\\Pin": {
+    "pinsMessageInTheChat": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "chatId",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "messageId",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "duration",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource\\Apps": {
+    "getAppById": [
+      {
+        "type": "string",
+        "name": "id",
+        "optional": false
+      }
+    ],
+    "updateExistingApp": [
+      {
+        "type": "mixed",
+        "name": "id",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "app",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "config",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "enabled",
+        "optional": false
+      }
+    ],
+    "deleteApp": [
+      {
+        "type": "string",
+        "name": "id",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource\\Unmute": {
+    "unmuteTheChannel": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "id",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource\\Server": {
+    "getTheVersionOfTheServer": [],
+    "getTheServerEnvironment": [
+      {
+        "type": "?string",
+        "name": "all",
+        "optional": false
+      }
+    ],
+    "getTheServerStatus": [],
+    "stopAndRestartTheServer": [
+      {
+        "type": "mixed",
+        "name": "force",
+        "optional": false
+      }
+    ],
+    "returnHeapsnapshot": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource\\Heapsnapshot": {
+    "returnHeapsnapshotForTheCurrentNodejsProcess": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource\\MessagesAdminOnly": {
+    "updateSettingsWhoCanSendMessages": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "id",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "adminsOnly",
+        "optional": false
+      }
+    ],
+    "getSettingsWhoCanSendMessages": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "id",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource\\SendText": {
+    "sendTextMessage": [
+      {
+        "type": "mixed",
+        "name": "chatId",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "text",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "replyTo",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "linkPreview",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "linkPreviewHighQuality",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource\\StartTyping": {
+    "chattingControllerStartTyping": [
+      {
+        "type": "mixed",
+        "name": "chatId",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "session",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource\\Archive": {
+    "archiveTheChat": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "chatId",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource\\SendPollVote": {
+    "voteOnPoll": [
+      {
+        "type": "mixed",
+        "name": "chatId",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "pollMessageId",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "votes",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "pollServerId",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource\\Sessions": {
+    "getSessionInformation": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "?string",
+        "name": "expand",
+        "optional": false
+      }
+    ],
+    "getSessionTimelock": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      }
+    ],
+    "getSessionCapping": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      }
+    ],
+    "updateSession": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "name",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "config",
+        "optional": true
+      }
+    ],
+    "deleteTheSession": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource\\Subscribe": {
+    "subscribeToPresenceEventsForTheChat": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "chatId",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource\\ProfilePicture": {
+    "getContactProfilePictureUrl": [
+      {
+        "type": "?string",
+        "name": "contactId",
+        "optional": false
+      },
+      {
+        "type": "?string",
+        "name": "refresh",
+        "optional": false
+      },
+      {
+        "type": "?string",
+        "name": "session",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource\\Follow": {
+    "followTheChannel": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "id",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource\\Health": {
+    "checkTheHealthOfTheServer": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource\\Views": {
+    "getListOfViewsForChannelSearch": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource\\All": {
+    "getAllContacts": [
+      {
+        "type": "?string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "?string",
+        "name": "sortBy",
+        "optional": false
+      },
+      {
+        "type": "?string",
+        "name": "sortOrder",
+        "optional": false
+      },
+      {
+        "type": "?string",
+        "name": "limit",
+        "optional": false
+      },
+      {
+        "type": "?string",
+        "name": "offset",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource\\StopTyping": {
+    "chattingControllerStopTyping": [
+      {
+        "type": "mixed",
+        "name": "chatId",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "session",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource\\SendPoll": {
+    "sendPollWithOptions": [
+      {
+        "type": "mixed",
+        "name": "chatId",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "poll",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "replyTo",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource\\Overview": {
+    "getChatsOverviewIncludesAllNecessaryThingsToBuildUiYourChatsOverviewPageChatIdNamePictureLastMessageSortingByLastMessageTimestamp": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "?string",
+        "name": "limit",
+        "optional": false
+      },
+      {
+        "type": "?string",
+        "name": "offset",
+        "optional": false
+      },
+      {
+        "type": "?string",
+        "name": "ids",
+        "optional": false
+      }
+    ],
+    "getChatsOverviewUsePostIfYouHaveTooManyIdsParamsGetCanLimitIt": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "pagination",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "filter",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource\\Unfollow": {
+    "unfollowTheChannel": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "id",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource\\CheckExists": {
+    "checkPhoneNumberIsRegisteredInWhatsApp": [
+      {
+        "type": "?string",
+        "name": "phone",
+        "optional": false
+      },
+      {
+        "type": "?string",
+        "name": "session",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource\\Pn": {
+    "getLidByPhoneNumberChatId": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "phoneNumber",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource\\Logout": {
+    "logoutFromTheSession": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      }
+    ],
+    "logoutAndDeleteSession": [
+      {
+        "type": "mixed",
+        "name": "name",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource\\Unread": {
+    "unreadTheChat": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "chatId",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource\\Events": {
+    "sendEventMessage": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "chatId",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "event",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "replyTo",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource\\Screenshot": {
+    "screenshotControllerScreenshot": [
+      {
+        "type": "?string",
+        "name": "session",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource\\Reply": {
+    "replyOnButtonMessage": [
+      {
+        "type": "mixed",
+        "name": "chatId",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "selectedDisplayText",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "selectedButtonId",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "replyTo",
+        "optional": false
+      }
+    ],
+    "deprecatedYouCanSetReplyToFieldWhenSendingTextImageEtc": [
+      {
+        "type": "mixed",
+        "name": "chatId",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "text",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "replyTo",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "linkPreview",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "linkPreviewHighQuality",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource\\Channels": {
+    "deleteTheChannel": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "id",
+        "optional": false
+      }
+    ],
+    "getTheChannelInfo": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "id",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource\\Unblock": {
+    "unblockContact": [
+      {
+        "type": "mixed",
+        "name": "contactId",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "session",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource\\SendLocation": {
+    "chattingControllerSendLocation": [
+      {
+        "type": "mixed",
+        "name": "chatId",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "latitude",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "longitude",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "title",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "replyTo",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource\\Promote": {
+    "promoteParticipantsToAdminUsers": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "id",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "participants",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource\\Restart": {
+    "restartTheSession": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource\\Locales": {
+    "getAvailableLanguagesForChatwootApp": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource\\Search": {
+    "searchForChannelsByView": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "view",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "countries",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "categories",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "limit",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "startCursor",
+        "optional": false
+      }
+    ],
+    "searchForChannelsByText": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "text",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "categories",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "limit",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "startCursor",
+        "optional": false
+      }
+    ],
+    "getListOfViewsForChannelSearch": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      }
+    ],
+    "getListOfCountriesForChannelSearch": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      }
+    ],
+    "getListOfCategoriesForChannelSearch": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource\\Unarchive": {
+    "unarchiveTheChat": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "chatId",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource\\Trace": {
+    "collectAndGetTraceJsonForChromeDevTools": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "?string",
+        "name": "seconds",
+        "optional": false
+      },
+      {
+        "type": "?string",
+        "name": "categories",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource\\Revoke": {
+    "invalidatesTheCurrentGroupInviteCodeAndGeneratesNewOne": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "id",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource\\Block": {
+    "blockContact": [
+      {
+        "type": "mixed",
+        "name": "contactId",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "session",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource\\Lids": {
+    "getPhoneNumberByLid": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "lid",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource\\SendSeen": {
+    "chattingControllerSendSeen": [
+      {
+        "type": "mixed",
+        "name": "chatId",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "messageId",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "messageIds",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "participant",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource\\SendFile": {
+    "sendFile": [
+      {
+        "type": "mixed",
+        "name": "chatId",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "file",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "replyTo",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "caption",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource\\Unpin": {
+    "unpinsMessageInTheChat": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "chatId",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "messageId",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource\\Read": {
+    "readUnreadMessagesInTheChat": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "chatId",
+        "optional": false
+      },
+      {
+        "type": "?string",
+        "name": "messages",
+        "optional": false
+      },
+      {
+        "type": "?string",
+        "name": "days",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource\\InfoAdminOnly": {
+    "updatesTheGroupInfoAdminOnlySettings": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "id",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "adminsOnly",
+        "optional": false
+      }
+    ],
+    "getTheGroupInfoAdminOnlySettings": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "id",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource\\Reject": {
+    "rejectIncomingCall": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "from",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "id",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource\\Version": {
+    "getTheVersionOfTheServer": [],
+    "getTheServerVersion": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource\\Status": {
+    "setProfileStatusAbout": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "status",
+        "optional": false
+      }
+    ],
+    "getTheServerStatus": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource\\Count": {
+    "getTheNumberOfKnownLids": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      }
+    ],
+    "getTheNumberOfGroups": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource\\Ping": {
+    "pingTheServer": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource\\SendList": {
+    "sendListMessageInteractive": [
+      {
+        "type": "mixed",
+        "name": "chatId",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "message",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "replyTo",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource\\Remove": {
+    "removeParticipants": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "id",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "participants",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource\\Video": {
+    "sendVideoStatus": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "file",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "convert",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "id",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "contacts",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "caption",
+        "optional": false
+      }
+    ],
+    "convertVideoToWhatsAppFormatMp4": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "url",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "data",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource\\ByView": {
+    "searchForChannelsByView": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "view",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "countries",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "categories",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "limit",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "startCursor",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource\\Description": {
+    "updatesTheGroupDescription": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "id",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "description",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource\\Presence": {
+    "getThePresenceForTheChatIdIfItHasntBeenSubscribedItAlsoSubscribesToIt": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "chatId",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource\\Profile": {
+    "getMyProfile": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource\\Qr": {
+    "getQrCodeForPairingWhatsAppApi": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "?string",
+        "name": "format",
+        "optional": true
+      }
+    ],
+    "getQrCodeImage": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      }
+    ],
+    "getQrCodeBase64": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      }
+    ],
+    "getQrCodeRaw": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource\\Delete": {
+    "deleteSentStatus": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "id",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "contacts",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource\\SendVideo": {
+    "sendVideo": [
+      {
+        "type": "mixed",
+        "name": "chatId",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "file",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "convert",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "replyTo",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "asNote",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "caption",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource\\SendButtons": {
+    "sendButtonsMessageInteractive": [
+      {
+        "type": "mixed",
+        "name": "chatId",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "header",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "body",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "footer",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "buttons",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "headerImage",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource\\SendLinkPreview": {
+    "chattingControllerSendLinkPreviewDeprecated": [
+      {
+        "type": "mixed",
+        "name": "chatId",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "url",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "title",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource\\SendVoice": {
+    "sendVoiceMessage": [
+      {
+        "type": "mixed",
+        "name": "chatId",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "file",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "convert",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "replyTo",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource\\Api": {
+    "deletesTheChat": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "chatId",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource\\Labels": {
+    "updateLabel": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "labelId",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "name",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "colorHex",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "color",
+        "optional": false
+      }
+    ],
+    "deleteLabel": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "labelId",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource\\Categories": {
+    "getListOfCategoriesForChannelSearch": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource\\Contacts": {
+    "createOrUpdateContact": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "chatId",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "firstName",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "lastName",
+        "optional": false
+      }
+    ],
+    "getContactBasicInfo": [
+      {
+        "type": "?string",
+        "name": "contactId",
+        "optional": false
+      },
+      {
+        "type": "?string",
+        "name": "session",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource\\Star": {
+    "starOrUnstarMessage": [
+      {
+        "type": "mixed",
+        "name": "messageId",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "chatId",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "star",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "session",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource\\ForwardMessage": {
+    "chattingControllerForwardMessage": [
+      {
+        "type": "mixed",
+        "name": "chatId",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "messageId",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "session",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource\\Groups": {
+    "getTheGroup": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "id",
+        "optional": false
+      }
+    ],
+    "deleteTheGroup": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "id",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource\\Admin": {
+    "promoteParticipantsToAdminUsers": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "id",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "participants",
+        "optional": false
+      }
+    ],
+    "demotesParticipantsToRegularUsers": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "id",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "participants",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource\\Mute": {
+    "muteTheChannel": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "id",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource\\V2": {
+    "getGroupParticipants": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "id",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource\\Voice": {
+    "sendVoiceStatus": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "file",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "convert",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "backgroundColor",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "id",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "contacts",
+        "optional": false
+      }
+    ],
+    "convertVoiceToWhatsAppFormatOpus": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "url",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "data",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource\\Name": {
+    "setMyProfileName": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "name",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource\\About": {
+    "getsTheContactAboutInfo": [
+      {
+        "type": "?string",
+        "name": "contactId",
+        "optional": false
+      },
+      {
+        "type": "?string",
+        "name": "session",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource\\LinkCustomPreview": {
+    "sendTextMessageWithCustomLinkPreview": [
+      {
+        "type": "mixed",
+        "name": "chatId",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "text",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "preview",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "replyTo",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "linkPreviewHighQuality",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource\\Picture": {
+    "setProfilePicture": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "file",
+        "optional": false
+      }
+    ],
+    "deleteProfilePicture": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      }
+    ],
+    "getsChatPicture": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "chatId",
+        "optional": false
+      },
+      {
+        "type": "?string",
+        "name": "refresh",
+        "optional": false
+      }
+    ],
+    "getGroupPicture": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "id",
+        "optional": false
+      },
+      {
+        "type": "?string",
+        "name": "refresh",
+        "optional": false
+      }
+    ],
+    "setGroupPicture": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "id",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "file",
+        "optional": false
+      }
+    ],
+    "deleteGroupPicture": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "id",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource\\SendImage": {
+    "sendImage": [
+      {
+        "type": "mixed",
+        "name": "chatId",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "file",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "replyTo",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "caption",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource\\Send": {
+    "sendTextMessageWithCustomLinkPreview": [
+      {
+        "type": "mixed",
+        "name": "chatId",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "text",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "preview",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "replyTo",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "linkPreviewHighQuality",
+        "optional": false
+      }
+    ],
+    "replyOnButtonMessage": [
+      {
+        "type": "mixed",
+        "name": "chatId",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "selectedDisplayText",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "selectedButtonId",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "replyTo",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource\\CheckNumberStatus": {
+    "checkNumberStatus": [
+      {
+        "type": "?string",
+        "name": "phone",
+        "optional": false
+      },
+      {
+        "type": "?string",
+        "name": "session",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource\\Misc": {
+    "getChats": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "?string",
+        "name": "sortBy",
+        "optional": false
+      },
+      {
+        "type": "?string",
+        "name": "sortOrder",
+        "optional": false
+      },
+      {
+        "type": "?string",
+        "name": "limit",
+        "optional": false
+      },
+      {
+        "type": "?string",
+        "name": "offset",
+        "optional": false
+      }
+    ],
+    "getListOfKnowChannels": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "?string",
+        "name": "role",
+        "optional": false
+      }
+    ],
+    "createNewChannel": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "name",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "description",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "picture",
+        "optional": false
+      }
+    ],
+    "getAllLabels": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      }
+    ],
+    "createNewLabel": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "name",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "colorHex",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "color",
+        "optional": false
+      }
+    ],
+    "getAllKnownLidsToPhoneNumberMapping": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "?string",
+        "name": "limit",
+        "optional": false
+      },
+      {
+        "type": "?string",
+        "name": "offset",
+        "optional": false
+      }
+    ],
+    "createNewGroup": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "name",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "participants",
+        "optional": false
+      }
+    ],
+    "getAllGroups": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "?string",
+        "name": "sortBy",
+        "optional": false
+      },
+      {
+        "type": "?string",
+        "name": "sortOrder",
+        "optional": false
+      },
+      {
+        "type": "?string",
+        "name": "limit",
+        "optional": false
+      },
+      {
+        "type": "?string",
+        "name": "offset",
+        "optional": false
+      },
+      {
+        "type": "?string",
+        "name": "exclude",
+        "optional": false
+      }
+    ],
+    "setSessionPresence": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "chatId",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "presence",
+        "optional": false
+      }
+    ],
+    "getAllSubscribedPresenceInformation": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      }
+    ],
+    "listAllSessions": [
+      {
+        "type": "?string",
+        "name": "expand",
+        "optional": false
+      },
+      {
+        "type": "?string",
+        "name": "all",
+        "optional": false
+      }
+    ],
+    "createSession": [
+      {
+        "type": "mixed",
+        "name": "name",
+        "optional": false
+      }
+    ],
+    "listAllAppsForSession": [
+      {
+        "type": "?string",
+        "name": "session",
+        "optional": false
+      }
+    ],
+    "createNewApp": [
+      {
+        "type": "mixed",
+        "name": "id",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "app",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "config",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "enabled",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource\\Participants": {
+    "getParticipants": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "id",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource\\RequestCode": {
+    "requestAuthenticationCode": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "phoneNumber",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "method",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource\\Messages": {
+    "getsMessageById": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "chatId",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "messageId",
+        "optional": false
+      },
+      {
+        "type": "?string",
+        "name": "downloadMedia",
+        "optional": false
+      }
+    ],
+    "deletesMessageFromTheChat": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "chatId",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "messageId",
+        "optional": false
+      }
+    ],
+    "editsMessageInTheChat": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "chatId",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "messageId",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "text",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "linkPreview",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "linkPreviewHighQuality",
+        "optional": false
+      }
+    ],
+    "getMessagesInChat": [
+      {
+        "type": "?string",
+        "name": "sortBy",
+        "optional": false
+      },
+      {
+        "type": "?string",
+        "name": "sortOrder",
+        "optional": false
+      },
+      {
+        "type": "?string",
+        "name": "downloadMedia",
+        "optional": false
+      },
+      {
+        "type": "?string",
+        "name": "chatId",
+        "optional": false
+      },
+      {
+        "type": "?string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "?string",
+        "name": "limit",
+        "optional": false
+      },
+      {
+        "type": "?string",
+        "name": "offset",
+        "optional": false
+      },
+      {
+        "type": "?string",
+        "name": "filterTimestampLte",
+        "optional": false
+      },
+      {
+        "type": "?string",
+        "name": "filterTimestampGte",
+        "optional": false
+      },
+      {
+        "type": "?string",
+        "name": "filterFromMe",
+        "optional": false
+      },
+      {
+        "type": "?string",
+        "name": "filterAck",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource\\NewMessageId": {
+    "generateMessageIdYouCanUseToBatchContacts": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource\\Refresh": {
+    "refreshGroupsFromTheServer": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource\\Text": {
+    "sendTextStatus": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "text",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "backgroundColor",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "font",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "id",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "contacts",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "linkPreview",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "linkPreviewHighQuality",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource\\Countries": {
+    "getListOfCountriesForChannelSearch": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource\\Image": {
+    "sendImageStatus": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "file",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "id",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "contacts",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "caption",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource\\Leave": {
+    "leaveTheGroup": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "id",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource\\Environment": {
+    "getTheServerEnvironment": [
+      {
+        "type": "?string",
+        "name": "all",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource\\JoinInfo": {
+    "getInfoAboutTheGroupBeforeJoining": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "?string",
+        "name": "code",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource\\ByText": {
+    "searchForChannelsByText": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "text",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "categories",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "limit",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "startCursor",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource\\Start": {
+    "startTheSession": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      }
+    ],
+    "upsertAndStartSession": [
+      {
+        "type": "mixed",
+        "name": "name",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "config",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource\\Demote": {
+    "demotesParticipantsToRegularUsers": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "id",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "participants",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource\\SendContactVcard": {
+    "chattingControllerSendContactVcard": [
+      {
+        "type": "mixed",
+        "name": "chatId",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "contacts",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "replyTo",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Resource\\Subject": {
+    "updatesTheGroupSubject": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "id",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "subject",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\StartTyping\\ChattingControllerStartTyping": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "mixed",
+        "name": "chatId",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "session",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Heapsnapshot\\ReturnHeapsnapshotForTheCurrentNodejsProcess": {
+    "resolveEndpoint": [],
+    "__construct": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Demote\\DemotesParticipantsToRegularUsers": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "id",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "participants",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Misc\\ChattingControllerForwardMessage": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "mixed",
+        "name": "chatId",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "messageId",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "session",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Misc\\SendButtonsInteractiveMessage": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "mixed",
+        "name": "chatId",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "header",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "messageBody",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "footer",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "buttons",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "session",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "headerImage",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Misc\\StarOrUnstarMessage": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "mixed",
+        "name": "messageId",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "chatId",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "star",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "session",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Misc\\GetLabelsForTheChat": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "chatId",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Misc\\GetAllSubscribedPresenceInformation": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Misc\\ChattingControllerSendLinkPreviewDeprecated": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "mixed",
+        "name": "chatId",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "session",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "url",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "title",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Misc\\ChattingControllerStopTyping": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "mixed",
+        "name": "chatId",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "session",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Misc\\CreateNewGroup": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "name",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "participants",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Misc\\LogoutAndDeleteSession": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "mixed",
+        "name": "name",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Misc\\ChattingControllerSendContactVcard": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "mixed",
+        "name": "chatId",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "contacts",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "session",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "replyTo",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Misc\\CreateSession": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "mixed",
+        "name": "name",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Misc\\StopAndLogoutIfAskedSession": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "mixed",
+        "name": "name",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "logout",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Misc\\GetChats": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "?string",
+        "name": "sortBy",
+        "optional": true
+      },
+      {
+        "type": "?string",
+        "name": "sortOrder",
+        "optional": true
+      },
+      {
+        "type": "?string",
+        "name": "limit",
+        "optional": true
+      },
+      {
+        "type": "?string",
+        "name": "offset",
+        "optional": true
+      }
+    ],
+    "defaultQuery": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Misc\\CreateNewLabel": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "name",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "colorHex",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "color",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Misc\\ReactToMessageWithEmoji": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "mixed",
+        "name": "messageId",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "reaction",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "session",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Misc\\GetMessagesInChat": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "?string",
+        "name": "downloadMedia",
+        "optional": true
+      },
+      {
+        "type": "?string",
+        "name": "chatId",
+        "optional": true
+      },
+      {
+        "type": "?string",
+        "name": "session",
+        "optional": true
+      },
+      {
+        "type": "?string",
+        "name": "limit",
+        "optional": true
+      },
+      {
+        "type": "?string",
+        "name": "offset",
+        "optional": true
+      },
+      {
+        "type": "?string",
+        "name": "filterTimestampLte",
+        "optional": true
+      },
+      {
+        "type": "?string",
+        "name": "filterTimestampGte",
+        "optional": true
+      },
+      {
+        "type": "?string",
+        "name": "filterFromMe",
+        "optional": true
+      },
+      {
+        "type": "?string",
+        "name": "filterAck",
+        "optional": true
+      }
+    ],
+    "defaultQuery": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Misc\\ScreenshotControllerScreenshot": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "?string",
+        "name": "session",
+        "optional": true
+      }
+    ],
+    "defaultQuery": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Misc\\ListAllAppsForSession": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "?string",
+        "name": "session",
+        "optional": true
+      }
+    ],
+    "defaultQuery": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Misc\\PingTheServer": {
+    "resolveEndpoint": [],
+    "__construct": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Misc\\ChattingControllerSendSeen": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "mixed",
+        "name": "chatId",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "session",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "messageId",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "messageIds",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "participant",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Misc\\SendEventMessage": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "chatId",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "event",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "replyTo",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Misc\\SendPollWithOptions": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "mixed",
+        "name": "chatId",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "poll",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "session",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "replyTo",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Misc\\JoinGroupViaCode": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "code",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Misc\\UpsertAndStartSession": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "mixed",
+        "name": "name",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "sessionConfig",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Misc\\CreateNewApp": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "mixed",
+        "name": "id",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "session",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "app",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "appConfig",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "enabled",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Misc\\SendFile": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "mixed",
+        "name": "chatId",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "file",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "session",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "replyTo",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "caption",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Misc\\GetTheNumberOfGroups": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Misc\\GetInfoAboutTheGroupBeforeJoining": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "?string",
+        "name": "code",
+        "optional": true
+      }
+    ],
+    "defaultQuery": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Misc\\ChattingControllerStartTyping": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "mixed",
+        "name": "chatId",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "session",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Misc\\CheckTheHealthOfTheServer": {
+    "resolveEndpoint": [],
+    "__construct": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Misc\\RefreshGroupsFromTheServer": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Misc\\GetAllLabels": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Misc\\CreateNewChannel": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "name",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "description",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "picture",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Misc\\SetSessionPresence": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "chatId",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "presence",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Misc\\SendVideo": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "mixed",
+        "name": "chatId",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "file",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "session",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "replyTo",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "asNote",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "caption",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Misc\\GetAllGroups": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "?string",
+        "name": "sortBy",
+        "optional": true
+      },
+      {
+        "type": "?string",
+        "name": "sortOrder",
+        "optional": true
+      },
+      {
+        "type": "?string",
+        "name": "limit",
+        "optional": true
+      },
+      {
+        "type": "?string",
+        "name": "offset",
+        "optional": true
+      },
+      {
+        "type": "?string",
+        "name": "exclude",
+        "optional": true
+      }
+    ],
+    "defaultQuery": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Misc\\SendVoiceMessage": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "mixed",
+        "name": "chatId",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "file",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "session",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "replyTo",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Misc\\GetTheServerVersion": {
+    "resolveEndpoint": [],
+    "__construct": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Misc\\ChattingControllerSendLocation": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "mixed",
+        "name": "chatId",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "latitude",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "longitude",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "title",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "session",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "replyTo",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Misc\\SaveLabelsForTheChat": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "chatId",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "labels",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Misc\\ListAllSessions": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "?string",
+        "name": "expand",
+        "optional": true
+      },
+      {
+        "type": "?string",
+        "name": "all",
+        "optional": true
+      }
+    ],
+    "defaultQuery": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Misc\\GetAllKnownLidsToPhoneNumberMapping": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "?string",
+        "name": "limit",
+        "optional": true
+      },
+      {
+        "type": "?string",
+        "name": "offset",
+        "optional": true
+      }
+    ],
+    "defaultQuery": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Misc\\DeprecatedYouCanSetReplyToFieldWhenSendingTextImageEtc": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "mixed",
+        "name": "chatId",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "text",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "session",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "replyTo",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "linkPreview",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "linkPreviewHighQuality",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Misc\\SendImage": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "mixed",
+        "name": "chatId",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "file",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "session",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "replyTo",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "caption",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Misc\\CheckNumberStatus": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "?string",
+        "name": "phone",
+        "optional": true
+      },
+      {
+        "type": "?string",
+        "name": "session",
+        "optional": true
+      }
+    ],
+    "defaultQuery": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Misc\\GetListOfKnowChannels": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "?string",
+        "name": "role",
+        "optional": true
+      }
+    ],
+    "defaultQuery": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Reaction\\ReactToMessageWithEmoji": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "mixed",
+        "name": "messageId",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "reaction",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "session",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Participants\\AddParticipants": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "id",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "participants",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Participants\\RemoveParticipants": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "id",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "participants",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Participants\\GetParticipants": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "id",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\LinkCustomPreview\\SendTextMessageWithCustomLinkPreview": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "mixed",
+        "name": "chatId",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "text",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "preview",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "session",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "replyTo",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "linkPreviewHighQuality",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\SendList\\SendListMessageInteractive": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "mixed",
+        "name": "chatId",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "message",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "session",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "replyTo",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\SendVoice\\SendVoiceMessage": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "mixed",
+        "name": "chatId",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "file",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "convert",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "session",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "replyTo",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\SendPollVote\\VoteOnPoll": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "mixed",
+        "name": "chatId",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "pollMessageId",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "votes",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "session",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "pollServerId",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Lids\\GetPhoneNumberByLid": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "lid",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Lids\\GetTheNumberOfKnownLids": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Lids\\GetAllKnownLidsToPhoneNumberMapping": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "?string",
+        "name": "limit",
+        "optional": true
+      },
+      {
+        "type": "?string",
+        "name": "offset",
+        "optional": true
+      }
+    ],
+    "defaultQuery": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Lids\\GetLidByPhoneNumberChatId": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "phoneNumber",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Video\\SendVideoStatus": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "file",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "convert",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "id",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "contacts",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "caption",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Video\\ConvertVideoToWhatsAppFormatMp4": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "url",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "data",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Remove\\RemoveParticipants": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "id",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "participants",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Screenshot\\ScreenshotControllerScreenshot": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "?string",
+        "name": "session",
+        "optional": true
+      }
+    ],
+    "defaultQuery": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Ping\\PingTheServer": {
+    "resolveEndpoint": [],
+    "__construct": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Pin\\PinsMessageInTheChat": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "chatId",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "messageId",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "duration",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Messages\\PinsMessageInTheChat": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "chatId",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "messageId",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "duration",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Messages\\GetMessagesInChat": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "?string",
+        "name": "sortBy",
+        "optional": true
+      },
+      {
+        "type": "?string",
+        "name": "sortOrder",
+        "optional": true
+      },
+      {
+        "type": "?string",
+        "name": "downloadMedia",
+        "optional": true
+      },
+      {
+        "type": "?string",
+        "name": "chatId",
+        "optional": true
+      },
+      {
+        "type": "?string",
+        "name": "session",
+        "optional": true
+      },
+      {
+        "type": "?string",
+        "name": "limit",
+        "optional": true
+      },
+      {
+        "type": "?string",
+        "name": "offset",
+        "optional": true
+      },
+      {
+        "type": "?string",
+        "name": "filterTimestampLte",
+        "optional": true
+      },
+      {
+        "type": "?string",
+        "name": "filterTimestampGte",
+        "optional": true
+      },
+      {
+        "type": "?string",
+        "name": "filterFromMe",
+        "optional": true
+      },
+      {
+        "type": "?string",
+        "name": "filterAck",
+        "optional": true
+      }
+    ],
+    "defaultQuery": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Messages\\GetsMessageById": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "chatId",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "messageId",
+        "optional": false
+      },
+      {
+        "type": "?string",
+        "name": "downloadMedia",
+        "optional": true
+      }
+    ],
+    "defaultQuery": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Messages\\UnpinsMessageInTheChat": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "chatId",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "messageId",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Messages\\DeletesMessageFromTheChat": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "chatId",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "messageId",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Messages\\EditsMessageInTheChat": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "chatId",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "messageId",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "text",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "linkPreview",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "linkPreviewHighQuality",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Trace\\CollectAndGetTraceJsonForChromeDevTools": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "?string",
+        "name": "seconds",
+        "optional": true
+      },
+      {
+        "type": "?string",
+        "name": "categories",
+        "optional": true
+      }
+    ],
+    "defaultQuery": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Locales\\GetAvailableLanguagesForChatwootApp": {
+    "resolveEndpoint": [],
+    "__construct": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\SendSeen\\ChattingControllerSendSeen": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "mixed",
+        "name": "chatId",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "session",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "messageId",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "messageIds",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "participant",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Join\\JoinGroupViaCode": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "code",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Reject\\RejectIncomingCall": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "from",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "id",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Archive\\ArchiveTheChat": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "chatId",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Delete\\DeleteSentStatus": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "id",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "contacts",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\StopTyping\\ChattingControllerStopTyping": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "mixed",
+        "name": "chatId",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "session",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Cpu\\CollectAndReturnCpuProfileForTheCurrentNodejsProcess": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "?string",
+        "name": "seconds",
+        "optional": true
+      }
+    ],
+    "defaultQuery": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\InviteCode\\GetsTheInviteCodeForTheGroup": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "id",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\InviteCode\\InvalidatesTheCurrentGroupInviteCodeAndGeneratesNewOne": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "id",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Revoke\\InvalidatesTheCurrentGroupInviteCodeAndGeneratesNewOne": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "id",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\InfoAdminOnly\\UpdatesTheGroupInfoAdminOnlySettings": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "id",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "adminsOnly",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\InfoAdminOnly\\GetTheGroupInfoAdminOnlySettings": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "id",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Refresh\\RefreshGroupsFromTheServer": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Promote\\PromoteParticipantsToAdminUsers": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "id",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "participants",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Mute\\MuteTheChannel": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "id",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\SendPoll\\SendPollWithOptions": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "mixed",
+        "name": "chatId",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "poll",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "session",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "replyTo",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Follow\\FollowTheChannel": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "id",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Health\\CheckTheHealthOfTheServer": {
+    "resolveEndpoint": [],
+    "__construct": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Contacts\\UnblockContact": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "mixed",
+        "name": "contactId",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "session",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Contacts\\CheckPhoneNumberIsRegisteredInWhatsApp": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "?string",
+        "name": "phone",
+        "optional": true
+      },
+      {
+        "type": "?string",
+        "name": "session",
+        "optional": true
+      }
+    ],
+    "defaultQuery": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Contacts\\GetsTheContactAboutInfo": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "?string",
+        "name": "contactId",
+        "optional": true
+      },
+      {
+        "type": "?string",
+        "name": "session",
+        "optional": true
+      }
+    ],
+    "defaultQuery": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Contacts\\CreateOrUpdateContact": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "chatId",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "firstName",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "lastName",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Contacts\\GetContactBasicInfo": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "?string",
+        "name": "contactId",
+        "optional": true
+      },
+      {
+        "type": "?string",
+        "name": "session",
+        "optional": true
+      }
+    ],
+    "defaultQuery": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Contacts\\BlockContact": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "mixed",
+        "name": "contactId",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "session",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Contacts\\GetAllContacts": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "?string",
+        "name": "session",
+        "optional": true
+      },
+      {
+        "type": "?string",
+        "name": "sortBy",
+        "optional": true
+      },
+      {
+        "type": "?string",
+        "name": "sortOrder",
+        "optional": true
+      },
+      {
+        "type": "?string",
+        "name": "limit",
+        "optional": true
+      },
+      {
+        "type": "?string",
+        "name": "offset",
+        "optional": true
+      }
+    ],
+    "defaultQuery": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Contacts\\GetContactProfilePictureUrl": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "?string",
+        "name": "contactId",
+        "optional": true
+      },
+      {
+        "type": "?string",
+        "name": "refresh",
+        "optional": true
+      },
+      {
+        "type": "?string",
+        "name": "session",
+        "optional": true
+      }
+    ],
+    "defaultQuery": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Read\\ReadUnreadMessagesInTheChat": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "chatId",
+        "optional": false
+      },
+      {
+        "type": "?string",
+        "name": "messages",
+        "optional": true
+      },
+      {
+        "type": "?string",
+        "name": "days",
+        "optional": true
+      }
+    ],
+    "defaultQuery": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Count\\GetTheNumberOfKnownLids": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Count\\GetTheNumberOfGroups": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\SendContactVcard\\ChattingControllerSendContactVcard": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "mixed",
+        "name": "chatId",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "contacts",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "session",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "replyTo",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Subject\\UpdatesTheGroupSubject": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "id",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "subject",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Picture\\DeleteProfilePicture": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Picture\\SetProfilePicture": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "file",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Picture\\GetsChatPicture": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "chatId",
+        "optional": false
+      },
+      {
+        "type": "?string",
+        "name": "refresh",
+        "optional": true
+      }
+    ],
+    "defaultQuery": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Picture\\SetGroupPicture": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "id",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "file",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Picture\\DeleteGroupPicture": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "id",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Picture\\GetGroupPicture": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "id",
+        "optional": false
+      },
+      {
+        "type": "?string",
+        "name": "refresh",
+        "optional": true
+      }
+    ],
+    "defaultQuery": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Admin\\DemotesParticipantsToRegularUsers": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "id",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "participants",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Admin\\PromoteParticipantsToAdminUsers": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "id",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "participants",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Labels\\UpdateLabel": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "labelId",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "name",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "colorHex",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "color",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Labels\\DeleteLabel": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "labelId",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Labels\\GetChatsByLabel": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "labelId",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\All\\GetAllContacts": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "?string",
+        "name": "session",
+        "optional": true
+      },
+      {
+        "type": "?string",
+        "name": "sortBy",
+        "optional": true
+      },
+      {
+        "type": "?string",
+        "name": "sortOrder",
+        "optional": true
+      },
+      {
+        "type": "?string",
+        "name": "limit",
+        "optional": true
+      },
+      {
+        "type": "?string",
+        "name": "offset",
+        "optional": true
+      }
+    ],
+    "defaultQuery": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Start\\StartTheSession": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Start\\UpsertAndStartSession": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "mixed",
+        "name": "name",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "sessionConfig",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Stop\\StopAndRestartTheServer": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "mixed",
+        "name": "force",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Stop\\StopTheSession": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Stop\\StopAndLogoutIfAskedSession": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "mixed",
+        "name": "name",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "logout",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Logout\\LogoutAndDeleteSession": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "mixed",
+        "name": "name",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Logout\\LogoutFromTheSession": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Server\\StopAndRestartTheServer": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "mixed",
+        "name": "force",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Server\\GetTheServerStatus": {
+    "resolveEndpoint": [],
+    "__construct": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Server\\GetTheVersionOfTheServer": {
+    "resolveEndpoint": [],
+    "__construct": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Server\\GetTheServerEnvironment": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "?string",
+        "name": "all",
+        "optional": true
+      }
+    ],
+    "defaultQuery": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Server\\ReturnHeapsnapshot": {
+    "resolveEndpoint": [],
+    "__construct": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\SendText\\SendTextMessage": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "mixed",
+        "name": "chatId",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "text",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "session",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "replyTo",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "linkPreview",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "linkPreviewHighQuality",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\MessagesAdminOnly\\GetSettingsWhoCanSendMessages": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "id",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\MessagesAdminOnly\\UpdateSettingsWhoCanSendMessages": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "id",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "adminsOnly",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Groups\\UpdatesTheGroupSubject": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "id",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "subject",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Groups\\GetTheGroup": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "id",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Groups\\LeaveTheGroup": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "id",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Groups\\UpdatesTheGroupDescription": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "id",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "description",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Groups\\DeleteTheGroup": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "id",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\About\\GetsTheContactAboutInfo": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "?string",
+        "name": "contactId",
+        "optional": true
+      },
+      {
+        "type": "?string",
+        "name": "session",
+        "optional": true
+      }
+    ],
+    "defaultQuery": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Status\\SendTextStatus": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "text",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "backgroundColor",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "font",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "id",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "contacts",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "linkPreview",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "linkPreviewHighQuality",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Status\\SetProfileStatusAbout": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "status",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Status\\SendVoiceStatus": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "file",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "backgroundColor",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "id",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "contacts",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Status\\SendVideoStatus": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "file",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "id",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "contacts",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "caption",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Status\\GetTheServerStatus": {
+    "resolveEndpoint": [],
+    "__construct": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Status\\DeleteSentStatus": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "id",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "contacts",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Status\\SendImageStatus": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "file",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "id",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "contacts",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "caption",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Status\\GenerateMessageIdYouCanUseToBatchContacts": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Qr\\GetQrCodeForPairingWhatsAppApi": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "?string",
+        "name": "format",
+        "optional": true
+      },
+      {
+        "type": "?string",
+        "name": "acceptHeader",
+        "optional": true
+      }
+    ],
+    "defaultQuery": [],
+    "defaultHeaders": [],
+    "forBinaryImage": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      }
+    ],
+    "forBase64Image": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      }
+    ],
+    "forRawValue": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Restart\\RestartTheSession": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Image\\SendImageStatus": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "file",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "id",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "contacts",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "caption",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Unfollow\\UnfollowTheChannel": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "id",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Search\\GetListOfCategoriesForChannelSearch": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Search\\GetListOfCountriesForChannelSearch": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Search\\GetListOfViewsForChannelSearch": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Search\\SearchForChannelsByText": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "text",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "categories",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "limit",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "startCursor",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Search\\SearchForChannelsByView": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "view",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "countries",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "categories",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "limit",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "startCursor",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Unarchive\\UnarchiveTheChat": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "chatId",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\SendFile\\SendFile": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "mixed",
+        "name": "chatId",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "file",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "session",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "replyTo",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "caption",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\ForwardMessage\\ChattingControllerForwardMessage": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "mixed",
+        "name": "chatId",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "messageId",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "session",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\SendButtons\\SendButtonsMessageInteractive": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "mixed",
+        "name": "chatId",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "header",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "messageBody",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "footer",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "buttons",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "session",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "headerImage",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\V2\\GetGroupParticipants": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "id",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Subscribe\\SubscribeToPresenceEventsForTheChat": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "chatId",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Star\\StarOrUnstarMessage": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "mixed",
+        "name": "messageId",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "chatId",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "star",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "session",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Pn\\GetLidByPhoneNumberChatId": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "phoneNumber",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Reply\\ReplyOnButtonMessage": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "mixed",
+        "name": "chatId",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "selectedDisplayText",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "selectedButtonId",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "session",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "replyTo",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Reply\\DeprecatedYouCanSetReplyToFieldWhenSendingTextImageEtc": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "mixed",
+        "name": "chatId",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "text",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "session",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "replyTo",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "linkPreview",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "linkPreviewHighQuality",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Presence\\GetThePresenceForTheChatIdIfItHasntBeenSubscribedItAlsoSubscribesToIt": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "chatId",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Presence\\SubscribeToPresenceEventsForTheChat": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "chatId",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\SendLocation\\ChattingControllerSendLocation": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "mixed",
+        "name": "chatId",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "latitude",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "longitude",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "title",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "session",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "replyTo",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Sessions\\RestartTheSession": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Sessions\\StopTheSession": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Sessions\\StartTheSession": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Sessions\\GetSessionTimelock": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Sessions\\UpdateSession": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "name",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "sessionConfig",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Sessions\\GetSessionCapping": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Sessions\\GetInformationAboutTheAuthenticatedAccount": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Sessions\\DeleteTheSession": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Sessions\\GetSessionInformation": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "?string",
+        "name": "expand",
+        "optional": true
+      }
+    ],
+    "defaultQuery": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Sessions\\LogoutFromTheSession": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Add\\AddParticipants": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "id",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "participants",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Description\\UpdatesTheGroupDescription": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "id",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "description",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Profile\\SetMyProfileName": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "name",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Profile\\SetProfileStatusAbout": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "status",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Profile\\GetMyProfile": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Version\\GetTheVersionOfTheServer": {
+    "resolveEndpoint": [],
+    "__construct": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Version\\GetTheServerVersion": {
+    "resolveEndpoint": [],
+    "__construct": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Voice\\SendVoiceStatus": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "file",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "convert",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "backgroundColor",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "id",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "contacts",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Voice\\ConvertVoiceToWhatsAppFormatOpus": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "url",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "data",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\SendVideo\\SendVideo": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "mixed",
+        "name": "chatId",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "file",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "convert",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "session",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "replyTo",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "asNote",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "caption",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\CheckNumberStatus\\CheckNumberStatus": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "?string",
+        "name": "phone",
+        "optional": true
+      },
+      {
+        "type": "?string",
+        "name": "session",
+        "optional": true
+      }
+    ],
+    "defaultQuery": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\CheckExists\\CheckPhoneNumberIsRegisteredInWhatsApp": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "?string",
+        "name": "phone",
+        "optional": true
+      },
+      {
+        "type": "?string",
+        "name": "session",
+        "optional": true
+      }
+    ],
+    "defaultQuery": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Me\\GetInformationAboutTheAuthenticatedAccount": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\ByText\\SearchForChannelsByText": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "text",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "categories",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "limit",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "startCursor",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\RequestCode\\RequestAuthenticationCode": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "phoneNumber",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "authMethod",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Environment\\GetTheServerEnvironment": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "?string",
+        "name": "all",
+        "optional": true
+      }
+    ],
+    "defaultQuery": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Api\\GetsChatPicture": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "chatId",
+        "optional": false
+      },
+      {
+        "type": "?string",
+        "name": "refresh",
+        "optional": true
+      }
+    ],
+    "defaultQuery": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Api\\UnreadTheChat": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "chatId",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Api\\UnarchiveTheChat": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "chatId",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Api\\ArchiveTheChat": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "chatId",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Api\\DeletesTheChat": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "chatId",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Chats\\GetsMessagesInTheChat": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "chatId",
+        "optional": false
+      },
+      {
+        "type": "?string",
+        "name": "sortBy",
+        "optional": true
+      },
+      {
+        "type": "?string",
+        "name": "sortOrder",
+        "optional": true
+      },
+      {
+        "type": "?string",
+        "name": "downloadMedia",
+        "optional": true
+      },
+      {
+        "type": "?string",
+        "name": "limit",
+        "optional": true
+      },
+      {
+        "type": "?string",
+        "name": "offset",
+        "optional": true
+      },
+      {
+        "type": "?string",
+        "name": "filterTimestampLte",
+        "optional": true
+      },
+      {
+        "type": "?string",
+        "name": "filterTimestampGte",
+        "optional": true
+      },
+      {
+        "type": "?string",
+        "name": "filterFromMe",
+        "optional": true
+      },
+      {
+        "type": "?string",
+        "name": "filterAck",
+        "optional": true
+      }
+    ],
+    "defaultQuery": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Chats\\GetLabelsForTheChat": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "chatId",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Chats\\ClearsAllMessagesFromTheChat": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "chatId",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Chats\\GetChatsByLabel": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "labelId",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Chats\\ReadUnreadMessagesInTheChat": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "chatId",
+        "optional": false
+      },
+      {
+        "type": "?string",
+        "name": "messages",
+        "optional": true
+      },
+      {
+        "type": "?string",
+        "name": "days",
+        "optional": true
+      }
+    ],
+    "defaultQuery": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Chats\\SaveLabelsForTheChat": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "chatId",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "labels",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Preview\\PreviewChannelMessages": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "id",
+        "optional": false
+      },
+      {
+        "type": "?string",
+        "name": "downloadMedia",
+        "optional": true
+      },
+      {
+        "type": "?string",
+        "name": "limit",
+        "optional": true
+      }
+    ],
+    "defaultQuery": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Unpin\\UnpinsMessageInTheChat": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "chatId",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "messageId",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\JoinInfo\\GetInfoAboutTheGroupBeforeJoining": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "?string",
+        "name": "code",
+        "optional": true
+      }
+    ],
+    "defaultQuery": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Text\\SendTextStatus": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "text",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "backgroundColor",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "font",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "id",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "contacts",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "linkPreview",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "linkPreviewHighQuality",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Countries\\GetListOfCountriesForChannelSearch": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\ByView\\SearchForChannelsByView": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "view",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "countries",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "categories",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "limit",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "startCursor",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Events\\SendEventMessage": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "chatId",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "event",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "replyTo",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Name\\SetMyProfileName": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "name",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Overview\\GetChatsOverviewIncludesAllNecessaryThingsToBuildUiYourChatsOverviewPageChatIdNamePictureLastMessageSortingByLastMessageTimestamp": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "?string",
+        "name": "limit",
+        "optional": true
+      },
+      {
+        "type": "?string",
+        "name": "offset",
+        "optional": true
+      },
+      {
+        "type": "?string",
+        "name": "ids",
+        "optional": true
+      }
+    ],
+    "defaultQuery": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Overview\\GetChatsOverviewUsePostIfYouHaveTooManyIdsParamsGetCanLimitIt": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "mixed",
+        "name": "pagination",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "filter",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Views\\GetListOfViewsForChannelSearch": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Send\\SendTextMessageWithCustomLinkPreview": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "mixed",
+        "name": "chatId",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "text",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "preview",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "session",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "replyTo",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "linkPreviewHighQuality",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Send\\ReplyOnButtonMessage": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "mixed",
+        "name": "chatId",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "selectedDisplayText",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "selectedButtonId",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "session",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "replyTo",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\NewMessageId\\GenerateMessageIdYouCanUseToBatchContacts": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Apps\\UpdateExistingApp": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "mixed",
+        "name": "id",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "session",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "app",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "appConfig",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "enabled",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Apps\\GetAppById": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "id",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Apps\\DeleteApp": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "id",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\ProfilePicture\\GetContactProfilePictureUrl": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "?string",
+        "name": "contactId",
+        "optional": true
+      },
+      {
+        "type": "?string",
+        "name": "refresh",
+        "optional": true
+      },
+      {
+        "type": "?string",
+        "name": "session",
+        "optional": true
+      }
+    ],
+    "defaultQuery": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Categories\\GetListOfCategoriesForChannelSearch": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Unmute\\UnmuteTheChannel": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "id",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Unblock\\UnblockContact": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "mixed",
+        "name": "contactId",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "session",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Leave\\LeaveTheGroup": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "id",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\SendImage\\SendImage": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "mixed",
+        "name": "chatId",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "file",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "session",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "replyTo",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "caption",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Block\\BlockContact": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "mixed",
+        "name": "contactId",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "session",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\SendLinkPreview\\ChattingControllerSendLinkPreviewDeprecated": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "mixed",
+        "name": "chatId",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "session",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "url",
+        "optional": true
+      },
+      {
+        "type": "mixed",
+        "name": "title",
+        "optional": true
+      }
+    ],
+    "defaultBody": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Unread\\UnreadTheChat": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "chatId",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Channels\\DeleteTheChannel": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "id",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Channels\\GetTheChannelInfo": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "id",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Channels\\UnfollowTheChannel": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "id",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Channels\\MuteTheChannel": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "id",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Channels\\UnmuteTheChannel": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "id",
+        "optional": false
+      }
+    ]
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Channels\\PreviewChannelMessages": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "id",
+        "optional": false
+      },
+      {
+        "type": "?string",
+        "name": "downloadMedia",
+        "optional": true
+      },
+      {
+        "type": "?string",
+        "name": "limit",
+        "optional": true
+      }
+    ],
+    "defaultQuery": []
+  },
+  "CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Channels\\FollowTheChannel": {
+    "resolveEndpoint": [],
+    "__construct": [
+      {
+        "type": "string",
+        "name": "session",
+        "optional": false
+      },
+      {
+        "type": "string",
+        "name": "id",
+        "optional": false
+      }
+    ]
+  }
+}

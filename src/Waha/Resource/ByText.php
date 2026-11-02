@@ -10,10 +10,10 @@ class ByText extends Resource
 {
     public function searchForChannelsByText(
         string $session,
-        mixed $text,
-        mixed $categories,
-        mixed $limit,
-        mixed $startCursor,
+        mixed $text = null,
+        mixed $categories = null,
+        mixed $limit = null,
+        mixed $startCursor = null,
     ): Response {
         return $this->connector->send(new SearchForChannelsByText($session, $text, $categories, $limit, $startCursor));
     }

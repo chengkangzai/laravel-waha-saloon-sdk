@@ -9,6 +9,8 @@ use Saloon\Traits\Body\HasJsonBody;
 
 /**
  * Logout and Delete session.
+ *
+ * @deprecated Use Logout\LogoutFromTheSession and Sessions\DeleteTheSession.
  */
 class LogoutAndDeleteSession extends Request implements HasBody
 {
@@ -21,6 +23,10 @@ class LogoutAndDeleteSession extends Request implements HasBody
         return '/api/sessions/logout';
     }
 
+    /**
+     * WAHA requires: $name. Nullable arguments remain for compatibility
+     * with callers that populate the Saloon query/body stores before sending.
+     */
     public function __construct(
         protected mixed $name = null,
     ) {}

@@ -8,7 +8,7 @@ use Saloon\Http\Response;
 
 class Description extends Resource
 {
-    public function updatesTheGroupDescription(string $session, string $id, mixed $description): Response
+    public function updatesTheGroupDescription(string $session, string $id, mixed $description = null): Response
     {
         return $this->connector->send(new UpdatesTheGroupDescription($session, $id, $description));
     }

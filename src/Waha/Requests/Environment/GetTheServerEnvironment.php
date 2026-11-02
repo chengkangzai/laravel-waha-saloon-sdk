@@ -18,10 +18,10 @@ class GetTheServerEnvironment extends Request
     }
 
     /**
-     * @param  null|string  $all  Include all environment variables
+     * @param  string|bool|null  $all  Include all environment variables
      */
     public function __construct(
-        protected ?string $all = null,
+        protected string|bool|null $all = null,
     ) {}
 
     public function defaultQuery(): array

@@ -8,7 +8,7 @@ use Saloon\Http\Response;
 
 class Remove extends Resource
 {
-    public function removeParticipants(string $session, string $id, mixed $participants): Response
+    public function removeParticipants(string $session, string $id, mixed $participants = null): Response
     {
         return $this->connector->send(new RemoveParticipants($session, $id, $participants));
     }

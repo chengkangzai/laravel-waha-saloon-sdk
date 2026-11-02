@@ -8,7 +8,7 @@ use Saloon\Http\Response;
 
 class Promote extends Resource
 {
-    public function promoteParticipantsToAdminUsers(string $session, string $id, mixed $participants): Response
+    public function promoteParticipantsToAdminUsers(string $session, string $id, mixed $participants = null): Response
     {
         return $this->connector->send(new PromoteParticipantsToAdminUsers($session, $id, $participants));
     }

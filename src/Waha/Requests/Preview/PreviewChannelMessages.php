@@ -17,15 +17,24 @@ class PreviewChannelMessages extends Request
         return "/api/{$this->session}/channels/{$this->id}/messages/preview";
     }
 
+    /**
+     * WAHA requires: $downloadMedia, $limit. Nullable arguments remain for compatibility
+     * with callers that populate the Saloon query/body stores before sending.
+     */
     public function __construct(
         protected string $session,
         protected string $id,
-        protected ?string $downloadMedia = null,
-        protected ?string $limit = null,
+        protected string|bool|null $downloadMedia = null,
+        protected string|int|float|null $limit = null,
+        protected ?array $downloadMediaMimetypes = null,
     ) {}
 
     public function defaultQuery(): array
     {
-        return array_filter(['downloadMedia' => $this->downloadMedia, 'limit' => $this->limit], fn ($value) => $value !== null);
+        return array_filter([
+            'downloadMedia' => $this->downloadMedia,
+            'limit' => $this->limit,
+            'downloadMediaMimetypes' => $this->downloadMediaMimetypes,
+        ], fn ($value) => $value !== null);
     }
 }

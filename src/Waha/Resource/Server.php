@@ -18,9 +18,9 @@ class Server extends Resource
     }
 
     /**
-     * @param  string  $all  Include all environment variables
+     * @param  string|bool|null  $all  Include all environment variables
      */
-    public function getTheServerEnvironment(?string $all): Response
+    public function getTheServerEnvironment(string|bool|null $all = null): Response
     {
         return $this->connector->send(new GetTheServerEnvironment($all));
     }
@@ -30,7 +30,7 @@ class Server extends Resource
         return $this->connector->send(new GetTheServerStatus);
     }
 
-    public function stopAndRestartTheServer(mixed $force): Response
+    public function stopAndRestartTheServer(mixed $force = null): Response
     {
         return $this->connector->send(new StopAndRestartTheServer($force));
     }

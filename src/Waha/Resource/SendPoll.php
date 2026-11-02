@@ -8,8 +8,8 @@ use Saloon\Http\Response;
 
 class SendPoll extends Resource
 {
-    public function sendPollWithOptions(mixed $chatId, mixed $poll, mixed $session, mixed $replyTo): Response
+    public function sendPollWithOptions(mixed $chatId = null, mixed $poll = null, mixed $session = null, mixed $replyTo = null, ?string $id = null): Response
     {
-        return $this->connector->send(new SendPollWithOptions($chatId, $poll, $session, $replyTo));
+        return $this->connector->send(new SendPollWithOptions($chatId, $poll, $session, $replyTo, $id));
     }
 }

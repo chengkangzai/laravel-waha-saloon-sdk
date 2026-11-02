@@ -9,7 +9,7 @@ use Saloon\Http\Response;
 
 class Status extends Resource
 {
-    public function setProfileStatusAbout(string $session, mixed $status): Response
+    public function setProfileStatusAbout(string $session, mixed $status = null): Response
     {
         return $this->connector->send(new SetProfileStatusAbout($session, $status));
     }

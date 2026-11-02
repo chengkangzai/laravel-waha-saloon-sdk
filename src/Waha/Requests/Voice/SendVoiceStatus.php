@@ -21,6 +21,10 @@ class SendVoiceStatus extends Request implements HasBody
         return "/api/{$this->session}/status/voice";
     }
 
+    /**
+     * WAHA requires: $file, $convert, $backgroundColor. Nullable arguments remain for compatibility
+     * with callers that populate the Saloon query/body stores before sending.
+     */
     public function __construct(
         protected string $session,
         protected mixed $file = null,

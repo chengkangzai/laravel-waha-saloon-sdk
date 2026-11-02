@@ -22,25 +22,26 @@ use Saloon\Http\Response;
 class Misc extends Resource
 {
     /**
-     * @param  string  $sortBy  Sort by field
-     * @param  string  $sortOrder  Sort order - <b>desc</b>ending (Z => A, New first) or <b>asc</b>ending (A => Z, Old first)
+     * @param  null|string  $sortBy  Sort by field
+     * @param  null|string  $sortOrder  Sort order - <b>desc</b>ending (Z => A, New first) or <b>asc</b>ending (A => Z, Old first)
      */
     public function getChats(
         string $session,
-        ?string $sortBy,
-        ?string $sortOrder,
-        ?string $limit,
-        ?string $offset,
+        ?string $sortBy = null,
+        ?string $sortOrder = null,
+        string|int|float|null $limit = null,
+        string|int|float|null $offset = null,
+        ?bool $merge = null,
     ): Response {
-        return $this->connector->send(new GetChats($session, $sortBy, $sortOrder, $limit, $offset));
+        return $this->connector->send(new GetChats($session, $sortBy, $sortOrder, $limit, $offset, $merge));
     }
 
-    public function getListOfKnowChannels(string $session, ?string $role): Response
+    public function getListOfKnowChannels(string $session, ?string $role = null): Response
     {
         return $this->connector->send(new GetListOfKnowChannels($session, $role));
     }
 
-    public function createNewChannel(string $session, mixed $name, mixed $description, mixed $picture): Response
+    public function createNewChannel(string $session, mixed $name = null, mixed $description = null, mixed $picture = null): Response
     {
         return $this->connector->send(new CreateNewChannel($session, $name, $description, $picture));
     }
@@ -50,39 +51,38 @@ class Misc extends Resource
         return $this->connector->send(new GetAllLabels($session));
     }
 
-    public function createNewLabel(string $session, mixed $name, mixed $colorHex, mixed $color): Response
+    public function createNewLabel(string $session, mixed $name = null, mixed $colorHex = null, mixed $color = null): Response
     {
         return $this->connector->send(new CreateNewLabel($session, $name, $colorHex, $color));
     }
 
-    public function getAllKnownLidsToPhoneNumberMapping(string $session, ?string $limit, ?string $offset): Response
+    public function getAllKnownLidsToPhoneNumberMapping(string $session, string|int|float|null $limit = null, string|int|float|null $offset = null): Response
     {
         return $this->connector->send(new GetAllKnownLidsToPhoneNumberMapping($session, $limit, $offset));
     }
 
-    public function createNewGroup(string $session, mixed $name, mixed $participants): Response
+    public function createNewGroup(string $session, mixed $name = null, mixed $participants = null): Response
     {
         return $this->connector->send(new CreateNewGroup($session, $name, $participants));
     }
 
     /**
-     * @param  string  $sortBy  Sort by field
-     * @param  string  $sortOrder  Sort order - <b>desc</b>ending (Z => A, New first) or <b>asc</b>ending (A => Z, Old first)
-     * @param  string  $exclude  Exclude fields
-     * @param  string  $exclude  Exclude fields
+     * @param  null|string  $sortBy  Sort by field
+     * @param  null|string  $sortOrder  Sort order - <b>desc</b>ending (Z => A, New first) or <b>asc</b>ending (A => Z, Old first)
+     * @param  string|array|null  $exclude  Exclude fields
      */
     public function getAllGroups(
         string $session,
-        ?string $sortBy,
-        ?string $sortOrder,
-        ?string $limit,
-        ?string $offset,
-        ?string $exclude,
+        ?string $sortBy = null,
+        ?string $sortOrder = null,
+        string|int|float|null $limit = null,
+        string|int|float|null $offset = null,
+        string|array|null $exclude = null,
     ): Response {
-        return $this->connector->send(new GetAllGroups($session, $sortBy, $sortOrder, $limit, $offset, $exclude, $exclude));
+        return $this->connector->send(new GetAllGroups($session, $sortBy, $sortOrder, $limit, $offset, $exclude));
     }
 
-    public function setSessionPresence(string $session, mixed $chatId, mixed $presence): Response
+    public function setSessionPresence(string $session, mixed $chatId = null, mixed $presence = null): Response
     {
         return $this->connector->send(new SetSessionPresence($session, $chatId, $presence));
     }
@@ -93,29 +93,28 @@ class Misc extends Resource
     }
 
     /**
-     * @param  string  $expand  Expand additional session details.
-     * @param  string  $expand  Expand additional session details.
-     * @param  string  $all  Return all sessions, including those that are in the STOPPED state.
+     * @param  string|array|null  $expand  Expand additional session details.
+     * @param  string|bool|null  $all  Return all sessions, including those that are in the STOPPED state.
      */
-    public function listAllSessions(?string $expand, ?string $all): Response
+    public function listAllSessions(string|array|null $expand = null, string|bool|null $all = null): Response
     {
-        return $this->connector->send(new ListAllSessions($expand, $expand, $all));
+        return $this->connector->send(new ListAllSessions($expand, $all));
     }
 
-    public function createSession(mixed $name): Response
+    public function createSession(mixed $name = null, ?array $apps = null, ?bool $start = null, ?array $sessionConfig = null): Response
     {
-        return $this->connector->send(new CreateSession($name));
+        return $this->connector->send(new CreateSession($name, $apps, $start, $sessionConfig));
     }
 
     /**
-     * @param  string  $session  Session name to list apps for
+     * @param  null|string  $session  Session name to list apps for
      */
-    public function listAllAppsForSession(?string $session): Response
+    public function listAllAppsForSession(?string $session = null): Response
     {
         return $this->connector->send(new ListAllAppsForSession($session));
     }
 
-    public function createNewApp(mixed $id, mixed $session, mixed $app, mixed $config, mixed $enabled): Response
+    public function createNewApp(mixed $id = null, mixed $session = null, mixed $app = null, mixed $config = null, mixed $enabled = null): Response
     {
         return $this->connector->send(new CreateNewApp($id, $session, $app, $config, $enabled));
     }

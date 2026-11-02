@@ -18,6 +18,9 @@ class GetInfoAboutTheGroupBeforeJoining extends Request
     }
 
     /**
+     * WAHA requires: $code. Nullable arguments remain for compatibility
+     * with callers that populate the Saloon query/body stores before sending.
+     *
      * @param  null|string  $code  (Required) Group code (123) or url (https://chat.whatsapp.com/123)
      */
     public function __construct(

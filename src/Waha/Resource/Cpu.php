@@ -9,9 +9,9 @@ use Saloon\Http\Response;
 class Cpu extends Resource
 {
     /**
-     * @param  string  $seconds  How many seconds to sample CPU
+     * @param  string|int|float|null  $seconds  How many seconds to sample CPU
      */
-    public function collectAndReturnCpuProfileForTheCurrentNodejsProcess(?string $seconds): Response
+    public function collectAndReturnCpuProfileForTheCurrentNodejsProcess(string|int|float|null $seconds = null): Response
     {
         return $this->connector->send(new CollectAndReturnCpuProfileForTheCurrentNodejsProcess($seconds));
     }

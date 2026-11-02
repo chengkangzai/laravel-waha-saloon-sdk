@@ -17,6 +17,10 @@ class GetsTheContactAboutInfo extends Request
         return '/api/contacts/about';
     }
 
+    /**
+     * WAHA requires: $contactId, $session. Nullable arguments remain for compatibility
+     * with callers that populate the Saloon query/body stores before sending.
+     */
     public function __construct(
         protected ?string $contactId = null,
         protected ?string $session = null,
