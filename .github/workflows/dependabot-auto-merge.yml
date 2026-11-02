@@ -4,11 +4,12 @@ on: pull_request_target
 permissions:
   pull-requests: write
   contents: write
+  checks: read
 
 jobs:
   dependabot:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 30
     if: ${{ github.actor == 'dependabot[bot]' }}
     steps:
 
@@ -18,16 +19,44 @@ jobs:
         with:
           github-token: "${{ secrets.GITHUB_TOKEN }}"
 
-      - name: Auto-merge Dependabot PRs for semver-minor updates
-        if: ${{steps.metadata.outputs.update-type == 'version-update:semver-minor'}}
-        run: gh pr merge --auto --merge "$PR_URL"
+      # Minor and patch updates of any ecosystem, plus major updates of GitHub
+      # Actions. Composer major updates still need a human review.
+      - name: Decide whether to auto-merge
+        id: eligible
         env:
-          PR_URL: ${{github.event.pull_request.html_url}}
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          UPDATE_TYPE: ${{ steps.metadata.outputs.update-type }}
+          ECOSYSTEM: ${{ steps.metadata.outputs.package-ecosystem }}
+        run: |
+          case "$UPDATE_TYPE" in
+            version-update:semver-minor|version-update:semver-patch) ok=true ;;
+            version-update:semver-major) [ "$ECOSYSTEM" = "github_actions" ] && ok=true || ok=false ;;
+            *) ok=false ;;
+          esac
+          echo "Update: $ECOSYSTEM $UPDATE_TYPE -> auto-merge=$ok"
+          echo "ok=$ok" >> "$GITHUB_OUTPUT"
 
-      - name: Auto-merge Dependabot PRs for semver-patch updates
-        if: ${{steps.metadata.outputs.update-type == 'version-update:semver-patch'}}
-        run: gh pr merge --auto --merge "$PR_URL"
+      # main has no required status checks, so `gh pr merge --auto` would merge
+      # immediately. Wait for every other check on the PR to finish first.
+      - name: Wait for checks to pass
+        if: ${{ steps.eligible.outputs.ok == 'true' }}
         env:
-          PR_URL: ${{github.event.pull_request.html_url}}
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SELF: ${{ github.job }}
+        run: |
+          sleep 60 # let the other workflows register their checks
+          while true; do
+            checks=$(gh pr checks "$PR_URL" --json name,bucket --jq "[.[] | select(.name != \"$SELF\")]" || true)
+            pending=$(jq '[.[] | select(.bucket == "pending")] | length' <<< "$checks")
+            failed=$(jq -r '[.[] | select(.bucket == "fail" or .bucket == "cancel") | .name] | join(", ")' <<< "$checks")
+            if [ -n "$failed" ]; then echo "::error::Not merging, checks failed: $failed"; exit 1; fi
+            if [ "$pending" -eq 0 ]; then echo "All checks passed"; break; fi
+            echo "$pending check(s) still running"; sleep 30
+          done
+
+      - name: Merge
+        if: ${{ steps.eligible.outputs.ok == 'true' }}
+        run: gh pr merge --merge "$PR_URL"
+        env:
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
