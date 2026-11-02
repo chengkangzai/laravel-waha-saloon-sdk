@@ -1,9 +1,19 @@
 <?php
 
 use CCK\LaravelWahaSaloonSdk\Waha\Requests\Chats\GetsMessagesInTheChat;
+use CCK\LaravelWahaSaloonSdk\Waha\Requests\Keys\CreateOrGetMediaApiKey;
 use CCK\LaravelWahaSaloonSdk\Waha\Requests\Misc\StarOrUnstarMessage;
+use CCK\LaravelWahaSaloonSdk\Waha\Requests\SendText\SendTextMessage;
 
 describe('default query/body filtering', function () {
+    it('keeps empty strings in both existing and new request bodies', function () {
+        $text = new SendTextMessage(text: '');
+        $key = new CreateOrGetMediaApiKey('');
+
+        expect($text->body()->all())->toBe(['text' => ''])
+            ->and($key->body()->all())->toBe(['session' => '']);
+    });
+
     it('keeps an explicit false in the body so unstar actually sends star=false', function () {
         $request = new StarOrUnstarMessage(
             messageId: 'msg-1',

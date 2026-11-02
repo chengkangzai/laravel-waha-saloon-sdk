@@ -21,14 +21,24 @@ class ChattingControllerForwardMessage extends Request implements HasBody
         return '/api/forwardMessage';
     }
 
+    /**
+     * WAHA requires: $chatId, $messageId, $session. Nullable arguments remain for compatibility
+     * with callers that populate the Saloon query/body stores before sending.
+     */
     public function __construct(
         protected mixed $chatId = null,
         protected mixed $messageId = null,
         protected mixed $session = null,
+        protected ?string $id = null,
     ) {}
 
     public function defaultBody(): array
     {
-        return array_filter(['chatId' => $this->chatId, 'messageId' => $this->messageId, 'session' => $this->session], fn ($value) => $value !== null);
+        return array_filter([
+            'chatId' => $this->chatId,
+            'messageId' => $this->messageId,
+            'session' => $this->session,
+            'id' => $this->id,
+        ], fn ($value) => $value !== null);
     }
 }

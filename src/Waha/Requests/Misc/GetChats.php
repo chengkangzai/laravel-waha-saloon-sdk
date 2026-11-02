@@ -25,12 +25,19 @@ class GetChats extends Request
         protected string $session,
         protected ?string $sortBy = null,
         protected ?string $sortOrder = null,
-        protected ?string $limit = null,
-        protected ?string $offset = null,
+        protected string|int|float|null $limit = null,
+        protected string|int|float|null $offset = null,
+        protected ?bool $merge = null,
     ) {}
 
     public function defaultQuery(): array
     {
-        return array_filter(['sortBy' => $this->sortBy, 'sortOrder' => $this->sortOrder, 'limit' => $this->limit, 'offset' => $this->offset], fn ($value) => $value !== null);
+        return array_filter([
+            'sortBy' => $this->sortBy,
+            'sortOrder' => $this->sortOrder,
+            'limit' => $this->limit,
+            'offset' => $this->offset,
+            'merge' => $this->merge,
+        ], fn ($value) => $value !== null);
     }
 }

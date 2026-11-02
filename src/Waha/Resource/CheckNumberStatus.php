@@ -9,9 +9,11 @@ use Saloon\Http\Response;
 class CheckNumberStatus extends Resource
 {
     /**
-     * @param  string  $phone  The phone number to check
+     * @param  null|string  $phone  The phone number to check
+     *
+     * @deprecated Use CheckExists\CheckPhoneNumberIsRegisteredInWhatsApp (GET /api/contacts/check-exists).
      */
-    public function checkNumberStatus(?string $phone, ?string $session): Response
+    public function checkNumberStatus(?string $phone = null, ?string $session = null): Response
     {
         return $this->connector->send(new CheckNumberStatusRequest($phone, $session));
     }

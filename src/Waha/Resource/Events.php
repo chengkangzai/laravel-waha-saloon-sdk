@@ -8,7 +8,7 @@ use Saloon\Http\Response;
 
 class Events extends Resource
 {
-    public function sendEventMessage(string $session, mixed $chatId, mixed $event, mixed $replyTo): Response
+    public function sendEventMessage(string $session, mixed $chatId = null, mixed $event = null, mixed $replyTo = null): Response
     {
         return $this->connector->send(new SendEventMessage($session, $chatId, $event, $replyTo));
     }

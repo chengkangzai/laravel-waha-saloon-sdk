@@ -8,7 +8,7 @@ use Saloon\Http\Response;
 
 class Demote extends Resource
 {
-    public function demotesParticipantsToRegularUsers(string $session, string $id, mixed $participants): Response
+    public function demotesParticipantsToRegularUsers(string $session, string $id, mixed $participants = null): Response
     {
         return $this->connector->send(new DemotesParticipantsToRegularUsers($session, $id, $participants));
     }

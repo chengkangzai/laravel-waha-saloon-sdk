@@ -18,6 +18,9 @@ class GetQrCodeForPairingWhatsAppApi extends Request
     }
 
     /**
+     * WAHA requires: $format. Nullable arguments remain for compatibility
+     * with callers that populate the Saloon query/body stores before sending.
+     *
      * @param  string  $session  The session identifier
      * @param  null|string  $format  Format parameter (raw, image)
      * @param  null|string  $acceptHeader  Accept header for response format

@@ -9,6 +9,8 @@ use Saloon\Traits\Body\HasJsonBody;
 
 /**
  * Send buttons message (interactive)
+ *
+ * @deprecated Use SendList\SendListMessageInteractive or SendText\SendTextMessage.
  */
 class SendButtonsMessageInteractive extends Request implements HasBody
 {
@@ -21,6 +23,10 @@ class SendButtonsMessageInteractive extends Request implements HasBody
         return '/api/sendButtons';
     }
 
+    /**
+     * WAHA requires: $chatId, $header, $messageBody, $footer, $buttons, $session. Nullable arguments remain for compatibility
+     * with callers that populate the Saloon query/body stores before sending.
+     */
     public function __construct(
         protected mixed $chatId = null,
         protected mixed $header = null,

@@ -9,14 +9,14 @@ use Saloon\Http\Response;
 class Read extends Resource
 {
     /**
-     * @param  string  $messages  How much messages to read (latest first)
-     * @param  string  $days  How much days to read (latest first)
+     * @param  string|int|float|null  $messages  How much messages to read (latest first)
+     * @param  string|int|float|null  $days  How much days to read (latest first)
      */
     public function readUnreadMessagesInTheChat(
         string $session,
         string $chatId,
-        ?string $messages,
-        ?string $days,
+        string|int|float|null $messages = null,
+        string|int|float|null $days = null,
     ): Response {
         return $this->connector->send(new ReadUnreadMessagesInTheChat($session, $chatId, $messages, $days));
     }

@@ -21,6 +21,10 @@ class SetGroupPicture extends Request implements HasBody
         return "/api/{$this->session}/groups/{$this->id}/picture";
     }
 
+    /**
+     * WAHA requires: $file. Nullable arguments remain for compatibility
+     * with callers that populate the Saloon query/body stores before sending.
+     */
     public function __construct(
         protected string $session,
         protected string $id,

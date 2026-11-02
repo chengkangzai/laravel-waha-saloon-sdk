@@ -8,14 +8,17 @@ use Saloon\Http\Response;
 
 class SendButtons extends Resource
 {
+    /**
+     * @deprecated Use SendList\SendListMessageInteractive or SendText\SendTextMessage.
+     */
     public function sendButtonsMessageInteractive(
-        mixed $chatId,
-        mixed $header,
-        mixed $body,
-        mixed $footer,
-        mixed $buttons,
-        mixed $session,
-        mixed $headerImage,
+        mixed $chatId = null,
+        mixed $header = null,
+        mixed $body = null,
+        mixed $footer = null,
+        mixed $buttons = null,
+        mixed $session = null,
+        mixed $headerImage = null,
     ): Response {
         return $this->connector->send(new SendButtonsMessageInteractive($chatId, $header, $body, $footer, $buttons, $session, $headerImage));
     }

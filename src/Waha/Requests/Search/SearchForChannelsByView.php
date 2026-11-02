@@ -21,6 +21,10 @@ class SearchForChannelsByView extends Request implements HasBody
         return "/api/{$this->session}/channels/search/by-view";
     }
 
+    /**
+     * WAHA requires: $view, $countries, $categories, $limit, $startCursor. Nullable arguments remain for compatibility
+     * with callers that populate the Saloon query/body stores before sending.
+     */
     public function __construct(
         protected string $session,
         protected mixed $view = null,

@@ -21,17 +21,21 @@ class UpdateSession extends Request implements HasBody
         return "/api/sessions/{$this->session}";
     }
 
+    /**
+     * @param  mixed  $name  Deprecated: WAHA identifies the session by the path; this argument is ignored.
+     */
     public function __construct(
         protected string $session,
         protected mixed $name = null,
         protected mixed $sessionConfig = null,
+        protected ?array $apps = null,
     ) {}
 
     public function defaultBody(): array
     {
         return array_filter([
-            'name' => $this->name,
             'config' => $this->sessionConfig,
+            'apps' => $this->apps,
         ], fn ($value) => $value !== null);
     }
 }

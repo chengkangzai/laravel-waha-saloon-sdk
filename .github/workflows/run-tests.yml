@@ -53,6 +53,10 @@ jobs:
 
       - name: Install dependencies
         run: |
+          # Every laravel/framework 11.x release now carries a security advisory, and
+          # prefer-lowest resolves old releases across the matrix. Composer blocks both
+          # by default; allow them here so CI can test the full supported range.
+          composer config policy.advisories.block false
           composer require "laravel/framework:${{ matrix.laravel }}" "orchestra/testbench:${{ matrix.testbench }}" --no-interaction --no-update
           composer update --${{ matrix.stability }} --prefer-dist --no-interaction
 

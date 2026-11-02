@@ -9,7 +9,7 @@ use Saloon\Http\Response;
 
 class MessagesAdminOnly extends Resource
 {
-    public function updateSettingsWhoCanSendMessages(string $session, string $id, mixed $adminsOnly): Response
+    public function updateSettingsWhoCanSendMessages(string $session, string $id, mixed $adminsOnly = null): Response
     {
         return $this->connector->send(new UpdateSettingsWhoCanSendMessages($session, $id, $adminsOnly));
     }

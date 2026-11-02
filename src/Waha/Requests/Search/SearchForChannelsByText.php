@@ -21,6 +21,10 @@ class SearchForChannelsByText extends Request implements HasBody
         return "/api/{$this->session}/channels/search/by-text";
     }
 
+    /**
+     * WAHA requires: $text, $categories, $limit, $startCursor. Nullable arguments remain for compatibility
+     * with callers that populate the Saloon query/body stores before sending.
+     */
     public function __construct(
         protected string $session,
         protected mixed $text = null,

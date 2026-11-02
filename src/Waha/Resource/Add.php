@@ -8,7 +8,7 @@ use Saloon\Http\Response;
 
 class Add extends Resource
 {
-    public function addParticipants(string $session, string $id, mixed $participants): Response
+    public function addParticipants(string $session, string $id, mixed $participants = null): Response
     {
         return $this->connector->send(new AddParticipants($session, $id, $participants));
     }

@@ -8,7 +8,7 @@ use Saloon\Http\Response;
 
 class Delete extends Resource
 {
-    public function deleteSentStatus(string $session, mixed $id, mixed $contacts): Response
+    public function deleteSentStatus(string $session, mixed $id = null, mixed $contacts = null): Response
     {
         return $this->connector->send(new DeleteSentStatus($session, $id, $contacts));
     }

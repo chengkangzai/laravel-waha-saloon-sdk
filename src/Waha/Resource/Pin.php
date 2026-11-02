@@ -8,7 +8,7 @@ use Saloon\Http\Response;
 
 class Pin extends Resource
 {
-    public function pinsMessageInTheChat(string $session, string $chatId, string $messageId, mixed $duration): Response
+    public function pinsMessageInTheChat(string $session, string $chatId, string $messageId, mixed $duration = null): Response
     {
         return $this->connector->send(new PinsMessageInTheChat($session, $chatId, $messageId, $duration));
     }

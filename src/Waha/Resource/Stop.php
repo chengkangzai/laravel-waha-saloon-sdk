@@ -15,12 +15,15 @@ class Stop extends Resource
         return $this->connector->send(new StopTheSession($session));
     }
 
-    public function stopAndLogoutIfAskedSession(mixed $name, mixed $logout): Response
+    /**
+     * @deprecated Use Stop\StopTheSession and Logout\LogoutFromTheSession.
+     */
+    public function stopAndLogoutIfAskedSession(mixed $name = null, mixed $logout = null): Response
     {
         return $this->connector->send(new StopAndLogoutIfAskedSession($name, $logout));
     }
 
-    public function stopAndRestartTheServer(mixed $force): Response
+    public function stopAndRestartTheServer(mixed $force = null): Response
     {
         return $this->connector->send(new StopAndRestartTheServer($force));
     }

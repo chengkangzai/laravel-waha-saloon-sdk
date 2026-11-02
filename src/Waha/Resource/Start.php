@@ -14,7 +14,10 @@ class Start extends Resource
         return $this->connector->send(new StartTheSession($session));
     }
 
-    public function upsertAndStartSession(mixed $name, mixed $config): Response
+    /**
+     * @deprecated Use Misc\CreateSession and Start\StartTheSession.
+     */
+    public function upsertAndStartSession(mixed $name = null, mixed $config = null): Response
     {
         return $this->connector->send(new UpsertAndStartSession($name, $config));
     }

@@ -21,6 +21,10 @@ class UpdateLabel extends Request implements HasBody
         return "/api/{$this->session}/labels/{$this->labelId}";
     }
 
+    /**
+     * WAHA requires: $name. Nullable arguments remain for compatibility
+     * with callers that populate the Saloon query/body stores before sending.
+     */
     public function __construct(
         protected string $session,
         protected string $labelId,

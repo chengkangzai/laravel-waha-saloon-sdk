@@ -8,7 +8,7 @@ use Saloon\Http\Response;
 
 class Reject extends Resource
 {
-    public function rejectIncomingCall(string $session, mixed $from, mixed $id): Response
+    public function rejectIncomingCall(string $session, mixed $from = null, mixed $id = null): Response
     {
         return $this->connector->send(new RejectIncomingCall($session, $from, $id));
     }

@@ -8,8 +8,8 @@ use Saloon\Http\Response;
 
 class ForwardMessage extends Resource
 {
-    public function chattingControllerForwardMessage(mixed $chatId, mixed $messageId, mixed $session): Response
+    public function chattingControllerForwardMessage(mixed $chatId = null, mixed $messageId = null, mixed $session = null, ?string $id = null): Response
     {
-        return $this->connector->send(new ChattingControllerForwardMessage($chatId, $messageId, $session));
+        return $this->connector->send(new ChattingControllerForwardMessage($chatId, $messageId, $session, $id));
     }
 }

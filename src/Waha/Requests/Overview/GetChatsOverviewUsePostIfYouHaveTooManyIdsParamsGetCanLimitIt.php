@@ -21,6 +21,10 @@ class GetChatsOverviewUsePostIfYouHaveTooManyIdsParamsGetCanLimitIt extends Requ
         return "/api/{$this->session}/chats/overview";
     }
 
+    /**
+     * WAHA requires: $pagination. Nullable arguments remain for compatibility
+     * with callers that populate the Saloon query/body stores before sending.
+     */
     public function __construct(
         protected string $session,
         protected mixed $pagination = null,

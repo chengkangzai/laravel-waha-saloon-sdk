@@ -8,7 +8,7 @@ use Saloon\Http\Response;
 
 class Subject extends Resource
 {
-    public function updatesTheGroupSubject(string $session, string $id, mixed $subject): Response
+    public function updatesTheGroupSubject(string $session, string $id, mixed $subject = null): Response
     {
         return $this->connector->send(new UpdatesTheGroupSubject($session, $id, $subject));
     }

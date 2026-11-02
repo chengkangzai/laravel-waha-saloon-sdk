@@ -21,6 +21,10 @@ class SendTextMessage extends Request implements HasBody
         return '/api/sendText';
     }
 
+    /**
+     * WAHA requires: $chatId, $text, $session. Nullable arguments remain for compatibility
+     * with callers that populate the Saloon query/body stores before sending.
+     */
     public function __construct(
         protected mixed $chatId = null,
         protected mixed $text = null,
@@ -28,6 +32,8 @@ class SendTextMessage extends Request implements HasBody
         protected mixed $replyTo = null,
         protected mixed $linkPreview = null,
         protected mixed $linkPreviewHighQuality = null,
+        protected ?string $id = null,
+        protected ?array $mentions = null,
     ) {}
 
     public function defaultBody(): array
@@ -39,6 +45,8 @@ class SendTextMessage extends Request implements HasBody
             'reply_to' => $this->replyTo,
             'linkPreview' => $this->linkPreview,
             'linkPreviewHighQuality' => $this->linkPreviewHighQuality,
+            'id' => $this->id,
+            'mentions' => $this->mentions,
         ], fn ($value) => $value !== null);
     }
 }

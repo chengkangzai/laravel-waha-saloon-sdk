@@ -5,28 +5,3 @@ parameters:
 			identifier: larastan.noEnvCallsOutsideOfConfig
 			count: 8
 			path: config/waha-saloon-sdk.php
-
-		-
-			message: '#^Class CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Apps\\UpdateExistingApp constructor invoked with 6 parameters, 0\-5 required\.$#'
-			identifier: arguments.count
-			count: 1
-			path: src/Waha/Resource/Apps.php
-
-		-
-			message: '#^Class CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Misc\\GetAllGroups constructor invoked with 7 parameters, 1\-6 required\.$#'
-			identifier: arguments.count
-			count: 1
-			path: src/Waha/Resource/Misc.php
-
-		-
-			message: '#^Class CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Misc\\ListAllSessions constructor invoked with 3 parameters, 0\-2 required\.$#'
-			identifier: arguments.count
-			count: 1
-			path: src/Waha/Resource/Misc.php
-
-		-
-			message: '#^Class CCK\\LaravelWahaSaloonSdk\\Waha\\Requests\\Sessions\\GetSessionInformation constructor invoked with 3 parameters, 1\-2 required\.$#'
-			identifier: arguments.count
-			count: 1
-			path: src/Waha/Resource/Sessions.php
-

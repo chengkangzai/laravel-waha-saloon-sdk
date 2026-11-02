@@ -18,10 +18,10 @@ class CollectAndReturnCpuProfileForTheCurrentNodejsProcess extends Request
     }
 
     /**
-     * @param  null|string  $seconds  How many seconds to sample CPU
+     * @param  string|int|float|null  $seconds  How many seconds to sample CPU
      */
     public function __construct(
-        protected ?string $seconds = null,
+        protected string|int|float|null $seconds = null,
     ) {}
 
     public function defaultQuery(): array

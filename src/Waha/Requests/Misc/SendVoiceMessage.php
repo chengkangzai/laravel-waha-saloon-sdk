@@ -21,15 +21,26 @@ class SendVoiceMessage extends Request implements HasBody
         return '/api/sendVoice';
     }
 
+    /**
+     * WAHA requires: $chatId, $file, $session. Nullable arguments remain for compatibility
+     * with callers that populate the Saloon query/body stores before sending.
+     */
     public function __construct(
         protected mixed $chatId = null,
         protected mixed $file = null,
         protected mixed $session = null,
         protected mixed $replyTo = null,
+        protected ?bool $convert = null,
     ) {}
 
     public function defaultBody(): array
     {
-        return array_filter(['chatId' => $this->chatId, 'file' => $this->file, 'session' => $this->session, 'reply_to' => $this->replyTo], fn ($value) => $value !== null);
+        return array_filter([
+            'chatId' => $this->chatId,
+            'file' => $this->file,
+            'session' => $this->session,
+            'reply_to' => $this->replyTo,
+            'convert' => $this->convert,
+        ], fn ($value) => $value !== null);
     }
 }

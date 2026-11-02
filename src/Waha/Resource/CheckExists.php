@@ -9,9 +9,9 @@ use Saloon\Http\Response;
 class CheckExists extends Resource
 {
     /**
-     * @param  string  $phone  The phone number to check
+     * @param  null|string  $phone  The phone number to check
      */
-    public function checkPhoneNumberIsRegisteredInWhatsApp(?string $phone, ?string $session): Response
+    public function checkPhoneNumberIsRegisteredInWhatsApp(?string $phone = null, ?string $session = null): Response
     {
         return $this->connector->send(new CheckPhoneNumberIsRegisteredInWhatsApp($phone, $session));
     }

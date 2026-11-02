@@ -18,12 +18,12 @@ class GetsChatPicture extends Request
     }
 
     /**
-     * @param  null|string  $refresh  Refresh the picture from the server (24h cache by default). Do not refresh if not needed, you can get rate limit error
+     * @param  string|bool|null  $refresh  Refresh the picture from the server (24h cache by default). Do not refresh if not needed, you can get rate limit error
      */
     public function __construct(
         protected string $session,
         protected string $chatId,
-        protected ?string $refresh = null,
+        protected string|bool|null $refresh = null,
     ) {}
 
     public function defaultQuery(): array

@@ -9,9 +9,9 @@ use Saloon\Http\Response;
 class JoinInfo extends Resource
 {
     /**
-     * @param  string  $code  Group code (123) or url (https://chat.whatsapp.com/123)
+     * @param  null|string  $code  Group code (123) or url (https://chat.whatsapp.com/123)
      */
-    public function getInfoAboutTheGroupBeforeJoining(string $session, ?string $code): Response
+    public function getInfoAboutTheGroupBeforeJoining(string $session, ?string $code = null): Response
     {
         return $this->connector->send(new GetInfoAboutTheGroupBeforeJoining($session, $code));
     }

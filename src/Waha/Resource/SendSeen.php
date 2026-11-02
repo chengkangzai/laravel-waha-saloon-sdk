@@ -9,11 +9,11 @@ use Saloon\Http\Response;
 class SendSeen extends Resource
 {
     public function chattingControllerSendSeen(
-        mixed $chatId,
-        mixed $session,
-        mixed $messageId,
-        mixed $messageIds,
-        mixed $participant,
+        mixed $chatId = null,
+        mixed $session = null,
+        mixed $messageId = null,
+        mixed $messageIds = null,
+        mixed $participant = null,
     ): Response {
         return $this->connector->send(new ChattingControllerSendSeen($chatId, $session, $messageId, $messageIds, $participant));
     }

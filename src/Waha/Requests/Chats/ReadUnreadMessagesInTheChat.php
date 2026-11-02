@@ -22,14 +22,14 @@ class ReadUnreadMessagesInTheChat extends Request implements HasBody
     }
 
     /**
-     * @param  null|string  $messages  How much messages to read (latest first)
-     * @param  null|string  $days  How much days to read (latest first)
+     * @param  string|int|float|null  $messages  How much messages to read (latest first)
+     * @param  string|int|float|null  $days  How much days to read (latest first)
      */
     public function __construct(
         protected string $session,
         protected string $chatId,
-        protected ?string $messages = null,
-        protected ?string $days = null,
+        protected string|int|float|null $messages = null,
+        protected string|int|float|null $days = null,
     ) {}
 
     public function defaultQuery(): array

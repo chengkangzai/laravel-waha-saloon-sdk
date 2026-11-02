@@ -23,5 +23,13 @@ class LogoutFromTheSession extends Request implements HasBody
 
     public function __construct(
         protected string $session,
+        protected ?array $apps = null,
     ) {}
+
+    public function defaultBody(): array
+    {
+        return array_filter([
+            'apps' => $this->apps,
+        ], fn ($value) => $value !== null);
+    }
 }

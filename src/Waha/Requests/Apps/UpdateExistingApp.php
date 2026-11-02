@@ -22,7 +22,8 @@ class UpdateExistingApp extends Request implements HasBody
     }
 
     /**
-     * @param  string  $id
+     * WAHA requires: $id, $session, $app, $appConfig. Nullable arguments remain for compatibility
+     * with callers that populate the Saloon query/body stores before sending.
      */
     public function __construct(
         protected mixed $id = null,

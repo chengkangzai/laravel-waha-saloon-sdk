@@ -9,12 +9,12 @@ use Saloon\Http\Response;
 class LinkCustomPreview extends Resource
 {
     public function sendTextMessageWithCustomLinkPreview(
-        mixed $chatId,
-        mixed $text,
-        mixed $preview,
-        mixed $session,
-        mixed $replyTo,
-        mixed $linkPreviewHighQuality,
+        mixed $chatId = null,
+        mixed $text = null,
+        mixed $preview = null,
+        mixed $session = null,
+        mixed $replyTo = null,
+        mixed $linkPreviewHighQuality = null,
     ): Response {
         return $this->connector->send(new SendTextMessageWithCustomLinkPreview($chatId, $text, $preview, $session, $replyTo, $linkPreviewHighQuality));
     }

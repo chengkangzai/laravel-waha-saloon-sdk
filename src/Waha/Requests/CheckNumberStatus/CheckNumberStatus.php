@@ -7,6 +7,8 @@ use Saloon\Http\Request;
 
 /**
  * Check number status
+ *
+ * @deprecated Use CheckExists\CheckPhoneNumberIsRegisteredInWhatsApp (GET /api/contacts/check-exists).
  */
 class CheckNumberStatus extends Request
 {
@@ -18,6 +20,9 @@ class CheckNumberStatus extends Request
     }
 
     /**
+     * WAHA requires: $phone, $session. Nullable arguments remain for compatibility
+     * with callers that populate the Saloon query/body stores before sending.
+     *
      * @param  null|string  $phone  The phone number to check
      */
     public function __construct(

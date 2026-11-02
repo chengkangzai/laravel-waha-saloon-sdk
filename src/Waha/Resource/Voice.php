@@ -11,16 +11,16 @@ class Voice extends Resource
 {
     public function sendVoiceStatus(
         string $session,
-        mixed $file,
-        mixed $convert,
-        mixed $backgroundColor,
-        mixed $id,
-        mixed $contacts,
+        mixed $file = null,
+        mixed $convert = null,
+        mixed $backgroundColor = null,
+        mixed $id = null,
+        mixed $contacts = null,
     ): Response {
         return $this->connector->send(new SendVoiceStatus($session, $file, $convert, $backgroundColor, $id, $contacts));
     }
 
-    public function convertVoiceToWhatsAppFormatOpus(string $session, mixed $url, mixed $data): Response
+    public function convertVoiceToWhatsAppFormatOpus(string $session, mixed $url = null, mixed $data = null): Response
     {
         return $this->connector->send(new ConvertVoiceToWhatsAppFormatOpus($session, $url, $data));
     }

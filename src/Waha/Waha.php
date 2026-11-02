@@ -4,16 +4,20 @@ namespace CCK\LaravelWahaSaloonSdk\Waha;
 
 use CCK\LaravelWahaSaloonSdk\Waha\Resource\About;
 use CCK\LaravelWahaSaloonSdk\Waha\Resource\Add;
+use CCK\LaravelWahaSaloonSdk\Waha\Resource\Admin;
 use CCK\LaravelWahaSaloonSdk\Waha\Resource\All;
 use CCK\LaravelWahaSaloonSdk\Waha\Resource\Api;
 use CCK\LaravelWahaSaloonSdk\Waha\Resource\Apps;
 use CCK\LaravelWahaSaloonSdk\Waha\Resource\Archive;
+use CCK\LaravelWahaSaloonSdk\Waha\Resource\ArgentinePhoneNumbers;
 use CCK\LaravelWahaSaloonSdk\Waha\Resource\Block;
+use CCK\LaravelWahaSaloonSdk\Waha\Resource\BrazilianPhoneNumbers;
 use CCK\LaravelWahaSaloonSdk\Waha\Resource\ByText;
 use CCK\LaravelWahaSaloonSdk\Waha\Resource\ByView;
 use CCK\LaravelWahaSaloonSdk\Waha\Resource\Categories;
 use CCK\LaravelWahaSaloonSdk\Waha\Resource\Channels;
 use CCK\LaravelWahaSaloonSdk\Waha\Resource\Chats;
+use CCK\LaravelWahaSaloonSdk\Waha\Resource\Chatwoot;
 use CCK\LaravelWahaSaloonSdk\Waha\Resource\CheckExists;
 use CCK\LaravelWahaSaloonSdk\Waha\Resource\CheckNumberStatus;
 use CCK\LaravelWahaSaloonSdk\Waha\Resource\Contacts;
@@ -35,21 +39,30 @@ use CCK\LaravelWahaSaloonSdk\Waha\Resource\InfoAdminOnly;
 use CCK\LaravelWahaSaloonSdk\Waha\Resource\InviteCode;
 use CCK\LaravelWahaSaloonSdk\Waha\Resource\Join;
 use CCK\LaravelWahaSaloonSdk\Waha\Resource\JoinInfo;
+use CCK\LaravelWahaSaloonSdk\Waha\Resource\JoinRequests;
+use CCK\LaravelWahaSaloonSdk\Waha\Resource\Keys;
 use CCK\LaravelWahaSaloonSdk\Waha\Resource\Labels;
 use CCK\LaravelWahaSaloonSdk\Waha\Resource\Leave;
 use CCK\LaravelWahaSaloonSdk\Waha\Resource\Lids;
 use CCK\LaravelWahaSaloonSdk\Waha\Resource\LinkCustomPreview;
 use CCK\LaravelWahaSaloonSdk\Waha\Resource\Locales;
 use CCK\LaravelWahaSaloonSdk\Waha\Resource\Logout;
+use CCK\LaravelWahaSaloonSdk\Waha\Resource\Mcp;
 use CCK\LaravelWahaSaloonSdk\Waha\Resource\Me;
+use CCK\LaravelWahaSaloonSdk\Waha\Resource\MemberAddMode;
+use CCK\LaravelWahaSaloonSdk\Waha\Resource\MemberShareHistoryMode;
+use CCK\LaravelWahaSaloonSdk\Waha\Resource\MembershipApproval;
 use CCK\LaravelWahaSaloonSdk\Waha\Resource\Messages;
 use CCK\LaravelWahaSaloonSdk\Waha\Resource\MessagesAdminOnly;
+use CCK\LaravelWahaSaloonSdk\Waha\Resource\MexicanPhoneNumbers;
 use CCK\LaravelWahaSaloonSdk\Waha\Resource\Misc;
 use CCK\LaravelWahaSaloonSdk\Waha\Resource\Mute;
 use CCK\LaravelWahaSaloonSdk\Waha\Resource\Name;
 use CCK\LaravelWahaSaloonSdk\Waha\Resource\NewMessageId;
 use CCK\LaravelWahaSaloonSdk\Waha\Resource\Overview;
 use CCK\LaravelWahaSaloonSdk\Waha\Resource\Participants;
+use CCK\LaravelWahaSaloonSdk\Waha\Resource\Passkey;
+use CCK\LaravelWahaSaloonSdk\Waha\Resource\PhoneNumbers;
 use CCK\LaravelWahaSaloonSdk\Waha\Resource\Picture;
 use CCK\LaravelWahaSaloonSdk\Waha\Resource\Pin;
 use CCK\LaravelWahaSaloonSdk\Waha\Resource\Ping;
@@ -70,6 +83,8 @@ use CCK\LaravelWahaSaloonSdk\Waha\Resource\RequestCode;
 use CCK\LaravelWahaSaloonSdk\Waha\Resource\Restart;
 use CCK\LaravelWahaSaloonSdk\Waha\Resource\Revoke;
 use CCK\LaravelWahaSaloonSdk\Waha\Resource\Screenshot;
+use CCK\LaravelWahaSaloonSdk\Waha\Resource\Search;
+use CCK\LaravelWahaSaloonSdk\Waha\Resource\Send;
 use CCK\LaravelWahaSaloonSdk\Waha\Resource\SendButtons;
 use CCK\LaravelWahaSaloonSdk\Waha\Resource\SendContactVcard;
 use CCK\LaravelWahaSaloonSdk\Waha\Resource\SendFile;
@@ -80,9 +95,11 @@ use CCK\LaravelWahaSaloonSdk\Waha\Resource\SendLocation;
 use CCK\LaravelWahaSaloonSdk\Waha\Resource\SendPoll;
 use CCK\LaravelWahaSaloonSdk\Waha\Resource\SendPollVote;
 use CCK\LaravelWahaSaloonSdk\Waha\Resource\SendSeen;
+use CCK\LaravelWahaSaloonSdk\Waha\Resource\SendSticker;
 use CCK\LaravelWahaSaloonSdk\Waha\Resource\SendText;
 use CCK\LaravelWahaSaloonSdk\Waha\Resource\SendVideo;
 use CCK\LaravelWahaSaloonSdk\Waha\Resource\SendVoice;
+use CCK\LaravelWahaSaloonSdk\Waha\Resource\Server;
 use CCK\LaravelWahaSaloonSdk\Waha\Resource\Sessions;
 use CCK\LaravelWahaSaloonSdk\Waha\Resource\Star;
 use CCK\LaravelWahaSaloonSdk\Waha\Resource\Start;
@@ -681,5 +698,90 @@ class Waha extends Connector
     public function voice(): Voice
     {
         return new Voice($this);
+    }
+
+    public function admin(): Admin
+    {
+        return new Admin($this);
+    }
+
+    public function server(): Server
+    {
+        return new Server($this);
+    }
+
+    public function search(): Search
+    {
+        return new Search($this);
+    }
+
+    public function sending(): Send
+    {
+        return new Send($this);
+    }
+
+    public function argentinePhoneNumbers(): ArgentinePhoneNumbers
+    {
+        return new ArgentinePhoneNumbers($this);
+    }
+
+    public function brazilianPhoneNumbers(): BrazilianPhoneNumbers
+    {
+        return new BrazilianPhoneNumbers($this);
+    }
+
+    public function chatwoot(): Chatwoot
+    {
+        return new Chatwoot($this);
+    }
+
+    public function joinRequests(): JoinRequests
+    {
+        return new JoinRequests($this);
+    }
+
+    public function keys(): Keys
+    {
+        return new Keys($this);
+    }
+
+    public function mcp(): Mcp
+    {
+        return new Mcp($this);
+    }
+
+    public function memberAddMode(): MemberAddMode
+    {
+        return new MemberAddMode($this);
+    }
+
+    public function memberShareHistoryMode(): MemberShareHistoryMode
+    {
+        return new MemberShareHistoryMode($this);
+    }
+
+    public function membershipApproval(): MembershipApproval
+    {
+        return new MembershipApproval($this);
+    }
+
+    public function mexicanPhoneNumbers(): MexicanPhoneNumbers
+    {
+        return new MexicanPhoneNumbers($this);
+    }
+
+    public function passkey(): Passkey
+    {
+        return new Passkey($this);
+    }
+
+    public function phoneNumbers(): PhoneNumbers
+    {
+        return new PhoneNumbers($this);
+    }
+
+    public function sendSticker(): SendSticker
+    {
+        return new SendSticker($this);
     }
 }

@@ -21,6 +21,10 @@ class SendTextMessageWithCustomLinkPreview extends Request implements HasBody
         return '/api/send/link-custom-preview';
     }
 
+    /**
+     * WAHA requires: $chatId, $text, $preview, $session. Nullable arguments remain for compatibility
+     * with callers that populate the Saloon query/body stores before sending.
+     */
     public function __construct(
         protected mixed $chatId = null,
         protected mixed $text = null,

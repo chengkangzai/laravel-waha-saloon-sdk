@@ -13,28 +13,30 @@ use Saloon\Http\Response;
 class Chats extends Resource
 {
     /**
-     * @param  string  $sortBy  Sort by field
-     * @param  string  $sortOrder  Sort order - <b>desc</b>ending (Z => A, New first) or <b>asc</b>ending (A => Z, Old first)
-     * @param  string  $downloadMedia  Download media for messages
-     * @param  string  $filterTimestampLte  Filter messages before this timestamp (inclusive)
-     * @param  string  $filterTimestampGte  Filter messages after this timestamp (inclusive)
-     * @param  string  $filterFromMe  From me filter (by default shows all messages)
-     * @param  string  $filterAck  Filter messages by acknowledgment status
+     * @param  null|string  $sortBy  Sort by field
+     * @param  null|string  $sortOrder  Sort order - <b>desc</b>ending (Z => A, New first) or <b>asc</b>ending (A => Z, Old first)
+     * @param  string|bool|null  $downloadMedia  Download media for messages
+     * @param  string|int|float|null  $filterTimestampLte  Filter messages before this timestamp (inclusive)
+     * @param  string|int|float|null  $filterTimestampGte  Filter messages after this timestamp (inclusive)
+     * @param  string|bool|null  $filterFromMe  From me filter (by default shows all messages)
+     * @param  null|string  $filterAck  Filter messages by acknowledgment status
      */
     public function getsMessagesInTheChat(
         string $session,
         string $chatId,
-        ?string $sortBy,
-        ?string $sortOrder,
-        ?string $downloadMedia,
-        ?string $limit,
-        ?string $offset,
-        ?string $filterTimestampLte,
-        ?string $filterTimestampGte,
-        ?string $filterFromMe,
-        ?string $filterAck,
+        ?string $sortBy = null,
+        ?string $sortOrder = null,
+        string|bool|null $downloadMedia = null,
+        string|int|float|null $limit = null,
+        string|int|float|null $offset = null,
+        string|int|float|null $filterTimestampLte = null,
+        string|int|float|null $filterTimestampGte = null,
+        string|bool|null $filterFromMe = null,
+        ?string $filterAck = null,
+        ?array $downloadMediaMimetypes = null,
+        ?bool $merge = null,
     ): Response {
-        return $this->connector->send(new GetsMessagesInTheChat($session, $chatId, $sortBy, $sortOrder, $downloadMedia, $limit, $offset, $filterTimestampLte, $filterTimestampGte, $filterFromMe, $filterAck));
+        return $this->connector->send(new GetsMessagesInTheChat($session, $chatId, $sortBy, $sortOrder, $downloadMedia, $limit, $offset, $filterTimestampLte, $filterTimestampGte, $filterFromMe, $filterAck, $downloadMediaMimetypes, $merge));
     }
 
     public function clearsAllMessagesFromTheChat(string $session, string $chatId): Response
@@ -52,7 +54,7 @@ class Chats extends Resource
         return $this->connector->send(new GetLabelsForTheChat($session, $chatId));
     }
 
-    public function saveLabelsForTheChat(string $session, string $chatId, mixed $labels): Response
+    public function saveLabelsForTheChat(string $session, string $chatId, mixed $labels = null): Response
     {
         return $this->connector->send(new SaveLabelsForTheChat($session, $chatId, $labels));
     }

@@ -8,7 +8,7 @@ use Saloon\Http\Response;
 
 class StopTyping extends Resource
 {
-    public function chattingControllerStopTyping(mixed $chatId, mixed $session): Response
+    public function chattingControllerStopTyping(mixed $chatId = null, mixed $session = null): Response
     {
         return $this->connector->send(new ChattingControllerStopTyping($chatId, $session));
     }

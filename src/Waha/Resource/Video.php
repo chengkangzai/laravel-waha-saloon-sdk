@@ -11,16 +11,16 @@ class Video extends Resource
 {
     public function sendVideoStatus(
         string $session,
-        mixed $file,
-        mixed $convert,
-        mixed $id,
-        mixed $contacts,
-        mixed $caption,
+        mixed $file = null,
+        mixed $convert = null,
+        mixed $id = null,
+        mixed $contacts = null,
+        mixed $caption = null,
     ): Response {
         return $this->connector->send(new SendVideoStatus($session, $file, $convert, $id, $contacts, $caption));
     }
 
-    public function convertVideoToWhatsAppFormatMp4(string $session, mixed $url, mixed $data): Response
+    public function convertVideoToWhatsAppFormatMp4(string $session, mixed $url = null, mixed $data = null): Response
     {
         return $this->connector->send(new ConvertVideoToWhatsAppFormatMp4($session, $url, $data));
     }

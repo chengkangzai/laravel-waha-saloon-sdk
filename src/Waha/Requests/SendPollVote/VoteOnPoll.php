@@ -21,6 +21,10 @@ class VoteOnPoll extends Request implements HasBody
         return '/api/sendPollVote';
     }
 
+    /**
+     * WAHA requires: $chatId, $pollMessageId, $votes, $session. Nullable arguments remain for compatibility
+     * with callers that populate the Saloon query/body stores before sending.
+     */
     public function __construct(
         protected mixed $chatId = null,
         protected mixed $pollMessageId = null,

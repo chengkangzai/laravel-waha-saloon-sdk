@@ -8,7 +8,7 @@ use Saloon\Http\Response;
 
 class StartTyping extends Resource
 {
-    public function chattingControllerStartTyping(mixed $chatId, mixed $session): Response
+    public function chattingControllerStartTyping(mixed $chatId = null, mixed $session = null): Response
     {
         return $this->connector->send(new ChattingControllerStartTyping($chatId, $session));
     }

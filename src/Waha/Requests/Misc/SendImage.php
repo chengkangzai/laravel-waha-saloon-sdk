@@ -21,12 +21,17 @@ class SendImage extends Request implements HasBody
         return '/api/sendImage';
     }
 
+    /**
+     * WAHA requires: $chatId, $file, $session. Nullable arguments remain for compatibility
+     * with callers that populate the Saloon query/body stores before sending.
+     */
     public function __construct(
         protected mixed $chatId = null,
         protected mixed $file = null,
         protected mixed $session = null,
         protected mixed $replyTo = null,
         protected mixed $caption = null,
+        protected ?array $mentions = null,
     ) {}
 
     public function defaultBody(): array
@@ -37,6 +42,7 @@ class SendImage extends Request implements HasBody
             'session' => $this->session,
             'reply_to' => $this->replyTo,
             'caption' => $this->caption,
+            'mentions' => $this->mentions,
         ], fn ($value) => $value !== null);
     }
 }

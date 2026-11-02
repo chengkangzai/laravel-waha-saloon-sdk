@@ -8,7 +8,7 @@ use Saloon\Http\Response;
 
 class About extends Resource
 {
-    public function getsTheContactAboutInfo(?string $contactId, ?string $session): Response
+    public function getsTheContactAboutInfo(?string $contactId = null, ?string $session = null): Response
     {
         return $this->connector->send(new GetsTheContactAboutInfo($contactId, $session));
     }

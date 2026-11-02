@@ -18,17 +18,23 @@ class GetChatsOverviewIncludesAllNecessaryThingsToBuildUiYourChatsOverviewPageCh
     }
 
     /**
-     * @param  null|string  $ids  Filter by chat ids
+     * @param  string|array|null  $ids  Filter by chat ids
      */
     public function __construct(
         protected string $session,
-        protected ?string $limit = null,
-        protected ?string $offset = null,
-        protected ?string $ids = null,
+        protected string|int|float|null $limit = null,
+        protected string|int|float|null $offset = null,
+        protected string|array|null $ids = null,
+        protected ?bool $merge = null,
     ) {}
 
     public function defaultQuery(): array
     {
-        return array_filter(['limit' => $this->limit, 'offset' => $this->offset, 'ids' => $this->ids], fn ($value) => $value !== null);
+        return array_filter([
+            'limit' => $this->limit,
+            'offset' => $this->offset,
+            'ids' => $this->ids,
+            'merge' => $this->merge,
+        ], fn ($value) => $value !== null);
     }
 }

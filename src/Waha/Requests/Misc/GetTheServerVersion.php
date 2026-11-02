@@ -7,6 +7,8 @@ use Saloon\Http\Request;
 
 /**
  * Get the server version
+ *
+ * @deprecated Use Server\GetTheVersionOfTheServer.
  */
 class GetTheServerVersion extends Request
 {

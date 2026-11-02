@@ -23,10 +23,18 @@ class CreateSession extends Request implements HasBody
 
     public function __construct(
         protected mixed $name = null,
+        protected ?array $apps = null,
+        protected ?bool $start = null,
+        protected ?array $sessionConfig = null,
     ) {}
 
     public function defaultBody(): array
     {
-        return array_filter(['name' => $this->name], fn ($value) => $value !== null);
+        return array_filter([
+            'name' => $this->name,
+            'apps' => $this->apps,
+            'start' => $this->start,
+            'config' => $this->sessionConfig,
+        ], fn ($value) => $value !== null);
     }
 }

@@ -9,12 +9,15 @@ use Saloon\Http\Response;
 
 class Logout extends Resource
 {
-    public function logoutFromTheSession(string $session): Response
+    public function logoutFromTheSession(string $session, ?array $apps = null): Response
     {
-        return $this->connector->send(new LogoutFromTheSession($session));
+        return $this->connector->send(new LogoutFromTheSession($session, $apps));
     }
 
-    public function logoutAndDeleteSession(mixed $name): Response
+    /**
+     * @deprecated Use Logout\LogoutFromTheSession and Sessions\DeleteTheSession.
+     */
+    public function logoutAndDeleteSession(mixed $name = null): Response
     {
         return $this->connector->send(new LogoutAndDeleteSession($name));
     }

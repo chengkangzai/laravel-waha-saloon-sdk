@@ -17,6 +17,10 @@ class ScreenshotControllerScreenshot extends Request
         return '/api/screenshot';
     }
 
+    /**
+     * WAHA requires: $session. Nullable arguments remain for compatibility
+     * with callers that populate the Saloon query/body stores before sending.
+     */
     public function __construct(
         protected ?string $session = null,
     ) {}

@@ -9,7 +9,7 @@ use Saloon\Http\Response;
 
 class Labels extends Resource
 {
-    public function updateLabel(string $session, string $labelId, mixed $name, mixed $colorHex, mixed $color): Response
+    public function updateLabel(string $session, string $labelId, mixed $name = null, mixed $colorHex = null, mixed $color = null): Response
     {
         return $this->connector->send(new UpdateLabel($session, $labelId, $name, $colorHex, $color));
     }

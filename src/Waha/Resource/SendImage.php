@@ -8,8 +8,8 @@ use Saloon\Http\Response;
 
 class SendImage extends Resource
 {
-    public function sendImage(mixed $chatId, mixed $file, mixed $session, mixed $replyTo, mixed $caption): Response
+    public function sendImage(mixed $chatId = null, mixed $file = null, mixed $session = null, mixed $replyTo = null, mixed $caption = null, ?array $mentions = null): Response
     {
-        return $this->connector->send(new SendImageRequest($chatId, $file, $session, $replyTo, $caption));
+        return $this->connector->send(new SendImageRequest($chatId, $file, $session, $replyTo, $caption, $mentions));
     }
 }

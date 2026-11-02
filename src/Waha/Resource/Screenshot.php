@@ -8,7 +8,7 @@ use Saloon\Http\Response;
 
 class Screenshot extends Resource
 {
-    public function screenshotControllerScreenshot(?string $session): Response
+    public function screenshotControllerScreenshot(?string $session = null): Response
     {
         return $this->connector->send(new ScreenshotControllerScreenshot($session));
     }

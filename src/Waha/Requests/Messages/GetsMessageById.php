@@ -18,17 +18,23 @@ class GetsMessageById extends Request
     }
 
     /**
-     * @param  null|string  $downloadMedia  Download media for messages
+     * @param  string|bool|null  $downloadMedia  Download media for messages
      */
     public function __construct(
         protected string $session,
         protected string $chatId,
         protected string $messageId,
-        protected ?string $downloadMedia = null,
+        protected string|bool|null $downloadMedia = null,
+        protected ?array $downloadMediaMimetypes = null,
+        protected ?bool $merge = null,
     ) {}
 
     public function defaultQuery(): array
     {
-        return array_filter(['downloadMedia' => $this->downloadMedia], fn ($value) => $value !== null);
+        return array_filter([
+            'downloadMedia' => $this->downloadMedia,
+            'downloadMediaMimetypes' => $this->downloadMediaMimetypes,
+            'merge' => $this->merge,
+        ], fn ($value) => $value !== null);
     }
 }

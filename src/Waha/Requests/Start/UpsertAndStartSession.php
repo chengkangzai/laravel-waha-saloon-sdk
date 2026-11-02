@@ -9,6 +9,8 @@ use Saloon\Traits\Body\HasJsonBody;
 
 /**
  * Upsert and Start session
+ *
+ * @deprecated Use Misc\CreateSession and Start\StartTheSession.
  */
 class UpsertAndStartSession extends Request implements HasBody
 {
@@ -21,6 +23,10 @@ class UpsertAndStartSession extends Request implements HasBody
         return '/api/sessions/start';
     }
 
+    /**
+     * WAHA requires: $name. Nullable arguments remain for compatibility
+     * with callers that populate the Saloon query/body stores before sending.
+     */
     public function __construct(
         protected mixed $name = null,
         protected mixed $sessionConfig = null,

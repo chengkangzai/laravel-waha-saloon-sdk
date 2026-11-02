@@ -21,6 +21,10 @@ class ReplyOnButtonMessage extends Request implements HasBody
         return '/api/send/buttons/reply';
     }
 
+    /**
+     * WAHA requires: $chatId, $selectedDisplayText, $selectedButtonId, $session. Nullable arguments remain for compatibility
+     * with callers that populate the Saloon query/body stores before sending.
+     */
     public function __construct(
         protected mixed $chatId = null,
         protected mixed $selectedDisplayText = null,

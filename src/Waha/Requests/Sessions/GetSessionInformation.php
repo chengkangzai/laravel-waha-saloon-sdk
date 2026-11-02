@@ -18,12 +18,11 @@ class GetSessionInformation extends Request
     }
 
     /**
-     * @param  null|string  $expand  Expand additional session details.
-     * @param  null|string  $expand  Expand additional session details.
+     * @param  string|array|null  $expand  Expand additional session details.
      */
     public function __construct(
         protected string $session,
-        protected ?string $expand = null,
+        protected string|array|null $expand = null,
     ) {}
 
     public function defaultQuery(): array

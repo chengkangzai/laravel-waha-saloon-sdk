@@ -8,8 +8,8 @@ use Saloon\Http\Response;
 
 class SendFile extends Resource
 {
-    public function sendFile(mixed $chatId, mixed $file, mixed $session, mixed $replyTo, mixed $caption): Response
+    public function sendFile(mixed $chatId = null, mixed $file = null, mixed $session = null, mixed $replyTo = null, mixed $caption = null, ?array $mentions = null): Response
     {
-        return $this->connector->send(new SendFileRequest($chatId, $file, $session, $replyTo, $caption));
+        return $this->connector->send(new SendFileRequest($chatId, $file, $session, $replyTo, $caption, $mentions));
     }
 }
